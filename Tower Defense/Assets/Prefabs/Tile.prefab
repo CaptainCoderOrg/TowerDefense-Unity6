@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8539029511144483379}
+  - component: {fileID: 7448266530377180176}
   m_Layer: 0
   m_Name: Tile
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   - {fileID: 175738068180250825}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7448266530377180176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917512961765744196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bc78095df8e0f4e8c29f6de7cc3cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Tile>k__BackingField: {fileID: 11400000, guid: 72074aa4a894df54885b0d19b9387d5f, type: 2}
+  <MeshFilter>k__BackingField: {fileID: 3881965726552735596}
 --- !u!1001 &430904838819731234
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,6 +95,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5754084199372789682, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4855243574250553854, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
     - target: {fileID: 919132149155446097, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
       propertyPath: m_Name
       value: tile
@@ -92,5 +111,10 @@ PrefabInstance:
 --- !u!4 &175738068180250825 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
+  m_PrefabInstance: {fileID: 430904838819731234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!33 &3881965726552735596 stripped
+MeshFilter:
+  m_CorrespondingSourceObject: {fileID: -5754084199372789682, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
   m_PrefabInstance: {fileID: 430904838819731234}
   m_PrefabAsset: {fileID: 0}

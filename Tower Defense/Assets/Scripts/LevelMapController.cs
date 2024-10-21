@@ -1,6 +1,11 @@
 using UnityEngine;
 using NaughtyAttributes;
 using System;
+using UnityEngine.Tilemaps;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 public class LevelMapController : MonoBehaviour
 {
@@ -18,7 +23,10 @@ public class LevelMapController : MonoBehaviour
     {
         Action<GameObject> Destroy = GameObject.Destroy;
         #if UNITY_EDITOR
-            Destroy = GameObject.DestroyImmediate;
+            if (!Application.isPlaying)
+            {
+                Destroy = GameObject.DestroyImmediate;
+            }
         #endif
         for (int ix = Parent.childCount - 1; ix >= 0; ix--)
         {
@@ -33,11 +41,35 @@ public class LevelMapController : MonoBehaviour
         {
             for (int col = 0; col < Width; col++)
             {
-                GameObject newTile = GameObject.Instantiate(Tile, Parent);
+                Func<GameObject, GameObject> Instantiate = GameObject.Instantiate;
+                #if UNITY_EDITOR
+                    if (!Application.isPlaying)
+                    {
+                        static GameObject EditorInstantiate(GameObject tile)
+                        {
+                            return (GameObject)PrefabUtility.InstantiatePrefab(tile);
+                        }
+                        Instantiate = EditorInstantiate;
+                    }
+                #endif
+                GameObject newTile = Instantiate(Tile);
+                newTile.transform.parent = Parent;
                 newTile.name = $"Tile: {row}, {col}";
                 newTile.transform.localPosition = new Vector3(row, 0, col);
             }
         }
     }
+
+    [Button("Rebuild")]
+    public void Rebuild()
+    {
+        for (int ix = Parent.childCount - 1; ix >= 0; ix--)
+        {
+            TileController tile = Parent.GetChild(ix).gameObject.GetComponent<TileController>();
+            tile?.Rebuild();
+        }
+    }
+
+    
 
 }
