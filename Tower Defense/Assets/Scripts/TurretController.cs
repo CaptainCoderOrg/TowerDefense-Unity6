@@ -18,25 +18,25 @@ public class TurretController : MonoBehaviour
     void Update()
     {
         Target = DetermineTarget(Targets);
-        if (Target == null) { return; } 
+        if (Target == null) { return; }
         Quaternion targetRotation = Quaternion.LookRotation(transform.position - Target.transform.position, transform.up);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360 * RotationSpeed * Time.deltaTime);
+    }
+
+    public static EnemyController SelectTargetClosestToEnd(EnemyController first, EnemyController second)
+    {
+        if (first.WaypointTraveler.CalculateDistanceToFinalWaypoint() <
+            second.WaypointTraveler.CalculateDistanceToFinalWaypoint())
+        {
+            return first;
+        }
+        return second;
     }
 
     public static EnemyController DetermineTarget(HashSet<EnemyController> potentialTargets)
     {
         if (potentialTargets.Count == 0) { return null; }
-        EnemyController currentTarget = potentialTargets.First();
-        float currentDistance = currentTarget.WaypointTraveler.CalculateDistanceToFinalWaypoint();
-        foreach (EnemyController target in potentialTargets)
-        {
-            float distance = target.WaypointTraveler.CalculateDistanceToFinalWaypoint();
-            if (distance < currentDistance)
-            {
-                currentTarget = target;
-            }
-        }
-        return currentTarget;
+        return potentialTargets.Aggregate(SelectTargetClosestToEnd);
     }
 
     public void HandleTriggerEntered(Collider other)
