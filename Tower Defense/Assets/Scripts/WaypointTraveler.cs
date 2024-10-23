@@ -15,4 +15,10 @@ public class WaypointTraveler : MonoBehaviour
             Target = Target.Next;
         }
     }
+
+    public float CalculateDistanceToFinalWaypoint()
+    {
+        if (Target == null) { return 0; }
+        return (transform.position - Target.transform.position).magnitude + Target.Distance;
+    }
 }

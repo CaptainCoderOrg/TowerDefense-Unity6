@@ -1,16 +1,12 @@
 using UnityEngine;
 
+[RequireComponent(typeof(WaypointTraveler))]
 public class EnemyController : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+{    
+    public WaypointTraveler WaypointTraveler;
+    void Awake()
     {
-        
+        WaypointTraveler = GetComponent<WaypointTraveler>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
