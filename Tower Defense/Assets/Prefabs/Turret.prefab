@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2349597372465059575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 987107957227641447}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &987107957227641447
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2349597372465059575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.039, z: 0.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4877630708667206143}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6729423161879487983
 GameObject:
   m_ObjectHideFlags: 0
@@ -10,8 +41,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4877630708667206143}
   - component: {fileID: 2111626477958454514}
+  - component: {fileID: 5787250654823362003}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,6 +64,7 @@ Transform:
   m_Children:
   - {fileID: 7677771329174055147}
   - {fileID: 1052821636060566137}
+  - {fileID: 987107957227641447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2111626477958454514
@@ -48,6 +81,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
   RotationSpeed: 1
+--- !u!114 &5787250654823362003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729423161879487983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7558d77abd452e94e905b4ea17cebfd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Weapon: {fileID: 5670236496619172619, guid: 97e061cd857d6d74fafe65fa60dbf7ce, type: 3}
+  ProjectileSpawnPosition: {fileID: 987107957227641447}
+  FireCooldown: 5
+  CooldownTime: 0
 --- !u!1 &7093295560981083387
 GameObject:
   m_ObjectHideFlags: 0

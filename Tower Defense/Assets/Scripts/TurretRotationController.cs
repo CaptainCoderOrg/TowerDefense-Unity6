@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TurretController : MonoBehaviour
+public class TurretRotationController : MonoBehaviour
 {
     public EnemyController Target;
     public HashSet<EnemyController> Targets = new();
@@ -44,6 +44,7 @@ public class TurretController : MonoBehaviour
         EnemyController enemy = other.attachedRigidbody.GetComponent<EnemyController>();
         if (enemy == null) { return; }
         Targets.Add(enemy);
+        enemy.OnCleanup += RemoveEnemy;
     }
 
     public void HandleTriggerExited(Collider other)
@@ -51,5 +52,8 @@ public class TurretController : MonoBehaviour
         EnemyController exited = other.attachedRigidbody.GetComponent<EnemyController>();
         if (exited == null) { return; }
         Targets.Remove(exited);
+        exited.OnCleanup -= RemoveEnemy;
     }
+
+    private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
 }
