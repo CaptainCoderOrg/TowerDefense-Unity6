@@ -112,6 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f03dbdad1fae940b5cb5ea82fa16c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WaypointTraveler: {fileID: 0}
+  BaseHealth: 5
+  Damage: 0
 --- !u!1001 &1995928608242969020
 PrefabInstance:
   m_ObjectHideFlags: 0

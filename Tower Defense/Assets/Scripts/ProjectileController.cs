@@ -5,6 +5,7 @@ public class ProjectileController : MonoBehaviour
 {
     public EnemyController Target;
     public float Speed = 5;
+    public float Damage = 1;
     private float _delta = 0.1f;
 
     void Update()
@@ -17,7 +18,7 @@ public class ProjectileController : MonoBehaviour
         if (Mathf.Abs(distance) < _delta)
         {
             GameObject.Destroy(gameObject);
-            Target.Destroy();
+            Target.ApplyDamage(Damage);
         }
     }
 }
