@@ -1829,7 +1829,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 951
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5034,10 +5034,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 15728381}
     m_Modifications:
+    - target: {fileID: 3881965726552735596, guid: 2ea5ca0c360670846a065c629934f7b6, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4855243574250553854, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
     - target: {fileID: 3917512961765744196, guid: 2ea5ca0c360670846a065c629934f7b6, type: 3}
       propertyPath: m_Name
       value: 'Tile: 0, 0'
       objectReference: {fileID: 0}
+    - target: {fileID: 7448266530377180176, guid: 2ea5ca0c360670846a065c629934f7b6, type: 3}
+      propertyPath: <Tile>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 72074aa4a894df54885b0d19b9387d5f, type: 2}
     - target: {fileID: 8539029511144483379, guid: 2ea5ca0c360670846a065c629934f7b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8258,6 +8266,10 @@ PrefabInstance:
     - target: {fileID: 6729423161879487983, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
       propertyPath: m_Name
       value: Turret
+      objectReference: {fileID: 0}
+    - target: {fileID: 7093295560981083387, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
