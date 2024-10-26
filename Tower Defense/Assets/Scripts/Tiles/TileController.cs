@@ -9,7 +9,6 @@ public class TileController : MonoBehaviour
     [field: SerializeField]
     public TileData Tile { get; private set; }
     [field: SerializeField]
-    public Canvas Canvas;
     public MeshFilter MeshFilter { get; private set; }
     public MeshRenderer Renderer;
     public Material SelectedMaterial;
@@ -36,7 +35,7 @@ public class TileController : MonoBehaviour
 
     public void HandleMouseClick()
     {
-        Canvas.gameObject.SetActive(true);
+        TileCanvasController.Instance.SelectTile(this);
     }
 
     public void Rebuild()
@@ -53,6 +52,11 @@ public class TileController : MonoBehaviour
                 tile.MeshFilter.mesh = tile.Tile.Mesh;
             }
         }
+    }
+
+    public void Build(GameObject prefab)
+    {
+        GameObject building = GameObject.Instantiate(prefab, transform.position, transform.rotation);
     }
 
 }
