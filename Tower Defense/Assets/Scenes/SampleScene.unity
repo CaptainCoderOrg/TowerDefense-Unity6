@@ -1449,7 +1449,7 @@ GameObject:
   - component: {fileID: 123735709}
   - component: {fileID: 123735708}
   m_Layer: 5
-  m_Name: CrossbowIcon
+  m_Name: Crossbow Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1470,9 +1470,9 @@ RectTransform:
   - {fileID: 649056115}
   m_Father: {fileID: 1972553223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 83.33333, y: -50}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &123735708
@@ -1487,7 +1487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497e175401be49d4cbdf6fe55f46e2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 6729423161879487983, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
+  Prefab: {fileID: 4839608987523992882, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
 --- !u!114 &123735709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4773,7 +4773,7 @@ GameObject:
   - component: {fileID: 761068914}
   - component: {fileID: 761068913}
   m_Layer: 5
-  m_Name: CatapultIcon
+  m_Name: Catapult Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4794,9 +4794,9 @@ RectTransform:
   - {fileID: 777122143}
   m_Father: {fileID: 1972553223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 16.666666, y: -50}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &761068913
@@ -4811,7 +4811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 497e175401be49d4cbdf6fe55f46e2de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Prefab: {fileID: 6729423161879487983, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
+  Prefab: {fileID: 4839608987523992882, guid: aa7fcfa362c85c04e8dd93ae7f37c945, type: 3}
 --- !u!114 &761068914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7214,7 +7214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1025549604
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10013,9 +10013,9 @@ RectTransform:
   - {fileID: 740787580}
   m_Father: {fileID: 1972553223}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1346946351

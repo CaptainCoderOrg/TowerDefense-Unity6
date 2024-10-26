@@ -20,10 +20,12 @@ public class TileController : MonoBehaviour
         mouseEvents.OnEnter.AddListener(HandleMouseEntered);
         mouseEvents.OnExit.AddListener(HandleMouseExited);
         mouseEvents.OnClick.AddListener(HandleMouseClick);
+        _previousMaterial = Renderer.material;
     }
 
     public void HandleMouseEntered()
     {
+        if (TileCanvasController.Instance.Selected != null) { return; }
         _previousMaterial = Renderer.material;
         Renderer.material = SelectedMaterial;
     }
@@ -35,7 +37,14 @@ public class TileController : MonoBehaviour
 
     public void HandleMouseClick()
     {
+        if (TileCanvasController.Instance.Selected != null) 
+        {
+            TileCanvasController.Instance.ClearSelection();
+            HandleMouseEntered();
+            return; 
+        }
         TileCanvasController.Instance.SelectTile(this);
+        Renderer.material = _previousMaterial;
     }
 
     public void Rebuild()
