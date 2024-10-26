@@ -4714,7 +4714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToSpawn: {fileID: 6537427390169836250, guid: fe5de50019c421540bf1f4567de5b0c2, type: 3}
   FirstWaypoint: {fileID: 596148176}
-  Delay: 1
+  Delay: 3
   NextSpawn: 0
 --- !u!1001 &1240622080
 PrefabInstance:
@@ -8250,6 +8250,10 @@ PrefabInstance:
     - target: {fileID: 4877630708667206143, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5787250654823362003, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
+      propertyPath: FireCooldown
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6729423161879487983, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
       propertyPath: m_Name

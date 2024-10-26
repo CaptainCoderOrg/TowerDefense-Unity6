@@ -10,7 +10,11 @@ public class ProjectileController : MonoBehaviour
 
     void Update()
     {
-        if (Target == null) { return; }
+        if (Target == null) 
+        { 
+            GameObject.Destroy(gameObject);
+            return; 
+        }
         transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, Speed * Time.deltaTime);
         transform.rotation = Quaternion.LookRotation(transform.position - Target.transform.position, transform.up);
 
