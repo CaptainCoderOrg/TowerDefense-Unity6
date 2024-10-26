@@ -10,6 +10,33 @@ public class TileController : MonoBehaviour
     public TileData Tile { get; private set; }
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set;}
+    public MeshRenderer Renderer;
+    public Material SelectedMaterial;
+    private Material _previousMaterial;    
+
+    void Awake()
+    {
+        MouseEvents mouseEvents = GetComponentInChildren<MouseEvents>();
+        mouseEvents.OnEnter.AddListener(HandleMouseEntered);
+        mouseEvents.OnExit.AddListener(HandleMouseExited);
+        mouseEvents.OnOver.AddListener(HandleMouseOver);
+    }
+
+    public void HandleMouseEntered()
+    {
+        _previousMaterial = Renderer.material;
+        Renderer.material = SelectedMaterial;
+    }
+
+    public void HandleMouseExited()
+    {
+        Renderer.material = _previousMaterial;
+    }
+
+    public void HandleMouseOver()
+    {
+        Debug.Log("Mouse Over");
+    }
 
     public void Rebuild()
     {
