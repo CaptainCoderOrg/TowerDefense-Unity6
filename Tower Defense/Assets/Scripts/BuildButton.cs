@@ -4,7 +4,8 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class BuildButton : MonoBehaviour
 {
-    public GameObject Prefab;
+    public WeaponData Weapon;
+    
 
     void Awake()
     {
@@ -14,9 +15,14 @@ public class BuildButton : MonoBehaviour
 
     public void HandleClick()
     {
+        if (GameManagerController.Instance.Money < Weapon.Price)
+        {
+            return;
+        }
         TileController selected = TileCanvasController.Instance.Selected;
         if (selected == null) { return; }
-        selected.Build(Prefab);
+        GameManagerController.Instance.Money -= Weapon.Price;
+        selected.Build(Weapon.Prefab);
         TileCanvasController.Instance.ClearSelection();
     }
 

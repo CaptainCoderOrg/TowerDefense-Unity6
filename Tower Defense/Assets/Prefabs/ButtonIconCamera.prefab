@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1431034778085259122}
   - component: {fileID: 8935934590743881935}
-  - component: {fileID: 1923568106621418691}
   - component: {fileID: 725565965219518395}
   m_Layer: 0
   m_Name: Camera
@@ -85,14 +84,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1923568106621418691
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2987468022763416446}
-  m_Enabled: 1
 --- !u!114 &725565965219518395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +137,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7822019149522622510}
-  - component: {fileID: 7753890260539973080}
   m_Layer: 0
   m_Name: ButtonIconCamera
   m_TagString: Untagged
@@ -171,22 +161,6 @@ Transform:
   - {fileID: 8361072187706565142}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &7753890260539973080
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5151478761474032875}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: 567f7dc37fb5b89449d90ed2a80abf73, type: 2}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!1001 &8323434578842256893
 PrefabInstance:
   m_ObjectHideFlags: 0
