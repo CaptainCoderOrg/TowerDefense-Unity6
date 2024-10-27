@@ -47,4 +47,9 @@ public class GameManagerController : MonoBehaviour
     {
         UpdateMoney();
     }
+
+    void OnValidate()
+    {
+        UpdateMoney();
+    }
 }

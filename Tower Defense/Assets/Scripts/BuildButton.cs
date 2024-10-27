@@ -1,16 +1,27 @@
+using NaughtyAttributes;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
 public class BuildButton : MonoBehaviour
 {
+    public TextMeshProUGUI PriceText;
+    public RawImage Image;
     public WeaponData Weapon;
-    
 
     void Awake()
     {
-        Button btn = GetComponent<Button>();
+        Button btn = GetComponentInChildren<Button>();
         btn.onClick.AddListener(HandleClick);
+        UpdateUI();
+    }
+
+    [Button("Update UI")]
+    void UpdateUI()
+    {
+        PriceText.text = $"${Weapon.Price}";
+        Image.texture = Weapon.Icon;
     }
 
     public void HandleClick()
