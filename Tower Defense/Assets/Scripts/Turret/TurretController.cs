@@ -8,6 +8,7 @@ public class TurretController : MonoBehaviour
     public TurretRotationController Rotation { get; private set; }
     public EnemyController Target;
     public HashSet<EnemyController> Targets = new();
+    public MeshRenderer AoERenderer;
     
     void Awake()
     {

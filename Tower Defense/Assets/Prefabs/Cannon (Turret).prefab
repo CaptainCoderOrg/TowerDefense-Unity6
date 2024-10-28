@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 4877630708667206143}
   - component: {fileID: 2111626477958454514}
   - component: {fileID: 5787250654823362003}
+  - component: {fileID: 3201843871729209437}
   m_Layer: 8
   m_Name: Cannon (Turret)
   m_TagString: Untagged
@@ -79,7 +80,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd3e8e98c05d5c4fb357124a44e1387, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 0}
   RotationSpeed: 1
 --- !u!114 &5787250654823362003
 MonoBehaviour:
@@ -97,6 +97,20 @@ MonoBehaviour:
   ProjectileSpawnPosition: {fileID: 987107957227641447}
   FireCooldown: 5
   CooldownTime: 0
+--- !u!114 &3201843871729209437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729423161879487983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a593f7d7a3b034caf6ba7452a2b51e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 0}
+  AoERenderer: {fileID: 4083383323379578249}
 --- !u!1 &7093295560981083387
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +141,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 3, y: 1, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4877630708667206143}
