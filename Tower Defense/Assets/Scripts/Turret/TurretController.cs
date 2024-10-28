@@ -2,13 +2,20 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class TurretRotationController : MonoBehaviour
+public class TurretController : MonoBehaviour
 {
+    public TurretProjectileController Projectile { get; private set; }
+    public TurretRotationController Rotation { get; private set; }
     public EnemyController Target;
     public HashSet<EnemyController> Targets = new();
-    public float RotationSpeed = 1f;
+    
     void Awake()
     {
+        Projectile = GetComponent<TurretProjectileController>();
+        Debug.Assert(Projectile != null, $"Expected {nameof(TurretProjectileController)}");
+        Rotation = GetComponent<TurretRotationController>();
+        Debug.Assert(Rotation != null, $"Expected {nameof(TurretRotationController)}");
+        
         TriggerEvents triggers = GetComponentInChildren<TriggerEvents>();
         Debug.Assert(triggers != null, "No TriggerEvents found on children");
         triggers.OnEnter.AddListener(HandleTriggerEntered);
@@ -18,11 +25,15 @@ public class TurretRotationController : MonoBehaviour
     void Update()
     {
         Target = DetermineTarget(Targets);
-        if (Target == null) { return; }
-        Quaternion targetRotation = Quaternion.LookRotation(transform.position - Target.transform.position, transform.up);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 360 * RotationSpeed * Time.deltaTime);
     }
 
+    public static EnemyController DetermineTarget(HashSet<EnemyController> potentialTargets)
+    {
+        if (potentialTargets.Count == 0) { return null; }
+        return potentialTargets.Aggregate(SelectTargetClosestToEnd);
+    }
+
+    
     public static EnemyController SelectTargetClosestToEnd(EnemyController first, EnemyController second)
     {
         if (first.WaypointTraveler.CalculateDistanceToFinalWaypoint() <
@@ -33,13 +44,7 @@ public class TurretRotationController : MonoBehaviour
         return second;
     }
 
-    public static EnemyController DetermineTarget(HashSet<EnemyController> potentialTargets)
-    {
-        if (potentialTargets.Count == 0) { return null; }
-        return potentialTargets.Aggregate(SelectTargetClosestToEnd);
-    }
-
-    public void HandleTriggerEntered(Collider other)
+        public void HandleTriggerEntered(Collider other)
     {
         EnemyController enemy = other.attachedRigidbody.GetComponent<EnemyController>();
         if (enemy == null) { return; }
@@ -56,4 +61,5 @@ public class TurretRotationController : MonoBehaviour
     }
 
     private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
+
 }

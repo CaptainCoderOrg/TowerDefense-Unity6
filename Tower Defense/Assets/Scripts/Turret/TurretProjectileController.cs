@@ -1,12 +1,10 @@
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-[RequireComponent(typeof(TurretRotationController))]
+[RequireComponent(typeof(TurretController))]
 public class TurretProjectileController : MonoBehaviour
 {
-    private TurretRotationController _rotationController;
-    public EnemyController Target => _rotationController.Target;
+    private TurretController _controller;
+    public EnemyController Target => _controller.Target;
     public ProjectileController Weapon;
     public Transform ProjectileSpawnPosition;
     public float FireCooldown = 5.0f;
@@ -14,8 +12,8 @@ public class TurretProjectileController : MonoBehaviour
 
     void Awake()
     {
-        _rotationController = GetComponent<TurretRotationController>();
-        Debug.Assert(_rotationController != null, $"{nameof(TurretProjectileController)} expects RotationController");
+        _controller = GetComponent<TurretController>();
+        Debug.Assert(_controller != null, $"{nameof(TurretController)} expects TurretController");
     }
 
     void Update()
