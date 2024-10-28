@@ -61,6 +61,8 @@ public class TurretController : MonoBehaviour
         exited.OnCleanup -= RemoveEnemy;
     }
 
+    public void SetAoEVisibility(bool isVisible) => AoERenderer.enabled = isVisible;
+
     private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
 
 }

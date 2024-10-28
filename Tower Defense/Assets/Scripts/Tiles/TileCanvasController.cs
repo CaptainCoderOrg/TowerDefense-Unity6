@@ -7,8 +7,8 @@ public class TileCanvasController : MonoBehaviour
     public GameObject Cursor;
     public GameObject BuildMenu;
     public GameObject TurretMenu;
-    public static TileCanvasController Instance 
-    { 
+    public static TileCanvasController Instance
+    {
         get
         {
             if (_instance == null)
@@ -23,7 +23,7 @@ public class TileCanvasController : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()
     {
-            _instance = null;
+        _instance = null;
     }
 
     public void SelectTile(TileController tile)
@@ -38,7 +38,7 @@ public class TileCanvasController : MonoBehaviour
         }
         else
         {
-            Selected.Turret.AoERenderer.enabled = true;
+            Selected.Turret.SetAoEVisibility(true);
             TurretMenu.transform.position = tile.transform.position;
             TurretMenu.SetActive(true);
         }
@@ -46,11 +46,8 @@ public class TileCanvasController : MonoBehaviour
 
     public void ClearSelection()
     {
-        if (Selected != null)
-        {
-            Selected.Turret.AoERenderer.enabled = false;
-            Selected = null;
-        }
+        Selected.Turret?.SetAoEVisibility(false);
+        Selected = null;
         Cursor.SetActive(false);
         BuildMenu.SetActive(false);
         TurretMenu.SetActive(false);
