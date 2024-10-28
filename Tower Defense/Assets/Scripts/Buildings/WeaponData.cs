@@ -6,5 +6,5 @@ public class WeaponData : ScriptableObject
     public string Name;
     public int Price;
     public Texture Icon;
-    public GameObject Prefab;
+    public TurretController Prefab;
 }

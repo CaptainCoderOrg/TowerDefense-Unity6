@@ -27,6 +27,7 @@ public class TileCanvasController : MonoBehaviour
 
     public void SelectTile(TileController tile)
     {
+        if (tile.Turret != null) { return; }
         Cursor.transform.position = tile.transform.position;
         Cursor.SetActive(true);
         BuildMenu.transform.position = tile.transform.position;

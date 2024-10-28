@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -10,6 +11,7 @@ public class TileController : MonoBehaviour
     public TileData Tile { get; private set; }
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set; }
+    public TurretController Turret;
     public MeshRenderer Renderer;
     public Material SelectedMaterial;
     private Material _previousMaterial;
@@ -65,9 +67,10 @@ public class TileController : MonoBehaviour
         }
     }
 
-    public void Build(GameObject prefab)
+    public void Build(TurretController prefab)
     {
-        GameObject building = GameObject.Instantiate(prefab, transform.position, transform.rotation);
+        if (Turret != null) { throw new InvalidOperationException("Cannot build turret on tile with turret."); }
+        Turret = GameObject.Instantiate(prefab, transform.position, transform.rotation);
     }
 
 }

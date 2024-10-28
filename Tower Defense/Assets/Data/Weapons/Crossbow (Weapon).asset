@@ -15,4 +15,4 @@ MonoBehaviour:
   Name: Crossbow
   Price: 100
   Icon: {fileID: 8400000, guid: 5e70e6a188a0de147999e1bc4071e3dd, type: 2}
-  Prefab: {fileID: 4839608987523992882, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
+  Prefab: {fileID: 3613351468399425664, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
