@@ -73,4 +73,12 @@ public class TileController : MonoBehaviour
         Turret = GameObject.Instantiate(prefab, transform.position, transform.rotation);
     }
 
+    public void RemoveTurret()
+    {
+        if (Turret == null) { return; }
+        GameObject.Destroy(Turret.gameObject);
+        Turret = null;
+
+    }
+
 }
