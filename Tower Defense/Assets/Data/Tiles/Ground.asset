@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Ground
   Mesh: {fileID: -4855243574250553854, guid: 88483c5ff020b0743b6f14ef72a71cdb, type: 3}
+  CanBuildWeapon: 1

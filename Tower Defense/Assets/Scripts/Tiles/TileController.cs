@@ -25,6 +25,7 @@ public class TileController : MonoBehaviour
 
     public void HandleMouseEntered()
     {
+        if (!Tile.CanBuildWeapon) { return; }
         if (TileCanvasController.Instance.Selected != null) { return; }
         _previousMaterial = Renderer.material;
         Renderer.material = SelectedMaterial;
@@ -37,6 +38,7 @@ public class TileController : MonoBehaviour
 
     public void HandleMouseClick()
     {
+        if (!Tile.CanBuildWeapon) { return; }
         if (TileCanvasController.Instance.Selected != null) 
         {
             TileCanvasController.Instance.ClearSelection();
