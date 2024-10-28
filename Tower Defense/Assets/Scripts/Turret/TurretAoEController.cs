@@ -4,6 +4,7 @@ public class TurretAoEController : MonoBehaviour
 {
     [SerializeField]
     private float _range = 3.0f;
+    public int UpgradePrice => 25 * (int)Mathf.Round(_range);
     public float Range 
     { 
         get => _range;

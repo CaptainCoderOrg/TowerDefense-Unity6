@@ -6,7 +6,7 @@ public class TileCanvasController : MonoBehaviour
     public TileController Selected;
     public GameObject Cursor;
     public GameObject BuildMenu;
-    public GameObject TurretMenu;
+    public TurretMenuController _turretMenu;
     public static TileCanvasController Instance
     {
         get
@@ -26,6 +26,12 @@ public class TileCanvasController : MonoBehaviour
         _instance = null;
     }
 
+    void Awake()
+    {
+        _turretMenu = GetComponentInChildren<TurretMenuController>(true);
+        Debug.Assert(_turretMenu != null, "Could not find TurretMenu");
+    }
+
     public void SelectTile(TileController tile)
     {
         Cursor.transform.position = tile.transform.position;
@@ -39,8 +45,8 @@ public class TileCanvasController : MonoBehaviour
         else
         {
             Selected.Turret.AoE.SetVisibility(true);
-            TurretMenu.transform.position = tile.transform.position;
-            TurretMenu.SetActive(true);
+            _turretMenu.transform.position = tile.transform.position;
+            _turretMenu.Show();
         }
     }
 
@@ -50,20 +56,7 @@ public class TileCanvasController : MonoBehaviour
         Selected = null;
         Cursor.SetActive(false);
         BuildMenu.SetActive(false);
-        TurretMenu.SetActive(false);
-    }
-
-    public void IncreaseTurretRange()
-    {
-        if (Selected == null) { return; }
-        Selected.Turret.AoE.Range += 1;
-    }
-
-    public void RemoveTurret()
-    {
-        if (Selected == null) { return; }
-        Selected.RemoveTurret();
-        ClearSelection();
+        _turretMenu.Hide();
     }
 
 }
