@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class TurretAoEController : MonoBehaviour
 {
-    [field: SerializeField]
-    public float Range { get; private set;} = 3.0f;
+    [SerializeField]
+    private float _range = 3.0f;
+    public float Range 
+    { 
+        get => _range;
+        set => SetRange(value);
+    }
     public MeshRenderer AoERenderer;
     public void SetVisibility(bool isVisible) => AoERenderer.enabled = isVisible;
 
@@ -12,9 +17,14 @@ public class TurretAoEController : MonoBehaviour
         SetRange(Range);
     }
 
+    void OnValidate()
+    {
+        SetRange(_range);
+    }
+
     public void SetRange(float range)
     {
-        Range = range;
+        _range = range;
         Vector3 localScale = AoERenderer.transform.localScale;
         localScale.x = range;
         localScale.z = range;

@@ -56,7 +56,7 @@ public class TileCanvasController : MonoBehaviour
     public void IncreaseTurretRange()
     {
         if (Selected == null) { return; }
-        Selected.Turret.AoE.SetRange(Selected.Turret.AoE.Range + 1);
+        Selected.Turret.AoE.Range += 1;
     }
 
     public void RemoveTurret()

@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5375c0cad18de40419a1e2c3b52267f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <Range>k__BackingField: 3
+  _range: 3
   AoERenderer: {fileID: 4083383323379578249}
 --- !u!1 &7093295560981083387
 GameObject:
