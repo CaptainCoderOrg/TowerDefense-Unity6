@@ -38,7 +38,7 @@ public class TileCanvasController : MonoBehaviour
         }
         else
         {
-            Selected.Turret.SetAoEVisibility(true);
+            Selected.Turret.AoE.SetVisibility(true);
             TurretMenu.transform.position = tile.transform.position;
             TurretMenu.SetActive(true);
         }
@@ -46,11 +46,17 @@ public class TileCanvasController : MonoBehaviour
 
     public void ClearSelection()
     {
-        Selected.Turret?.SetAoEVisibility(false);
+        Selected.Turret?.AoE.SetVisibility(false);
         Selected = null;
         Cursor.SetActive(false);
         BuildMenu.SetActive(false);
         TurretMenu.SetActive(false);
+    }
+
+    public void IncreaseTurretRange()
+    {
+        if (Selected == null) { return; }
+        Selected.Turret.AoE.SetRange(Selected.Turret.AoE.Range + 1);
     }
 
     public void RemoveTurret()

@@ -6,9 +6,9 @@ public class TurretController : MonoBehaviour
 {
     public TurretProjectileController Projectile { get; private set; }
     public TurretRotationController Rotation { get; private set; }
+    public TurretAoEController AoE { get; private set;}
     public EnemyController Target;
-    public HashSet<EnemyController> Targets = new();
-    public MeshRenderer AoERenderer;
+    public HashSet<EnemyController> Targets = new();    
     
     void Awake()
     {
@@ -16,6 +16,8 @@ public class TurretController : MonoBehaviour
         Debug.Assert(Projectile != null, $"Expected {nameof(TurretProjectileController)}");
         Rotation = GetComponent<TurretRotationController>();
         Debug.Assert(Rotation != null, $"Expected {nameof(TurretRotationController)}");
+        AoE = GetComponent<TurretAoEController>();
+        Debug.Assert(AoE != null, $"Expected {nameof(TurretAoEController)}");
         
         TriggerEvents triggers = GetComponentInChildren<TriggerEvents>();
         Debug.Assert(triggers != null, "No TriggerEvents found on children");
@@ -60,8 +62,6 @@ public class TurretController : MonoBehaviour
         Targets.Remove(exited);
         exited.OnCleanup -= RemoveEnemy;
     }
-
-    public void SetAoEVisibility(bool isVisible) => AoERenderer.enabled = isVisible;
 
     private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
 
