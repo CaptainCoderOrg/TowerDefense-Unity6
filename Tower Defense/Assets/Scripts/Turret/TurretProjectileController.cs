@@ -9,7 +9,10 @@ public class TurretProjectileController : MonoBehaviour
     public Transform ProjectileSpawnPosition;
     public float Damage = 1;
     public int DamageUpgradePrice => 75 * (int)Damage;
-    public float FireCooldown = 5.0f;
+    public int CooldownUpgradePrice => 50 * Mathf.RoundToInt(CooldownLevel);
+    public float CooldownLevel = 1;
+    public float Cooldown => BaseCooldown / CooldownLevel;
+    public float BaseCooldown = 5.0f;
     public float CooldownTime = 0.0f;
 
     void Awake()
@@ -24,7 +27,7 @@ public class TurretProjectileController : MonoBehaviour
         if (Target == null) { return; }
         if (CooldownTime <= 0)
         {
-            CooldownTime = FireCooldown;
+            CooldownTime = Cooldown;
             ProjectileController projectile = GameObject.Instantiate(Weapon, ProjectileSpawnPosition.position, ProjectileSpawnPosition.rotation);
             projectile.Target = Target;
             projectile.Damage = Damage;     
