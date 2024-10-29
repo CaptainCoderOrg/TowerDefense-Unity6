@@ -7,6 +7,8 @@ public class TurretProjectileController : MonoBehaviour
     public EnemyController Target => _controller.Target;
     public ProjectileController Weapon;
     public Transform ProjectileSpawnPosition;
+    public float Damage = 1;
+    public int DamageUpgradePrice => 75 * (int)Damage;
     public float FireCooldown = 5.0f;
     public float CooldownTime = 0.0f;
 
@@ -24,7 +26,8 @@ public class TurretProjectileController : MonoBehaviour
         {
             CooldownTime = FireCooldown;
             ProjectileController projectile = GameObject.Instantiate(Weapon, ProjectileSpawnPosition.position, ProjectileSpawnPosition.rotation);
-            projectile.Target = Target;            
+            projectile.Target = Target;
+            projectile.Damage = Damage;     
         }
     }
 }

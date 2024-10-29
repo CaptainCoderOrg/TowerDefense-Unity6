@@ -5,7 +5,10 @@ public class TurretMenuController : MonoBehaviour
 {
     public TileCanvasController TileCanvasController;
     public TileController Selected => TileCanvasController.Selected;
-    public TextMeshProUGUI IncreaseAoEPriceLabel;
+    [field: SerializeField]
+    public UpgradeLabelController AoELabel { get; private set; }
+    [field: SerializeField]
+    public UpgradeLabelController DamageLabel { get; private set; }
 
     void Awake()
     {
@@ -16,15 +19,15 @@ public class TurretMenuController : MonoBehaviour
     public void Show()
     {
         gameObject.SetActive(true);
-        UpdatePriceLabel();
+        UpdateAoELabels();
+        UpdateDamageLabels();
     }
 
-    public void UpdatePriceLabel()
+    public void UpdateAoELabels()
     {
-        IncreaseAoEPriceLabel.text = $"${Selected.Turret.AoE.UpgradePrice}";
+        AoELabel.PriceLabel.text = $"${Selected.Turret.AoE.UpgradePrice}";
+        AoELabel.ValueLabel.text = Mathf.RoundToInt(Selected.Turret.AoE.Range).ToString();
     }
-
-    public void Hide() => gameObject.SetActive(false);
 
     public void IncreaseTurretRange()
     {
@@ -32,8 +35,27 @@ public class TurretMenuController : MonoBehaviour
         if (GameManagerController.Instance.Money < Selected.Turret.AoE.UpgradePrice) { return; }
         GameManagerController.Instance.Money -= Selected.Turret.AoE.UpgradePrice;
         Selected.Turret.AoE.Range += 1;
-        UpdatePriceLabel();
+        UpdateAoELabels();
     }
+
+    public void UpdateDamageLabels()
+    {
+        DamageLabel.PriceLabel.text = $"${Selected.Turret.Projectile.DamageUpgradePrice}";
+        DamageLabel.ValueLabel.text = Mathf.RoundToInt(Selected.Turret.Projectile.Damage).ToString();
+    }
+
+    public void IncreaseDamage()
+    {
+        if (Selected == null) { return; }
+        if (GameManagerController.Instance.Money < Selected.Turret.Projectile.DamageUpgradePrice) { return; }
+        GameManagerController.Instance.Money -= Selected.Turret.Projectile.DamageUpgradePrice;
+        Selected.Turret.Projectile.Damage += 1;
+        UpdateDamageLabels();
+    }
+
+    public void Hide() => gameObject.SetActive(false);
+
+    
 
     public void RemoveTurret()
     {
