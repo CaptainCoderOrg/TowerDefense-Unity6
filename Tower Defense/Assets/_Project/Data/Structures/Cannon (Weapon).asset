@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e664038cb474e4d4da823850564406f2, type: 3}
-  m_Name: Crossbow (Weapon)
+  m_Name: Cannon (Weapon)
   m_EditorClassIdentifier: 
-  Name: Crossbow
-  Price: 100
-  Icon: {fileID: 8400000, guid: 5e70e6a188a0de147999e1bc4071e3dd, type: 2}
-  Prefab: {fileID: 3613351468399425664, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
+  Name: Cannon
+  Price: 250
+  Icon: {fileID: 8400000, guid: 612ce281b2ba9954c9880d575fda99e9, type: 2}
+  Prefab: {fileID: 452506517467020766, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}

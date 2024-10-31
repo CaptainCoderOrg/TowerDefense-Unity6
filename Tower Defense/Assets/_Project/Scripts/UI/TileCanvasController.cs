@@ -37,14 +37,14 @@ public class TileCanvasController : MonoBehaviour
         Cursor.transform.position = tile.transform.position;
         Cursor.SetActive(true);
         Selected = tile;
-        if (tile.Turret == null)
+        if (tile.Structure == null)
         {
             BuildMenu.transform.position = tile.transform.position;
             BuildMenu.SetActive(true);
         }
-        else
+        else if (Selected.Structure.GetComponent<TurretController>() is TurretController turret)
         {
-            Selected.Turret.AoE.SetVisibility(true);
+            turret.AoE.SetVisibility(true);
             _turretMenu.transform.position = tile.transform.position;
             _turretMenu.Show();
         }
@@ -52,7 +52,7 @@ public class TileCanvasController : MonoBehaviour
 
     public void ClearSelection()
     {
-        Selected.Turret?.AoE.SetVisibility(false);
+        Selected.Structure?.GetComponent<TurretController>()?.AoE.SetVisibility(false);
         Selected = null;
         Cursor.SetActive(false);
         BuildMenu.SetActive(false);

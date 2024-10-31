@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e664038cb474e4d4da823850564406f2, type: 3}
-  m_Name: Cannon (Weapon)
+  m_Name: Power Crystal (Structure)
   m_EditorClassIdentifier: 
-  Name: Cannon
-  Price: 250
-  Icon: {fileID: 8400000, guid: 612ce281b2ba9954c9880d575fda99e9, type: 2}
-  Prefab: {fileID: 3201843871729209437, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
+  Name: Power Crystal
+  Price: 100
+  Icon: {fileID: 8400000, guid: 534daf3d96a6f86488504f78ed78a425, type: 2}
+  Prefab: {fileID: 4232433276910070051, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}

@@ -6,7 +6,7 @@ public abstract class UpgradeLabelController : MonoBehaviour
 {
     public TextMeshProUGUI PriceLabel;
     public TextMeshProUGUI ValueLabel;
-    public TileController Selected => TileCanvasController.Selected;
+    public TurretController Turret => TileCanvasController.Selected.Structure.GetComponent<TurretController>();
     public TileCanvasController TileCanvasController;
 
     void Awake()
@@ -23,7 +23,7 @@ public abstract class UpgradeLabelController : MonoBehaviour
 
     public void IncreaseValue()
     {
-        if (Selected == null) { return; }
+        if (Turret == null) { return; }
         if (GameManagerController.Instance.Money < GetUpgradePrice()) { return; }
         GameManagerController.Instance.Money -= GetUpgradePrice();
         IncreaseValue(1);

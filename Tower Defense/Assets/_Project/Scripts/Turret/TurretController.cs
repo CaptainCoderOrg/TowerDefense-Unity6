@@ -64,5 +64,4 @@ public class TurretController : MonoBehaviour
     }
 
     private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
-
 }

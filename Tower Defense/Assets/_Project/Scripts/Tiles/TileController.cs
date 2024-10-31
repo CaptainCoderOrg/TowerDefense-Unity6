@@ -11,7 +11,7 @@ public class TileController : MonoBehaviour
     public TileData Tile { get; private set; }
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set; }
-    public TurretController Turret;
+    public StructureController Structure;
     public MeshRenderer Renderer;
     public Material SelectedMaterial;
     private Material _previousMaterial;
@@ -67,17 +67,17 @@ public class TileController : MonoBehaviour
         }
     }
 
-    public void Build(TurretController prefab)
+    public void Build(StructureData structure)
     {
-        if (Turret != null) { throw new InvalidOperationException("Cannot build turret on tile with turret."); }
-        Turret = GameObject.Instantiate(prefab, transform.position, transform.rotation);
+        if (Structure != null) { throw new InvalidOperationException("Cannot build turret on tile with turret."); }
+        Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
     }
 
     public void RemoveTurret()
     {
-        if (Turret == null) { return; }
-        GameObject.Destroy(Turret.gameObject);
-        Turret = null;
+        if (Structure == null) { return; }
+        GameObject.Destroy(Structure.gameObject);
+        Structure = null;
 
     }
 

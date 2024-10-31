@@ -1,7 +1,7 @@
 
 public class SpeedUpgradeLabel : UpgradeLabelController
 {
-    public override int GetUpgradePrice() => Selected.Turret.Projectile.CooldownUpgradePrice;
-    public override string GetValue() => $"{Selected.Turret.Projectile.Cooldown:#.#}";
-    public override void IncreaseValue(float value) => Selected.Turret.Projectile.CooldownLevel += value;
+    public override int GetUpgradePrice() => Turret.Projectile.CooldownUpgradePrice;
+    public override string GetValue() => $"{Turret.Projectile.Cooldown:#.#}";
+    public override void IncreaseValue(float value) => Turret.Projectile.CooldownLevel += value;
 }

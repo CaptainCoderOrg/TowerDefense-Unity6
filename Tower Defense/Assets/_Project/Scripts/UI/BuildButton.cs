@@ -8,7 +8,7 @@ public class BuildButton : MonoBehaviour
 {
     public TextMeshProUGUI PriceText;
     public RawImage Image;
-    public WeaponData Weapon;
+    public StructureData Structure;
 
     void Awake()
     {
@@ -20,20 +20,20 @@ public class BuildButton : MonoBehaviour
     [Button("Update UI")]
     void UpdateUI()
     {
-        PriceText.text = $"${Weapon.Price}";
-        Image.texture = Weapon.Icon;
+        PriceText.text = $"${Structure.Price}";
+        Image.texture = Structure.Icon;
     }
 
     public void HandleClick()
     {
-        if (GameManagerController.Instance.Money < Weapon.Price)
+        if (GameManagerController.Instance.Money < Structure.Price)
         {
             return;
         }
         TileController selected = TileCanvasController.Instance.Selected;
         if (selected == null) { return; }
-        GameManagerController.Instance.Money -= Weapon.Price;
-        selected.Build(Weapon.Prefab);
+        GameManagerController.Instance.Money -= Structure.Price;
+        selected.Build(Structure);
         TileCanvasController.Instance.ClearSelection();
     }
 

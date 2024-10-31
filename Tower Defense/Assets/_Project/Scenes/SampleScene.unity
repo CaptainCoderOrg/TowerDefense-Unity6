@@ -4186,6 +4186,10 @@ PrefabInstance:
       propertyPath: Weapon
       value: 
       objectReference: {fileID: 11400000, guid: 5da18385d48bfc241befb5a78b8e7512, type: 2}
+    - target: {fileID: 2994478512266803751, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
+      propertyPath: Structure
+      value: 
+      objectReference: {fileID: 11400000, guid: 5da18385d48bfc241befb5a78b8e7512, type: 2}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7437,6 +7441,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1130161670}
     m_Modifications:
+    - target: {fileID: 821016828821943861, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: IsDecoration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1724476703372098981, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8878,6 +8886,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994478512266803751, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: Weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a3afed22663a434bad79f0e497addd0, type: 2}
+    - target: {fileID: 2994478512266803751, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
+      propertyPath: Structure
       value: 
       objectReference: {fileID: 11400000, guid: 3a3afed22663a434bad79f0e497addd0, type: 2}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
@@ -12161,6 +12173,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994478512266803751, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: Weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 99d3282e2d020084ea6011f6f32879a8, type: 2}
+    - target: {fileID: 2994478512266803751, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
+      propertyPath: Structure
       value: 
       objectReference: {fileID: 11400000, guid: 99d3282e2d020084ea6011f6f32879a8, type: 2}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
@@ -17072,6 +17088,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2994478512266803751, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
+      propertyPath: Structure
+      value: 
+      objectReference: {fileID: 11400000, guid: 905e2f200643ea940ae9ca0fab4cbbb6, type: 2}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -4907,6 +4907,7 @@ GameObject:
   - component: {fileID: 1447273504821740917}
   - component: {fileID: 4044792865092769195}
   - component: {fileID: 821016828821943861}
+  - component: {fileID: 4232433276910070051}
   m_Layer: 0
   m_Name: Power Crystal
   m_TagString: Untagged
@@ -5003,6 +5004,19 @@ MonoBehaviour:
   - {fileID: 4963041429922457891}
   - {fileID: 2497205002879677950}
   - {fileID: 4909130845980567105}
+  IsDecoration: 0
+--- !u!114 &4232433276910070051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2882176175644663388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178ea3ded046b46448839c1730f80c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3551404080843855220
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 5787250654823362003}
   - component: {fileID: 3201843871729209437}
   - component: {fileID: 4693494998213754932}
+  - component: {fileID: 452506517467020766}
   m_Layer: 8
   m_Name: Cannon (Turret)
   m_TagString: Untagged
@@ -96,7 +97,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Weapon: {fileID: 5670236496619172619, guid: 97e061cd857d6d74fafe65fa60dbf7ce, type: 3}
   ProjectileSpawnPosition: {fileID: 987107957227641447}
-  FireCooldown: 5
+  Damage: 1
+  CooldownLevel: 1
+  BaseCooldown: 5
   CooldownTime: 0
 --- !u!114 &3201843871729209437
 MonoBehaviour:
@@ -125,6 +128,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _range: 3
   AoERenderer: {fileID: 4083383323379578249}
+--- !u!114 &452506517467020766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6729423161879487983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 178ea3ded046b46448839c1730f80c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7093295560981083387
 GameObject:
   m_ObjectHideFlags: 0
