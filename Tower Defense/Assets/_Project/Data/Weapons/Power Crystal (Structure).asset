@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e664038cb474e4d4da823850564406f2, type: 3}
+  m_Name: Power Crystal (Structure)
+  m_EditorClassIdentifier: 
+  Name: Power Crystal
+  Price: 100
+  Icon: {fileID: 8400000, guid: 534daf3d96a6f86488504f78ed78a425, type: 2}
+  Prefab: {fileID: 3613351468399425664, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}

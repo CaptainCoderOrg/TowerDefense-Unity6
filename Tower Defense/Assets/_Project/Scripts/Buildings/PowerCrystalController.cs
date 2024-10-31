@@ -7,16 +7,14 @@ public class PowerCrystalController : MonoBehaviour
     public CooldownController Cooldown { get; private set; }
     public PowerCollectableController CollectablePrefab;
     public Transform[] SpawnPositions;
+    public bool IsDecoration;
+    
 
     void Awake()
     {
+        if (IsDecoration) { return; }
         Cooldown = GetComponent<CooldownController>();
         Cooldown.OnCooldownFinished.AddListener(CreatePowerCollectable);
-    }
-
-    void Update()
-    {
-
     }
 
     public void CreatePowerCollectable()
