@@ -30,7 +30,6 @@ public class PowerCrystalController : MonoBehaviour
         TileController[] potentialSpawnLocations = FindTiles()
             .Where(t => !t.IsOccupied)
             .ToArray();
-        Debug.Log($"Spawn locations: {potentialSpawnLocations.Length}");
         if (potentialSpawnLocations.Length != 0)
         {
             TileController spawnAt = potentialSpawnLocations.SelectRandomOrDefault(null);
