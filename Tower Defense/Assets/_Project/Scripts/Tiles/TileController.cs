@@ -11,6 +11,7 @@ public class TileController : MonoBehaviour
     public TileData Tile { get; private set; }
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set; }
+    public bool IsOccupied => Structure != null;
     public StructureController Structure;
     public MeshRenderer Renderer;
     public Material SelectedMaterial;
