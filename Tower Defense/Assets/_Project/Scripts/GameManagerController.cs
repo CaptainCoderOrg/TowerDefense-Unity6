@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -51,5 +52,10 @@ public class GameManagerController : MonoBehaviour
     void OnValidate()
     {
         UpdateMoney();
+    }
+
+    internal void TriggerGameOver()
+    {
+        Debug.Log("Game Over!");
     }
 }

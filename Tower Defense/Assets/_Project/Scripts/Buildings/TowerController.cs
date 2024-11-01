@@ -37,5 +37,10 @@ public class TowerController : MonoBehaviour
         if (enemy == null) { return; }
         Damage += enemy.AttackDamage;
         GameObject.Destroy(enemy.gameObject);
+        if (Health <= 0)
+        {
+            GameObject.Destroy(gameObject);
+            GameManagerController.Instance.TriggerGameOver();
+        }
     }
 }
