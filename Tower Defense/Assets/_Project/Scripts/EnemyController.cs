@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {    
     public WaypointTraveler WaypointTraveler;
+    public float AttackDamage = 1;
     public float BaseHealth = 5;
     public float Damage = 0;
     public float Health => BaseHealth - Damage;
