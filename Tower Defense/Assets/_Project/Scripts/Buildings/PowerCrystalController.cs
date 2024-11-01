@@ -19,22 +19,23 @@ public class PowerCrystalController : MonoBehaviour
     {
         if (IsDecoration) { return; }
         Cooldown = GetComponent<CooldownController>();
-        Cooldown.OnCooldownFinished.AddListener(CreatePowerCollectable);
+        Cooldown.OnCooldownFinished.AddListener(SpawnPowerCollectable);
 
         _sphereCaster = GetComponentInChildren<SphereCaster>();
         Debug.Assert(_sphereCaster != null);
     }
 
-    public void CreatePowerCollectable()
+    public void SpawnPowerCollectable()
     {
-        Transform[] potentialSpawnLocations = FindTiles()
+        TileController[] potentialSpawnLocations = FindTiles()
             .Where(t => !t.IsOccupied)
-            .Select(t => t.transform)
             .ToArray();
+        Debug.Log($"Spawn locations: {potentialSpawnLocations.Length}");
         if (potentialSpawnLocations.Length != 0)
         {
-            Transform spawnAt = potentialSpawnLocations.SelectRandomOrDefault(transform);
-            GameObject.Instantiate(CollectablePrefab, spawnAt.position, spawnAt.rotation);
+            TileController spawnAt = potentialSpawnLocations.SelectRandomOrDefault(null);
+            PowerCollectableController collectable = GameObject.Instantiate(CollectablePrefab, spawnAt.transform.position, spawnAt.transform.rotation);
+            spawnAt.Collectable = collectable;
         }
         Cooldown.StartCooldown();
     }
