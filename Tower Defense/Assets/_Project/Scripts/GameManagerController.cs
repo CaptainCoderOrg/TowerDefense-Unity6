@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -8,6 +10,10 @@ using UnityEngine.SceneManagement;
 public class GameManagerController : MonoBehaviour
 {
     public UnityEvent OnGameOver;
+    // [field: SerializeField]
+    // private List<StructureController> _structures = new();
+    private HashSet<StructureController> _structures = new();
+    public IEnumerable<StructureController> Structures => _structures.ToList();
     private static GameManagerController _instance;
     public static GameManagerController Instance 
     { 
@@ -67,4 +73,8 @@ public class GameManagerController : MonoBehaviour
         Scene current = SceneManager.GetActiveScene();
         SceneManager.LoadScene(current.buildIndex);
     }
+
+    public void AddStructure(StructureController structure) => _structures.Add(structure);
+    public void RemoveStructure(StructureController structure) => _structures.Remove(structure);
+    
 }

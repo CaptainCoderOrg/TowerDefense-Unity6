@@ -39,13 +39,17 @@ public class PowerCrystalController : MonoBehaviour
         Debug.Assert(_structureController != null);
         _structureController.OnSelected.AddListener(Select);
         _structureController.OnDeselected.AddListener(Deselect);
-
+        _structureController.OnShowRange.AddListener(ShowRange);
+        _structureController.OnHideRange.AddListener(HideRange);
         Range = _range;
     }
 
+    public void ShowRange() => RangeMesh.enabled = true;
+    public void HideRange() => RangeMesh.enabled = false;
+
     public void Select()
     {
-        RangeMesh.enabled = true;
+        ShowRange();
         TileCanvasController.Instance.CrystalMenu.transform.position = transform.position;
         TileCanvasController.Instance.CrystalMenu.Show();
     }

@@ -29,6 +29,8 @@ public class TurretController : MonoBehaviour
         _structureController = GetComponent<StructureController>();
         _structureController.OnSelected.AddListener(HandleSelected);
         _structureController.OnDeselected.AddListener(HandleDeselected);
+        _structureController.OnShowRange.AddListener(ShowAoE);
+        _structureController.OnHideRange.AddListener(HideAoE);
     }
 
     void Update()
@@ -69,16 +71,19 @@ public class TurretController : MonoBehaviour
         exited.OnCleanup -= RemoveEnemy;
     }
 
+    public void ShowAoE() => AoE.SetVisibility(true);
+    public void HideAoE() => AoE.SetVisibility(false);
+
     public void HandleSelected()
     {
-        AoE.SetVisibility(true);
+        ShowAoE();
         TileCanvasController.Instance.TurretMenu.transform.position = transform.position;
         TileCanvasController.Instance.TurretMenu.Show();
     }
 
     public void HandleDeselected()
     {
-        AoE.SetVisibility(false);
+        HideAoE();
         TileCanvasController.Instance.TurretMenu.Hide();
     }
 

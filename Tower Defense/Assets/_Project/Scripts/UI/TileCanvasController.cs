@@ -44,6 +44,10 @@ public class TileCanvasController : MonoBehaviour
         {
             BuildMenu.transform.position = tile.transform.position;
             BuildMenu.SetActive(true);
+            foreach (StructureController controller in GameManagerController.Instance.Structures)
+            {
+                controller.OnShowRange.Invoke();
+            }
         }
         else
         {
@@ -57,6 +61,10 @@ public class TileCanvasController : MonoBehaviour
         Selected = null;
         Cursor.SetActive(false);
         BuildMenu.SetActive(false);
+        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        {
+            controller.OnHideRange.Invoke();
+        }
     }
 
 }

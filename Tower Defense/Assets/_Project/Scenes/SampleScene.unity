@@ -5104,11 +5104,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7822019149522622510, guid: 66736f5c08de2f141a59d7ec982c6042, type: 3}
   m_PrefabInstance: {fileID: 6534551891831650382}
   m_PrefabAsset: {fileID: 0}
---- !u!224 &566684281 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 408762510159949992, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-  m_PrefabInstance: {fileID: 1477249070079747461}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &572481887 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
@@ -18906,29 +18901,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 408762510159949992, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 1840846564200872304, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
       propertyPath: m_Name
       value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 6081468046205447121, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-      propertyPath: HealthBarTransform
-      value: 
-      objectReference: {fileID: 566684281}
-    - target: {fileID: 6081468046205447121, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-      propertyPath: <BaseHealth>k__BackingField
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7509982204938370393, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-      propertyPath: m_Color.a
-      value: 0.5019608
-      objectReference: {fileID: 0}
-    - target: {fileID: 8560013708448226726, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-      propertyPath: m_Color.a
-      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 8994853676858408145, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
       propertyPath: m_LocalPosition.x

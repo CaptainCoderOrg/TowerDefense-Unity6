@@ -74,6 +74,8 @@ public class TileController : MonoBehaviour
     {
         if (Structure != null) { throw new InvalidOperationException("Cannot build turret on tile with turret."); }
         Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
+        GameManagerController.Instance.AddStructure(Structure);
+        Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
     }
 
     public void RemoveTurret()
