@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManagerController : MonoBehaviour
 {
@@ -59,5 +60,11 @@ public class GameManagerController : MonoBehaviour
     public void TriggerGameOver()
     {
         OnGameOver.Invoke();
+    }
+     
+    public void TryAgain()
+    {
+        Scene current = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(current.buildIndex);
     }
 }
