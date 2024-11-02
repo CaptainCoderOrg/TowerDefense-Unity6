@@ -1,3 +1,4 @@
+using System;
 using NaughtyAttributes;
 using TMPro;
 using Unity.VisualScripting;
@@ -9,12 +10,21 @@ public class BuildButton : MonoBehaviour
     public TextMeshProUGUI PriceText;
     public RawImage Image;
     public StructureData Structure;
+    private Button _button;
 
     void Awake()
     {
-        Button btn = GetComponentInChildren<Button>();
-        btn.onClick.AddListener(HandleClick);
+        _button = GetComponentInChildren<Button>();
+        _button.onClick.AddListener(HandleClick);
         UpdateUI();
+        HandleTileChanged(TileCanvasController.Instance.Selected);
+        TileCanvasController.Instance.OnSelectTile.AddListener(HandleTileChanged);
+    }
+
+    private void HandleTileChanged(TileController tile)
+    {
+        if (tile == null) { return; }
+        _button.enabled = tile.CanBuild(Structure);
     }
 
     [Button("Update UI")]

@@ -1,9 +1,20 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TileCanvasController : MonoBehaviour
 {
+    public UnityEvent<TileController> OnSelectTile;
     private static TileCanvasController _instance;
-    public TileController Selected;
+    private TileController _selected;
+    public TileController Selected 
+    { 
+        get => _selected; 
+        private set
+        {
+            _selected = value;
+            OnSelectTile.Invoke(_selected);
+        }
+    }
     public GameObject Cursor;
     public GameObject BuildMenu;
     public TurretMenuController TurretMenu;
