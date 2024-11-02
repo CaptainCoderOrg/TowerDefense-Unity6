@@ -2,9 +2,11 @@ using System;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManagerController : MonoBehaviour
 {
+    public UnityEvent OnGameOver;
     private static GameManagerController _instance;
     public static GameManagerController Instance 
     { 
@@ -54,8 +56,8 @@ public class GameManagerController : MonoBehaviour
         UpdateMoney();
     }
 
-    internal void TriggerGameOver()
+    public void TriggerGameOver()
     {
-        Debug.Log("Game Over!");
+        OnGameOver.Invoke();
     }
 }
