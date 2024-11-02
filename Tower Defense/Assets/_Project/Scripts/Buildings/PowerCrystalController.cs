@@ -7,6 +7,18 @@ public class PowerCrystalController : MonoBehaviour
 {
     [field: SerializeField]
     public CooldownController Cooldown { get; private set; }
+    public int RangeUpgradePrice => Mathf.RoundToInt(150 * Range);
+    private float _range = 2;
+    public float Range 
+    { 
+        get => _range; 
+        set
+        {
+            _range = value;
+            _sphereCaster.Radius = _range / 2f;
+            RangeMesh.transform.localScale = new Vector3(_range, 0.01f, _range);
+        }
+    }
     public PowerCollectableController CollectablePrefab;
     public bool IsDecoration;
     private SphereCaster _sphereCaster;
@@ -27,6 +39,8 @@ public class PowerCrystalController : MonoBehaviour
         Debug.Assert(_structureController != null);
         _structureController.OnSelected.AddListener(Select);
         _structureController.OnDeselected.AddListener(Deselect);
+
+        Range = _range;
     }
 
     public void Select()

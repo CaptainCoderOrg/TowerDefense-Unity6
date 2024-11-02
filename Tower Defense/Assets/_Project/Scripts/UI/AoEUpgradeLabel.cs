@@ -1,8 +1,9 @@
 
 using UnityEngine;
 
-public class RangeUpgradeLabel : UpgradeLabelController
+public class AoEUpgradeLabel : UpgradeLabelController
 {
+    public TurretController Turret => TileCanvasController.Selected.Structure.GetComponent<TurretController>();
     public override int GetUpgradePrice() => Turret.AoE.UpgradePrice;
     public override string GetValue() => Mathf.RoundToInt(Turret.AoE.Range).ToString();
     public override void IncreaseValue(float value) => Turret.AoE.Range += value;

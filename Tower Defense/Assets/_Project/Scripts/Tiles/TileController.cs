@@ -79,9 +79,9 @@ public class TileController : MonoBehaviour
     public void RemoveTurret()
     {
         if (Structure == null) { return; }
+        Structure.OnDeselected.Invoke();
         GameObject.Destroy(Structure.gameObject);
-        Structure = null;
-
+        Structure = null;        
     }
 
 }
