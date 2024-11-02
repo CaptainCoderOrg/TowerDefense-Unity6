@@ -7,4 +7,5 @@ public class StructureData : ScriptableObject
     public int Price;
     public Texture Icon;
     public StructureController Prefab;
+    public bool RequiresPower = true;
 }

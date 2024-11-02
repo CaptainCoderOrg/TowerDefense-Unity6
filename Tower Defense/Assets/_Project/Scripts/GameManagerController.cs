@@ -14,6 +14,7 @@ public class GameManagerController : MonoBehaviour
     // private List<StructureController> _structures = new();
     private HashSet<StructureController> _structures = new();
     public IEnumerable<StructureController> Structures => _structures.ToList();
+    public IEnumerable<PowerCrystalController> PowerCrystals => _structures.GetComponents<PowerCrystalController>();
     private static GameManagerController _instance;
     public static GameManagerController Instance 
     { 

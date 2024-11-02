@@ -16,3 +16,4 @@ MonoBehaviour:
   Price: 50
   Icon: {fileID: 8400000, guid: 534daf3d96a6f86488504f78ed78a425, type: 2}
   Prefab: {fileID: 4232433276910070051, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+  RequiresPower: 0

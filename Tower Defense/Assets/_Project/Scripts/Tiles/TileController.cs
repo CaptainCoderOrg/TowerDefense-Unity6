@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using NaughtyAttributes;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -70,9 +72,18 @@ public class TileController : MonoBehaviour
         }
     }
 
+    public bool CanBuild(StructureData structure)
+    {
+        if (Structure != null) { return false; }
+        if (!structure.RequiresPower) { return true;}
+        IEnumerable<TileController> tiles = GameManagerController.Instance.PowerCrystals.SelectMany(crystal => crystal.FindTiles());
+        bool canBuild = tiles.Contains(this);
+        return canBuild;
+    }
+
     public void Build(StructureData structure)
     {
-        if (Structure != null) { throw new InvalidOperationException("Cannot build turret on tile with turret."); }
+        if (!CanBuild(structure)) { return; }
         Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
         GameManagerController.Instance.AddStructure(Structure);
         Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
