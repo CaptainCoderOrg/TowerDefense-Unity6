@@ -4934,6 +4934,7 @@ MonoBehaviour:
   CollectablePrefab: {fileID: 2014612183979484024, guid: 337ae485571b85241a0bb08352ddc511, type: 3}
   IsDecoration: 0
   Tiles: []
+  RangeMesh: {fileID: 5542062970334335179}
 --- !u!114 &4232433276910070051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4946,6 +4947,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 178ea3ded046b46448839c1730f80c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnSelected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDeselected:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5095976636559498499
 GameObject:
   m_ObjectHideFlags: 0

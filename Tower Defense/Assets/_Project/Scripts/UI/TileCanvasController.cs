@@ -7,6 +7,7 @@ public class TileCanvasController : MonoBehaviour
     public GameObject Cursor;
     public GameObject BuildMenu;
     public TurretMenuController TurretMenu;
+    public PowerCrystalMenuController CrystalMenu;
     public static TileCanvasController Instance
     {
         get
@@ -30,6 +31,8 @@ public class TileCanvasController : MonoBehaviour
     {
         TurretMenu = GetComponentInChildren<TurretMenuController>(true);
         Debug.Assert(TurretMenu != null, "Could not find TurretMenu");
+        CrystalMenu = GetComponentInChildren<PowerCrystalMenuController>(true);
+        Debug.Assert(CrystalMenu != null, "Could not find CrystalMenu");
     }
 
     public void SelectTile(TileController tile)

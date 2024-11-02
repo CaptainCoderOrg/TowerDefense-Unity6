@@ -2,7 +2,7 @@ using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
 
-[RequireComponent(typeof(CooldownController))]
+[RequireComponent(typeof(CooldownController), typeof(StructureController))]
 public class PowerCrystalController : MonoBehaviour
 {
     [field: SerializeField]
@@ -10,7 +10,9 @@ public class PowerCrystalController : MonoBehaviour
     public PowerCollectableController CollectablePrefab;
     public bool IsDecoration;
     private SphereCaster _sphereCaster;
-    public TileController[] Tiles;    
+    public TileController[] Tiles;
+    private StructureController _structureController;
+    public MeshRenderer RangeMesh;
 
     void Awake()
     {
@@ -20,6 +22,24 @@ public class PowerCrystalController : MonoBehaviour
 
         _sphereCaster = GetComponentInChildren<SphereCaster>();
         Debug.Assert(_sphereCaster != null);
+
+        _structureController = GetComponent<StructureController>();
+        Debug.Assert(_structureController != null);
+        _structureController.OnSelected.AddListener(Select);
+        _structureController.OnDeselected.AddListener(Deselect);
+    }
+
+    public void Select()
+    {
+        RangeMesh.enabled = true;
+        TileCanvasController.Instance.CrystalMenu.transform.position = transform.position;
+        TileCanvasController.Instance.CrystalMenu.Show();
+    }
+
+    public void Deselect()
+    {
+        RangeMesh.enabled = false;
+        TileCanvasController.Instance.CrystalMenu.Hide();
     }
 
     public void SpawnPowerCollectable()
