@@ -41,7 +41,7 @@ public class GameManagerController : MonoBehaviour
     [Button("Update Money")]
     public void UpdateMoney()
     {
-        MoneyText.text = $"$ {Money}";
+        MoneyText.text = Money.ToString();
     }
 
     void Awake()
