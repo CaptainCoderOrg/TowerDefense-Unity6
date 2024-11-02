@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6370093269272704642}
   - component: {fileID: 6537427390169836250}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Weak UFO (Enemy)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Target: {fileID: 0}
-  Speed: 1
+  Speed: 0.5
   delta: 0.01
 --- !u!95 &7277970392603051179
 Animator:
@@ -113,7 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WaypointTraveler: {fileID: 0}
-  BaseHealth: 5
+  AttackDamage: 1
+  BaseHealth: 3
   Damage: 0
 --- !u!1001 &1995928608242969020
 PrefabInstance:
