@@ -8,12 +8,9 @@ public class PowerCrystalController : MonoBehaviour
     [field: SerializeField]
     public CooldownController Cooldown { get; private set; }
     public PowerCollectableController CollectablePrefab;
-    public Transform[] SpawnPositions;
     public bool IsDecoration;
     private SphereCaster _sphereCaster;
-
-    public TileController[] Tiles;
-    
+    public TileController[] Tiles;    
 
     void Awake()
     {

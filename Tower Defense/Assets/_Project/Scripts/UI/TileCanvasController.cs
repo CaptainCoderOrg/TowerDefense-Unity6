@@ -6,7 +6,7 @@ public class TileCanvasController : MonoBehaviour
     public TileController Selected;
     public GameObject Cursor;
     public GameObject BuildMenu;
-    public TurretMenuController _turretMenu;
+    public TurretMenuController TurretMenu;
     public static TileCanvasController Instance
     {
         get
@@ -28,8 +28,8 @@ public class TileCanvasController : MonoBehaviour
 
     void Awake()
     {
-        _turretMenu = GetComponentInChildren<TurretMenuController>(true);
-        Debug.Assert(_turretMenu != null, "Could not find TurretMenu");
+        TurretMenu = GetComponentInChildren<TurretMenuController>(true);
+        Debug.Assert(TurretMenu != null, "Could not find TurretMenu");
     }
 
     public void SelectTile(TileController tile)
@@ -42,21 +42,18 @@ public class TileCanvasController : MonoBehaviour
             BuildMenu.transform.position = tile.transform.position;
             BuildMenu.SetActive(true);
         }
-        else if (Selected.Structure.GetComponent<TurretController>() is TurretController turret)
+        else
         {
-            turret.AoE.SetVisibility(true);
-            _turretMenu.transform.position = tile.transform.position;
-            _turretMenu.Show();
+            Selected.Structure.OnSelected.Invoke();
         }
     }
 
     public void ClearSelection()
     {
-        Selected.Structure?.GetComponent<TurretController>()?.AoE.SetVisibility(false);
+        Selected.Structure?.OnDeselected.Invoke();
         Selected = null;
         Cursor.SetActive(false);
         BuildMenu.SetActive(false);
-        _turretMenu.Hide();
     }
 
 }

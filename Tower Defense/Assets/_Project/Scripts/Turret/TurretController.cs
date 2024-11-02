@@ -2,13 +2,15 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(StructureController))]
 public class TurretController : MonoBehaviour
 {
     public TurretProjectileController Projectile { get; private set; }
     public TurretRotationController Rotation { get; private set; }
     public TurretAoEController AoE { get; private set;}
     public EnemyController Target;
-    public HashSet<EnemyController> Targets = new();    
+    public HashSet<EnemyController> Targets = new();
+    private StructureController _structureController;
     
     void Awake()
     {
@@ -23,6 +25,10 @@ public class TurretController : MonoBehaviour
         Debug.Assert(triggers != null, "No TriggerEvents found on children");
         triggers.OnEnter.AddListener(HandleTriggerEntered);
         triggers.OnExit.AddListener(HandleTriggerExited);
+
+        _structureController = GetComponent<StructureController>();
+        _structureController.OnSelected.AddListener(HandleSelected);
+        _structureController.OnDeselected.AddListener(HandleDeselected);
     }
 
     void Update()
@@ -61,6 +67,19 @@ public class TurretController : MonoBehaviour
         if (exited == null) { return; }
         Targets.Remove(exited);
         exited.OnCleanup -= RemoveEnemy;
+    }
+
+    public void HandleSelected()
+    {
+        AoE.SetVisibility(true);
+        TileCanvasController.Instance.TurretMenu.transform.position = transform.position;
+        TileCanvasController.Instance.TurretMenu.Show();
+    }
+
+    public void HandleDeselected()
+    {
+        AoE.SetVisibility(false);
+        TileCanvasController.Instance.TurretMenu.Hide();
     }
 
     private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
