@@ -18,6 +18,7 @@ public class TileController : MonoBehaviour
     public StructureController Structure;
     public PowerCollectableController Collectable;
     public MeshRenderer Renderer;
+    public GameObject IsPoweredIndicator;
     public Material SelectedMaterial;
     private Material _previousMaterial;
 
@@ -28,7 +29,7 @@ public class TileController : MonoBehaviour
         mouseEvents.OnExit.AddListener(HandleMouseExited);
         mouseEvents.OnClick.AddListener(HandleMouseClick);
         _previousMaterial = Renderer.material;
-    }
+    }    
 
     public void HandleMouseEntered()
     {

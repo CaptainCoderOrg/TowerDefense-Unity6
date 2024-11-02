@@ -17,6 +17,10 @@ public class PowerCrystalController : MonoBehaviour
             _range = value;
             _sphereCaster.Radius = _range / 2f;
             RangeMesh.transform.localScale = new Vector3(_range, 0.01f, _range);
+            if (RangeMesh.enabled)
+            {
+                ShowRange();
+            }
         }
     }
     public PowerCollectableController CollectablePrefab;
@@ -44,8 +48,22 @@ public class PowerCrystalController : MonoBehaviour
         Range = _range;
     }
 
-    public void ShowRange() => RangeMesh.enabled = true;
-    public void HideRange() => RangeMesh.enabled = false;
+    public void ShowRange()
+    {
+        RangeMesh.enabled = true;
+        foreach (TileController inRange in FindTiles().Where(t => t.Tile.CanBuildWeapon))
+        {
+            inRange.IsPoweredIndicator.SetActive(true);
+        }
+    }
+    public void HideRange()
+    {
+        RangeMesh.enabled = false;
+        foreach (TileController inRange in FindTiles())
+        {
+            inRange.IsPoweredIndicator.SetActive(false);
+        }
+    }
 
     public void Select()
     {
