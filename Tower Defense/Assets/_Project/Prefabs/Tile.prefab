@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8539029511144483379}
   - component: {fileID: 7448266530377180176}
-  m_Layer: 9
+  - component: {fileID: 8770992157645956466}
+  m_Layer: 11
   m_Name: Tile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,8 +48,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Tile>k__BackingField: {fileID: 11400000, guid: 72074aa4a894df54885b0d19b9387d5f, type: 2}
   <MeshFilter>k__BackingField: {fileID: 3881965726552735596}
+  Structure: {fileID: 0}
+  Collectable: {fileID: 0}
   Renderer: {fileID: 1313771307631528870}
   SelectedMaterial: {fileID: 2100000, guid: 97455a79fbc03234ea3c2f39c25a34ea, type: 2}
+--- !u!65 &8770992157645956466
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917512961765744196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 1, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &430904838819731234
 PrefabInstance:
   m_ObjectHideFlags: 0

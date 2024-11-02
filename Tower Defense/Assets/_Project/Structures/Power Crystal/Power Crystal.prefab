@@ -4953,6 +4953,15 @@ MonoBehaviour:
   OnDeselected:
     m_PersistentCalls:
       m_Calls: []
+  OnDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnShowRange:
+    m_PersistentCalls:
+      m_Calls: []
+  OnHideRange:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5095976636559498499
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,7 +5065,7 @@ MonoBehaviour:
   GizmoColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 0.25490198}
   Layers:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 2048
 --- !u!1001 &3971582915517289783
 PrefabInstance:
   m_ObjectHideFlags: 0

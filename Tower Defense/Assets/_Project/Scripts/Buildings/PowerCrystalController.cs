@@ -79,7 +79,7 @@ public class PowerCrystalController : MonoBehaviour
     {
         Tiles = _sphereCaster
             .SphereCast()
-            .Select(c => c.GetComponentInParent<TileController>())
+            .Select(c => c.GetComponent<TileController>())
             .Where(c => c != null)
             .ToArray();
         return Tiles;
