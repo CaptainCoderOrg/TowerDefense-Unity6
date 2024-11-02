@@ -28,7 +28,7 @@ public class PowerCrystalController : MonoBehaviour
     public void SpawnPowerCollectable()
     {
         TileController[] potentialSpawnLocations = FindTiles()
-            .Where(t => !t.IsOccupied)
+            .Where(t => t.CanSpawnCollectable)
             .ToArray();
         if (potentialSpawnLocations.Length != 0)
         {

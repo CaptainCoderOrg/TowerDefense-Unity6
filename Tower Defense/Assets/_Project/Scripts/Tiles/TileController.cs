@@ -12,6 +12,7 @@ public class TileController : MonoBehaviour
     [field: SerializeField]
     public MeshFilter MeshFilter { get; private set; }
     public bool IsOccupied => Structure != null || Collectable != null;
+    public bool CanSpawnCollectable => Tile.CanSpawnCollectable && !IsOccupied;
     public StructureController Structure;
     public PowerCollectableController Collectable;
     public MeshRenderer Renderer;
