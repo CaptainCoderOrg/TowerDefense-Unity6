@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1266514751541554094}
-  - component: {fileID: 161939144936895680}
+  - component: {fileID: 2093926968906005542}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 2447831625086294852}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &161939144936895680
+--- !u!114 &2093926968906005542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,13 +42,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3205538275901721599}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d53ac09f40412be478978d81ce19a901, type: 3}
+  m_Script: {fileID: 11500000, guid: b945f32ee11e35845b4e8290375250a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToSpawn: {fileID: 6537427390169836250, guid: fe5de50019c421540bf1f4567de5b0c2, type: 3}
-  FirstWaypoint: {fileID: 0}
-  Delay: 10
+  Instructions: []
+  NextInstruction: 0
   NextSpawn: 0
+  FirstWaypoint: {fileID: 0}
 --- !u!1001 &2770497283152755887
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class DelaySpawnerController : MonoBehaviour
 {
     public EnemyController ToSpawn;
     public WaypointController FirstWaypoint;
