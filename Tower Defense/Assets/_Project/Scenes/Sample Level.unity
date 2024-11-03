@@ -5145,7 +5145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 18.75
+      value: 37.5
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -10863,7 +10863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 56.25
+      value: 112.5
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15171,6 +15171,10 @@ PrefabInstance:
     - target: {fileID: 1811680334468785887, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_Name
       value: Cannon (Shop Button)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811680334468785887, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_Pivot.x
@@ -21798,6 +21802,10 @@ PrefabInstance:
     - target: {fileID: 1811680334468785887, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_Name
       value: Catapult (Shop Button)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811680334468785887, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_Pivot.x
