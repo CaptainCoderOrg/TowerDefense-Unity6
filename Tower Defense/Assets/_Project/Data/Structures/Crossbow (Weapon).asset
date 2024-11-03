@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Crossbow (Weapon)
   m_EditorClassIdentifier: 
   Name: Crossbow
-  Price: 100
+  Price: 30
   Icon: {fileID: 8400000, guid: 5e70e6a188a0de147999e1bc4071e3dd, type: 2}
   Prefab: {fileID: 1733226467691631875, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
   RequiresPower: 1
