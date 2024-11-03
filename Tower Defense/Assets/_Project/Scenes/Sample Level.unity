@@ -13790,7 +13790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fb3844dfb820841b92b93d8717d784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cursor: {fileID: 0}
+  Cursor: {fileID: 1768483428}
   OnSelectTile:
     m_PersistentCalls:
       m_Calls: []

@@ -33,26 +33,15 @@ public class CursorManagerController : MonoBehaviour
     {
             _instance = null;
     }
+    public ICursorBehaviour CursorBehaviour;
 
-    public void EnterTile(TileController controller)
+    void Awake()
     {
-        if (!controller.Tile.CanBuildWeapon) { return; }
-        if (Selected != null) { return; }
-        controller.Highlight();
+         CursorBehaviour = new DefaultCursorBehaviour();
     }
-    public void ExitTile(TileController controller) => controller.Clear();
-    public void ClickTile(TileController controller)
-    {
-        if (!controller.Tile.CanBuildWeapon) { return; }
-        if (Selected != null) 
-        {
-            ClearSelection();
-            EnterTile(controller);
-            return; 
-        }
-        SelectTile(controller);
-        controller.Clear();
-    }
+    public void EnterTile(TileController controller) => CursorBehaviour.EnterTile(controller);
+    public void ExitTile(TileController controller) => CursorBehaviour.ExitTile(controller);
+    public void ClickTile(TileController controller) => CursorBehaviour.ClickTile(controller);
 
     public void SelectTile(TileController tile)
     {
