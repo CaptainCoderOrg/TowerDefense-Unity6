@@ -75,6 +75,11 @@ public class GameManagerController : MonoBehaviour
         SceneManager.LoadScene(current.buildIndex);
     }
 
+    public void QuitGame()
+    {
+        SceneManager.LoadScene("Title Screen");
+    }
+
     public void AddStructure(StructureController structure) => _structures.Add(structure);
     public void RemoveStructure(StructureController structure) => _structures.Remove(structure);
     
