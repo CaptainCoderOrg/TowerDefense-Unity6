@@ -29,33 +29,24 @@ public class TileController : MonoBehaviour
         mouseEvents.OnExit.AddListener(HandleMouseExited);
         mouseEvents.OnClick.AddListener(HandleMouseClick);
         _previousMaterial = Renderer.material;
-    }    
+    }
 
-    public void HandleMouseEntered()
+    public void Highlight()
     {
-        if (!Tile.CanBuildWeapon) { return; }
-        if (TileCanvasController.Instance.Selected != null) { return; }
         _previousMaterial = Renderer.material;
         Renderer.material = SelectedMaterial;
     }
 
-    public void HandleMouseExited()
+    public void Clear()
     {
         Renderer.material = _previousMaterial;
     }
 
-    public void HandleMouseClick()
-    {
-        if (!Tile.CanBuildWeapon) { return; }
-        if (TileCanvasController.Instance.Selected != null) 
-        {
-            TileCanvasController.Instance.ClearSelection();
-            HandleMouseEntered();
-            return; 
-        }
-        TileCanvasController.Instance.SelectTile(this);
-        Renderer.material = _previousMaterial;
-    }
+    public void HandleMouseEntered() => CursorManagerController.Instance.EnterTile(this);
+
+    public void HandleMouseExited() => CursorManagerController.Instance.ExitTile(this);
+
+    public void HandleMouseClick() => CursorManagerController.Instance.ClickTile(this);
 
     public void Rebuild()
     {
@@ -76,7 +67,7 @@ public class TileController : MonoBehaviour
     public bool CanBuild(StructureData structure)
     {
         if (Structure != null) { return false; }
-        if (!structure.RequiresPower) { return true;}
+        if (!structure.RequiresPower) { return true; }
         IEnumerable<TileController> tiles = GameManagerController.Instance.PowerCrystals.SelectMany(crystal => crystal.FindTiles());
         bool canBuild = tiles.Contains(this);
         return canBuild;
@@ -95,7 +86,7 @@ public class TileController : MonoBehaviour
         if (Structure == null) { return; }
         Structure.OnDeselected.Invoke();
         GameObject.Destroy(Structure.gameObject);
-        Structure = null;        
+        Structure = null;
     }
 
 }
