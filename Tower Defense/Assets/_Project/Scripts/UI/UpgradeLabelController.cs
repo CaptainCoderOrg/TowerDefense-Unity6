@@ -6,13 +6,7 @@ public abstract class UpgradeLabelController : MonoBehaviour
 {
     public TextMeshProUGUI PriceLabel;
     public TextMeshProUGUI ValueLabel;
-    public TileCanvasController TileCanvasController;
-
-    void Awake()
-    {
-        TileCanvasController = GetComponentInParent<TileCanvasController>();
-        Debug.Assert(TileCanvasController != null, "Could not find TileCanvasController");
-    }
+    public CursorManagerController CursorManager => CursorManagerController.Instance;
 
     public void UpdateLabels()
     {

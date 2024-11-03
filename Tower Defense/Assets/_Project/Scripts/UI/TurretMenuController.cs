@@ -2,20 +2,13 @@ using UnityEngine;
 
 public class TurretMenuController : MonoBehaviour
 {
-    public TileCanvasController TileCanvasController;
-    public TileController Selected => TileCanvasController.Selected;
+    public TileController Selected => CursorManagerController.Instance.Selected;
     [field: SerializeField]
     public UpgradeLabelController AoELabel { get; private set; }
     [field: SerializeField]
     public UpgradeLabelController DamageLabel { get; private set; }
     [field: SerializeField]
     public UpgradeLabelController SpeedLabel { get; private set; }
-
-    void Awake()
-    {
-        TileCanvasController = GetComponentInParent<TileCanvasController>();
-        Debug.Assert(TileCanvasController != null, "Could not find TileCanvasController");
-    }
 
     public void Show()
     {
@@ -31,6 +24,6 @@ public class TurretMenuController : MonoBehaviour
     {
         if (Selected == null) { return; }
         Selected.RemoveTurret();
-        TileCanvasController.ClearSelection();
+        CursorManagerController.Instance.ClearSelection();
     }
 }

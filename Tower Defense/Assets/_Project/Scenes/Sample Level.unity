@@ -5351,7 +5351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5423,7 +5423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8503,7 +8503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726a440f197cda44f8342e8a7ebc01dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileCanvasController: {fileID: 0}
   <AoELabel>k__BackingField: {fileID: 1813206133883184268}
   <DamageLabel>k__BackingField: {fileID: 1688953175}
   <SpeedLabel>k__BackingField: {fileID: 1493386538}
@@ -11659,7 +11658,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 37.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844601888694709847, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11731,7 +11730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -23
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5022248945529021125, guid: 4ef4b3f9403fc7c4793665d5010ed7e3, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -12017,7 +12016,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PriceLabel: {fileID: 1074033450}
   ValueLabel: {fileID: 1074033449}
-  TileCanvasController: {fileID: 0}
 --- !u!1 &1076635986
 GameObject:
   m_ObjectHideFlags: 0
@@ -13792,6 +13790,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30fb3844dfb820841b92b93d8717d784, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cursor: {fileID: 0}
+  OnSelectTile:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1324148355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16398,7 +16400,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PriceLabel: {fileID: 284817418}
   ValueLabel: {fileID: 1516170763}
-  TileCanvasController: {fileID: 0}
 --- !u!1001 &1503844336
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18019,7 +18020,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9c97cfe13bae4943a46178f848bf4a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileCanvasController: {fileID: 0}
   <RangeLabel>k__BackingField: {fileID: 1074033457}
 --- !u!1001 &1624276198
 PrefabInstance:
@@ -18610,11 +18610,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cd7c13b406f31c428fe991ce48332a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnSelectTile:
-    m_PersistentCalls:
-      m_Calls: []
-  Cursor: {fileID: 1768483428}
-  BuildMenu: {fileID: 1025549603}
   TurretMenu: {fileID: 0}
   CrystalMenu: {fileID: 0}
 --- !u!114 &1688435173
@@ -18721,7 +18716,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PriceLabel: {fileID: 1617190303}
   ValueLabel: {fileID: 1695025992}
-  TileCanvasController: {fileID: 0}
 --- !u!1 &1691379456
 GameObject:
   m_ObjectHideFlags: 0
@@ -23015,7 +23009,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PriceLabel: {fileID: 389442202}
   ValueLabel: {fileID: 516512522}
-  TileCanvasController: {fileID: 0}
 --- !u!1 &1894288792265649785
 GameObject:
   m_ObjectHideFlags: 0
