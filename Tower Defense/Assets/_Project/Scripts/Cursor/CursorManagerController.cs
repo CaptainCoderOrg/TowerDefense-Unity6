@@ -56,7 +56,11 @@ public class CursorManagerController : MonoBehaviour
     }
 
 
-    public void StartBuildMode(StructureData data) => CursorBehaviour = new BuildCursorBehaviour(data);
+    public void StartBuildMode(StructureData data)
+    {
+        CursorBehaviour = new BuildCursorBehaviour(data);
+        
+    }
     public void DefaultMode() => CursorBehaviour = new DefaultCursorBehaviour();
     public void EnterTile(TileController controller) => CursorBehaviour.EnterTile(controller);
     public void ExitTile(TileController controller) => CursorBehaviour.ExitTile(controller);

@@ -21,6 +21,7 @@ public class BuildButton : MonoBehaviour
     private void HandleClick()
     {
         CursorManagerController.Instance.StartBuildMode(Structure);
+        TabPanelController.Instance.Hide();
     }
 
 }

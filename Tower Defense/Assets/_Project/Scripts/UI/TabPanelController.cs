@@ -3,6 +3,25 @@ using UnityEngine;
 
 public class TabPanelController : MonoBehaviour
 {
+    private static TabPanelController _instance;
+    public static TabPanelController Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindFirstObjectByType<TabPanelController>();
+                Debug.Assert(_instance != null, $"Unable to find {nameof(TabPanelController)}");
+            }
+            return _instance;
+        }
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Init()
+    {
+        _instance = null;
+    }
     public Animator Animator;
     public bool IsShowing;
 
