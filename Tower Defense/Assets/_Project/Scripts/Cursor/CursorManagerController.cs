@@ -6,9 +6,9 @@ public class CursorManagerController : MonoBehaviour
     public GameObject Cursor;
     public UnityEvent<TileController> OnSelectTile;
     private TileController _selected;
-    public TileController Selected 
-    { 
-        get => _selected; 
+    public TileController Selected
+    {
+        get => _selected;
         private set
         {
             _selected = value;
@@ -16,9 +16,9 @@ public class CursorManagerController : MonoBehaviour
         }
     }
     private static CursorManagerController _instance;
-    public static CursorManagerController Instance 
-    { 
-        get 
+    public static CursorManagerController Instance
+    {
+        get
         {
             if (_instance == null)
             {
@@ -31,34 +31,33 @@ public class CursorManagerController : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()
     {
-            _instance = null;
+        _instance = null;
     }
-    public ICursorBehaviour CursorBehaviour;
+    private ICursorBehaviour _cursorBehaviour;
+    public ICursorBehaviour CursorBehaviour
+    {
+        get => _cursorBehaviour;
+        private set
+        {
+            _cursorBehaviour?.Deinitialize();
+            if (Selected != null)
+            {
+                _cursorBehaviour?.ExitTile(Selected);
+            }
+            _cursorBehaviour = value;
+            _cursorBehaviour.Initialize();
+            ClearSelection();
+        }
+    }
 
     void Awake()
     {
-         CursorBehaviour = new DefaultCursorBehaviour();
+        CursorBehaviour = new DefaultCursorBehaviour();
     }
 
-    public void StartBuildMode(StructureData data)
-    {
-        Debug.Log("Build mode activated");
-        if (Selected != null) 
-        { 
-            CursorBehaviour.ExitTile(Selected);
-        }        
-        CursorBehaviour = new BuildCursorBehaviour(data);
-        ClearSelection();
-    }
-    public void DefaultMode()
-    {
-        if (Selected != null) 
-        { 
-            CursorBehaviour.ExitTile(Selected);
-        }        
-        CursorBehaviour = new DefaultCursorBehaviour();
-        ClearSelection();
-    }
+
+    public void StartBuildMode(StructureData data) => CursorBehaviour = new BuildCursorBehaviour(data);
+    public void DefaultMode() => CursorBehaviour = new DefaultCursorBehaviour();
     public void EnterTile(TileController controller) => CursorBehaviour.EnterTile(controller);
     public void ExitTile(TileController controller) => CursorBehaviour.ExitTile(controller);
     public void ClickTile(TileController controller) => CursorBehaviour.ClickTile(controller);
@@ -72,10 +71,6 @@ public class CursorManagerController : MonoBehaviour
         {
             // BuildMenu.transform.position = tile.transform.position;
             // BuildMenu.SetActive(true);
-            // foreach (StructureController controller in GameManagerController.Instance.Structures)
-            // {
-            //     controller.OnShowRange.Invoke();
-            // }
         }
         else
         {
@@ -88,10 +83,5 @@ public class CursorManagerController : MonoBehaviour
         Selected?.Structure?.OnDeselected.Invoke();
         Selected = null;
         Cursor.SetActive(false);
-        // BuildMenu.SetActive(false);
-        foreach (StructureController controller in GameManagerController.Instance.Structures)
-        {
-            controller.OnHideRange.Invoke();
-        }
     }
 }

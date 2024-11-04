@@ -4,18 +4,34 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
 {
     public StructureData Structure { get; private set; }
     CursorManagerController Cursor => CursorManagerController.Instance;
-    public BuildCursorBehaviour(StructureData structureData)
+    private GameObject _preview;
+    public BuildCursorBehaviour(StructureData structureData) => Structure = structureData;
+
+    public void Initialize()
     {
-        Structure = structureData;
         _preview = GameObject.Instantiate(Structure.Preview);
         _preview.SetActive(false);
+        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        {
+            controller.OnShowRange.Invoke();
+        }
     }
-    private GameObject _preview;
+
+    public void Deinitialize()
+    {
+        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        {
+            controller.OnHideRange.Invoke();
+        }
+    }
 
     public void ClickTile(TileController controller)
     {
-        controller.Build(Structure);
-        CursorManagerController.Instance.DefaultMode();
+        if(controller.Build(Structure))
+        {
+            CursorManagerController.Instance.DefaultMode();
+            GameObject.Destroy(_preview);
+        }
     }
 
     public void EnterTile(TileController controller)

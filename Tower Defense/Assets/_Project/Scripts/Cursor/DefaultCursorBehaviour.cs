@@ -12,6 +12,16 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
         }
         Cursor.SelectTile(controller);
         controller.Clear();
+    } 
+
+    public void Initialize()
+    {
+        
+    }
+
+    public void Deinitialize()
+    {
+        
     }
 
     public void EnterTile(TileController controller)
@@ -22,4 +32,6 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
     }
 
     public void ExitTile(TileController controller) => controller.Clear();
+
+    
 }

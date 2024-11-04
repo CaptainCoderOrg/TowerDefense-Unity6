@@ -74,12 +74,19 @@ public class TileController : MonoBehaviour
         return canBuild;
     }
 
-    public void Build(StructureData structure)
+    /// <summary>
+    /// Attempts to build the specified structure on this tile. Returns true if the structure was placed and false
+    /// otherwise.
+    /// </summary>
+    /// <param name="structure"></param>
+    /// <returns></returns>
+    public bool Build(StructureData structure)
     {
-        if (!CanBuild(structure)) { return; }
+        if (!CanBuild(structure)) { return false; }
         Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
         GameManagerController.Instance.AddStructure(Structure);
         Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
+        return true;
     }
 
     public void RemoveTurret()
