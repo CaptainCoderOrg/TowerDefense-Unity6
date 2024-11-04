@@ -66,6 +66,7 @@ public class TileController : MonoBehaviour
 
     public bool CanBuild(StructureData structure)
     {
+        if (!Tile.CanBuildWeapon) { return false;}
         if (Structure != null) { return false; }
         if (!structure.RequiresPower) { return true; }
         IEnumerable<TileController> tiles = GameManagerController.Instance.PowerCrystals.SelectMany(crystal => crystal.FindTiles());

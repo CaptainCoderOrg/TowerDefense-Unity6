@@ -39,6 +39,26 @@ public class CursorManagerController : MonoBehaviour
     {
          CursorBehaviour = new DefaultCursorBehaviour();
     }
+
+    public void StartBuildMode(StructureData data)
+    {
+        Debug.Log("Build mode activated");
+        if (Selected != null) 
+        { 
+            CursorBehaviour.ExitTile(Selected);
+        }        
+        CursorBehaviour = new BuildCursorBehaviour(data);
+        ClearSelection();
+    }
+    public void DefaultMode()
+    {
+        if (Selected != null) 
+        { 
+            CursorBehaviour.ExitTile(Selected);
+        }        
+        CursorBehaviour = new DefaultCursorBehaviour();
+        ClearSelection();
+    }
     public void EnterTile(TileController controller) => CursorBehaviour.EnterTile(controller);
     public void ExitTile(TileController controller) => CursorBehaviour.ExitTile(controller);
     public void ClickTile(TileController controller) => CursorBehaviour.ClickTile(controller);
@@ -65,7 +85,7 @@ public class CursorManagerController : MonoBehaviour
 
     public void ClearSelection()
     {
-        Selected.Structure?.OnDeselected.Invoke();
+        Selected?.Structure?.OnDeselected.Invoke();
         Selected = null;
         Cursor.SetActive(false);
         // BuildMenu.SetActive(false);

@@ -15164,28 +15164,19 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
   m_PrefabInstance: {fileID: 279427256644601612}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1345676761
-Animator:
-  serializedVersion: 7
+--- !u!114 &1345676765
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345676756}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3b0e35d2c5c5a6145bb0cbaecade908a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 497e175401be49d4cbdf6fe55f46e2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Structure: {fileID: 11400000, guid: 5da18385d48bfc241befb5a78b8e7512, type: 2}
 --- !u!1001 &1346793538
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22558,30 +22549,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 385316987}
     m_Modifications:
-    - target: {fileID: 532001545007110598, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
-      propertyPath: m_Transition
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 3282895884053758348, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: c097824f5038fa64980b183f0547b4cb, type: 3}
-    - target: {fileID: 3282895884053758348, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465073147713749958, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465073147713749958, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465073147713749958, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -8.52
-      objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -22672,7 +22639,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8986668913079527247, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1345676761}
+      addedObject: {fileID: 1345676765}
   m_SourcePrefab: {fileID: 100100000, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
 --- !u!33 &533369551455516617
 MeshFilter:
