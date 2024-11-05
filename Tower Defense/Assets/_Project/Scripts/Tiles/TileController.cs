@@ -28,6 +28,7 @@ public class TileController : MonoBehaviour
         mouseEvents.OnEnter.AddListener(HandleMouseEntered);
         mouseEvents.OnExit.AddListener(HandleMouseExited);
         mouseEvents.OnClick.AddListener(HandleMouseClick);
+        mouseEvents.OnRightClick.AddListener(HandleRightClick);
         _previousMaterial = Renderer.material;
     }
 
@@ -47,6 +48,7 @@ public class TileController : MonoBehaviour
     public void HandleMouseExited() => CursorManagerController.Instance.ExitTile(this);
 
     public void HandleMouseClick() => CursorManagerController.Instance.ClickTile(this);
+    public void HandleRightClick() => CursorManagerController.Instance.RightClickTile(this); 
 
     public void Rebuild()
     {

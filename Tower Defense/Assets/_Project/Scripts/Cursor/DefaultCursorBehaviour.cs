@@ -10,9 +10,13 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
             EnterTile(controller);
             return; 
         }
-        Cursor.SelectTile(controller);
         controller.Clear();
-    } 
+    }
+
+    public void RightClickTile(TileController controller)
+    {
+        
+    }
 
     public void Initialize()
     {

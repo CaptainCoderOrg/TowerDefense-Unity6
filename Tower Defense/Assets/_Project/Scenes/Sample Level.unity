@@ -3660,6 +3660,7 @@ MonoBehaviour:
   OnGameOver:
     m_PersistentCalls:
       m_Calls: []
+  InfoText: {fileID: 3444053298303371417}
   MoneyText: {fileID: 82939272}
   _money: 200
 --- !u!1001 &311311244
@@ -22787,6 +22788,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
   m_PrefabInstance: {fileID: 3444053298303371414}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3444053298303371417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2730209826725329547, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
+  m_PrefabInstance: {fileID: 3444053298303371414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4953646560036511557
 GameObject:
   m_ObjectHideFlags: 0

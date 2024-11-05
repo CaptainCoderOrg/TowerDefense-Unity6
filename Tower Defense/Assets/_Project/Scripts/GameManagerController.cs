@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerController : MonoBehaviour
 {
     public UnityEvent OnGameOver;
+    public TextMeshProUGUI InfoText;
     // [field: SerializeField]
     // private List<StructureController> _structures = new();
     private HashSet<StructureController> _structures = new();
@@ -55,6 +56,7 @@ public class GameManagerController : MonoBehaviour
 
     void Awake()
     {
+        InfoText.text = "";
         UpdateMoney();
     }
 

@@ -65,6 +65,7 @@ public class CursorManagerController : MonoBehaviour
     public void EnterTile(TileController controller) => CursorBehaviour.EnterTile(controller);
     public void ExitTile(TileController controller) => CursorBehaviour.ExitTile(controller);
     public void ClickTile(TileController controller) => CursorBehaviour.ClickTile(controller);
+    public void RightClickTile(TileController controller) => CursorBehaviour.RightClickTile(controller); 
 
     public void SelectTile(TileController tile)
     {

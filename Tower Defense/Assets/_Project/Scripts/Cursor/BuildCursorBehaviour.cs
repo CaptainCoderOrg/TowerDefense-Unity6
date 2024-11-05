@@ -24,6 +24,7 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
         {
             controller.OnHideRange.Invoke();
         }
+        GameManager.InfoText.text = "";
     }
 
     public void ClickTile(TileController controller)
@@ -32,23 +33,32 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
         {
             return;
         }
-        if(controller.Build(Structure))
+        if (controller.Build(Structure))
         {
             GameManager.Money -= Structure.Price;
-            CursorManagerController.Instance.DefaultMode();
-            GameObject.Destroy(_preview);
+            _preview.SetActive(false);
+            GameManager.InfoText.text = "<sprite index=2> Cancel";
         }
+    }
+
+    public void RightClickTile(TileController controller)
+    {
+        Cursor.DefaultMode();
+        _preview.SetActive(false);
+        GameManager.InfoText.text = "";
     }
 
     public void EnterTile(TileController controller)
     {
         if (!controller.CanBuild(Structure)) { return; }
+        GameManager.InfoText.text = "<sprite index=1> Buy    <sprite index=2> Cancel";
         _preview.transform.position = controller.transform.position;
         _preview.SetActive(true);
     }
 
     public void ExitTile(TileController controller)
     {
+        GameManager.InfoText.text = "<sprite index=2> Cancel";
         _preview.SetActive(false);
     }
 }
