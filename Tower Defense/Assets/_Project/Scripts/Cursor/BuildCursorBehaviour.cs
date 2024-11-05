@@ -4,6 +4,7 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
 {
     public StructureData Structure { get; private set; }
     CursorManagerController Cursor => CursorManagerController.Instance;
+    GameManagerController GameManager => GameManagerController.Instance;
     private GameObject _preview;
     public BuildCursorBehaviour(StructureData structureData) => Structure = structureData;
 
@@ -27,8 +28,13 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
 
     public void ClickTile(TileController controller)
     {
+        if (GameManager.Money < Structure.Price)
+        {
+            return;
+        }
         if(controller.Build(Structure))
         {
+            GameManager.Money -= Structure.Price;
             CursorManagerController.Instance.DefaultMode();
             GameObject.Destroy(_preview);
         }
