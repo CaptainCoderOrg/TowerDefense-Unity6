@@ -10,6 +10,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
             EnterTile(controller);
             return; 
         }
+        Cursor.SelectTile(controller);
         controller.Clear();
     }
 

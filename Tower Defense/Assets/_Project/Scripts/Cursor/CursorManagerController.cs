@@ -69,18 +69,11 @@ public class CursorManagerController : MonoBehaviour
 
     public void SelectTile(TileController tile)
     {
+        if (tile.Structure == null) { return; }
         Cursor.transform.position = tile.transform.position;
         Cursor.SetActive(true);
         Selected = tile;
-        if (tile.Structure == null)
-        {
-            // BuildMenu.transform.position = tile.transform.position;
-            // BuildMenu.SetActive(true);
-        }
-        else
-        {
-            Selected.Structure.OnSelected.Invoke();
-        }
+        Selected.Structure.OnSelected.Invoke();
     }
 
     public void ClearSelection()
