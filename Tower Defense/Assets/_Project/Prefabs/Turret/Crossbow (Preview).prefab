@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossbow (Preview)
       objectReference: {fileID: 0}
+    - target: {fileID: 6545915059758198865, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6545915059758198865, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e16110200c61fd740acc667c6cc89a2a, type: 2}
     - target: {fileID: 6771966078258929954, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -52,6 +60,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8798073168293638747, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798073168293638747, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: adc683ed875b57245ab02d94bd5941e1, type: 2}
     m_RemovedComponents:
     - {fileID: 217308670759728175, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}
     - {fileID: 5627944564269483278, guid: 41d7c745206f8c44dad4b61927e055c2, type: 3}

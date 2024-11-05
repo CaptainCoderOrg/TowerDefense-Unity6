@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2367890921481669043, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: daaa075f4d3bb574582901f1f2037af8, type: 2}
     - target: {fileID: 2882176175644663388, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
       propertyPath: m_Name
       value: Power Crystal (Preview)
@@ -68,6 +72,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7824593624806205509, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8df365f364bade1478fb40ca26fd9973, type: 2}
     m_RemovedComponents:
     - {fileID: 821016828821943861, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
     - {fileID: 4044792865092769195, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
