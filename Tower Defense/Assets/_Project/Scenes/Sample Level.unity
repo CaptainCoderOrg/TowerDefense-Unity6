@@ -1686,6 +1686,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossbow (Button)
       objectReference: {fileID: 0}
+    - target: {fileID: 9221793457428679854, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221793457428679854, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221793457428679854, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.000015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6791,14 +6803,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.9547169, g: 0.85434043, b: 0.6106586, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 15d487451fb669540a0d9b57ed891677, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ba32339c429d22b469906515580a8329, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8365,7 +8377,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 237, y: -0}
-  m_SizeDelta: {x: 288.29, y: 0}
+  m_SizeDelta: {x: 336.34, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &803464522
 MonoBehaviour:
@@ -8410,8 +8422,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4281298613
+  m_fontColor: {r: 0.70980394, g: 0.43137258, b: 0.18431373, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8428,8 +8440,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11921,8 +11933,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -40, y: -40}
+  m_AnchoredPosition: {x: 0, y: -5}
+  m_SizeDelta: {x: -40, y: -50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1076635988
 MonoBehaviour:
@@ -22173,6 +22185,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Power Crystal (Button)
       objectReference: {fileID: 0}
+    - target: {fileID: 9221793457428679854, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221793457428679854, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9221793457428679854, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 8.000015
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22680,7 +22704,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2730209826725329547, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_text
-      value: <sprite index=1> Buy    <sprite index=2> Cancel
+      value: <sprite index=2> Buy    <sprite index=2> Cancel
       objectReference: {fileID: 0}
     - target: {fileID: 2730209826725329547, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_fontSize
@@ -23239,6 +23263,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+  OnRightClick:
     m_PersistentCalls:
       m_Calls: []
 --- !u!198 &7318497012642151421
