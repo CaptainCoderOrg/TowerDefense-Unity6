@@ -74,7 +74,7 @@ public class PowerCrystalController : MonoBehaviour
 
     public void Deselect()
     {
-        RangeMesh.enabled = false;
+        HideRange();
         TileCanvasController.Instance.CrystalMenu.Hide();
     }
 

@@ -32,6 +32,4 @@ public class TileCanvasController : MonoBehaviour
         CrystalMenu = GetComponentInChildren<PowerCrystalMenuController>(true);
         Debug.Assert(CrystalMenu != null, "Could not find CrystalMenu");
     }
-
-
 }

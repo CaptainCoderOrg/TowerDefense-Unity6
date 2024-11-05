@@ -1700,7 +1700,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1708,23 +1708,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 449.02
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1748,11 +1748,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 292
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5768223055428276260, guid: 39b155abe5ddb4c4cb966f258e709b67, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16623,9 +16623,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1688435172}
-        m_TargetAssemblyTypeName: TileCanvasController, Assembly-CSharp
-        m_MethodName: ClearSelection
+      - m_Target: {fileID: 1310819650}
+        m_TargetAssemblyTypeName: CursorManagerController, Assembly-CSharp
+        m_MethodName: DefaultMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21255,9 +21255,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1688435172}
-        m_TargetAssemblyTypeName: TileCanvasController, Assembly-CSharp
-        m_MethodName: ClearSelection
+      - m_Target: {fileID: 1310819650}
+        m_TargetAssemblyTypeName: CursorManagerController, Assembly-CSharp
+        m_MethodName: DefaultMode
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
