@@ -16,6 +16,7 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
         {
             controller.OnShowRange.Invoke();
         }
+        GameManager.InfoText.text = "<sprite index=2> Cancel";
     }
 
     public void Deinitialize()
