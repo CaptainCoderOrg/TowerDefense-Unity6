@@ -1,14 +1,9 @@
-using System;
-using NaughtyAttributes;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class BuildButton : MonoBehaviour
 {
-    // public TextMeshProUGUI PriceText;
-    // public RawImage Image;
     public StructureData Structure;
     private Button _button;
 
@@ -16,6 +11,11 @@ public class BuildButton : MonoBehaviour
     {
         _button = GetComponentInChildren<Button>();
         _button.onClick.AddListener(HandleClick);
+        TextMeshProUGUI price = GetComponentInChildren<TextMeshProUGUI>();
+        price.text = Structure.Price.ToString();
+        RawImage image = GetComponentInChildren<RawImage>();
+        image.texture = Structure.Icon;
+        
     }
 
     private void HandleClick()
@@ -23,5 +23,4 @@ public class BuildButton : MonoBehaviour
         CursorManagerController.Instance.StartBuildMode(Structure);
         TabPanelController.Instance.Hide();
     }
-
 }
