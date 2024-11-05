@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 
 public class TabPanelController : MonoBehaviour
@@ -22,6 +23,8 @@ public class TabPanelController : MonoBehaviour
     {
         _instance = null;
     }
+    public TextMeshProUGUI NameText;
+    public TextMeshProUGUI DescriptionText;
     public Animator Animator;
     public bool IsShowing;
 

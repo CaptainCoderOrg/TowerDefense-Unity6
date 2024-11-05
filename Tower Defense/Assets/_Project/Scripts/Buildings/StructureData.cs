@@ -4,6 +4,8 @@ using UnityEngine;
 public class StructureData : ScriptableObject
 {
     public string Name;
+    [TextArea(1, 5)]
+    public string Description;
     public int Price;
     public Texture Icon;
     public StructureController Prefab;
