@@ -8,6 +8,7 @@ public class StructureController : MonoBehaviour
     public UnityEvent<StructureController> OnDestroyed;
     public UnityEvent OnShowRange;
     public UnityEvent OnHideRange;
+    public UnityEvent OnSpawn;
     public StructureController CloneInstance(Vector3 position, Quaternion rotation)
     {
         return GameObject.Instantiate(this, position, rotation);

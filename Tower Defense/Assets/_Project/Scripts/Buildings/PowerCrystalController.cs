@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CooldownController), typeof(StructureController))]
 public class PowerCrystalController : MonoBehaviour
 {
+    private Animator _animator;
     [field: SerializeField]
     public CooldownController Cooldown { get; private set; }
     public int RangeUpgradePrice => Mathf.RoundToInt(150 * Range);
@@ -33,6 +34,7 @@ public class PowerCrystalController : MonoBehaviour
     void Awake()
     {
         if (IsDecoration) { return; }
+        _animator = GetComponent<Animator>();
         Cooldown = GetComponent<CooldownController>();
         Cooldown.OnCooldownFinished.AddListener(SpawnPowerCollectables);
 
@@ -45,7 +47,13 @@ public class PowerCrystalController : MonoBehaviour
         _structureController.OnDeselected.AddListener(Deselect);
         _structureController.OnShowRange.AddListener(ShowRange);
         _structureController.OnHideRange.AddListener(HideRange);
+        _structureController.OnSpawn.AddListener(SpawnAnimation);
         Range = _range;
+    }
+
+    public void SpawnAnimation()
+    {
+        _animator.SetTrigger("Spawn");
     }
 
     public void ShowRange()

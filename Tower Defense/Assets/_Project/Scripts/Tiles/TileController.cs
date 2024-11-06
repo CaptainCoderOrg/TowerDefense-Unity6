@@ -87,6 +87,7 @@ public class TileController : MonoBehaviour
         if (!CanBuild(structure)) { return false; }
         Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
         GameManagerController.Instance.AddStructure(Structure);
+        Structure.OnSpawn.Invoke();
         Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
         return true;
     }
