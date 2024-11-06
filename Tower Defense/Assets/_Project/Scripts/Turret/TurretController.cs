@@ -11,6 +11,7 @@ public class TurretController : MonoBehaviour
     public EnemyController Target;
     public HashSet<EnemyController> Targets = new();
     private StructureController _structureController;
+    private Animator _animator;
     
     void Awake()
     {
@@ -20,23 +21,27 @@ public class TurretController : MonoBehaviour
         Debug.Assert(Rotation != null, $"Expected {nameof(TurretRotationController)}");
         AoE = GetComponent<TurretAoEController>();
         Debug.Assert(AoE != null, $"Expected {nameof(TurretAoEController)}");
+        _animator = GetComponent<Animator>();
         
         TriggerEvents triggers = GetComponentInChildren<TriggerEvents>();
         Debug.Assert(triggers != null, "No TriggerEvents found on children");
         triggers.OnEnter.AddListener(HandleTriggerEntered);
         triggers.OnExit.AddListener(HandleTriggerExited);
+        
 
         _structureController = GetComponent<StructureController>();
         _structureController.OnSelected.AddListener(HandleSelected);
         _structureController.OnDeselected.AddListener(HandleDeselected);
         _structureController.OnShowRange.AddListener(ShowAoE);
         _structureController.OnHideRange.AddListener(HideAoE);
+        _structureController.OnSpawn.AddListener(_structureController.DefaultSpawnAnimation);
     }
 
     void Update()
     {
         Target = DetermineTarget(Targets);
     }
+
 
     public static EnemyController DetermineTarget(HashSet<EnemyController> potentialTargets)
     {
