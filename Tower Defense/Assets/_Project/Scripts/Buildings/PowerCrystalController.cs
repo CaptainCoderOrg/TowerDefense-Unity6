@@ -34,7 +34,7 @@ public class PowerCrystalController : MonoBehaviour
     {
         if (IsDecoration) { return; }
         Cooldown = GetComponent<CooldownController>();
-        Cooldown.OnCooldownFinished.AddListener(SpawnPowerCollectable);
+        Cooldown.OnCooldownFinished.AddListener(SpawnPowerCollectables);
 
         _sphereCaster = GetComponentInChildren<SphereCaster>();
         Debug.Assert(_sphereCaster != null);
@@ -78,7 +78,7 @@ public class PowerCrystalController : MonoBehaviour
         TileCanvasController.Instance.CrystalMenu.Hide();
     }
 
-    public void SpawnPowerCollectable()
+    public void SpawnPowerCollectables()
     {
         TileController[] potentialSpawnLocations = FindTiles()
             .Where(t => t.CanSpawnCollectable)

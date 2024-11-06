@@ -8,7 +8,7 @@ public class PowerCollectableController : MonoBehaviour
     void Awake()
     {
         _events = GetComponentInChildren<MouseEvents>();
-        _events.OnClick.AddListener(Collect);
+        _events.OnEnter.AddListener(Collect);
     }
 
     public void Collect()
