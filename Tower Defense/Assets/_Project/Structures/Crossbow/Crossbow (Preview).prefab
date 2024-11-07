@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 604230380627362912, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 639962435277861625, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1995065379195639102, guid: c1987099f572bd847a6541817537ce16, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -15,6 +23,18 @@ PrefabInstance:
     - target: {fileID: 4699068355495059172, guid: c1987099f572bd847a6541817537ce16, type: 3}
       propertyPath: m_Name
       value: Crossbow (Preview)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449410176764264128, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5583698485358753051, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5718036941931800598, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7285403128670373647, guid: c1987099f572bd847a6541817537ce16, type: 3}
       propertyPath: m_LocalPosition.x
@@ -54,6 +74,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7285403128670373647, guid: c1987099f572bd847a6541817537ce16, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7638264351607008203, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7895942795273826286, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769488278501661528, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8930440555059149937, guid: c1987099f572bd847a6541817537ce16, type: 3}
