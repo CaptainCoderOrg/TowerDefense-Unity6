@@ -24,6 +24,7 @@ public class BuildButton : MonoBehaviour, IPointerEnterHandler
     {
         CursorManagerController.Instance.StartBuildMode(Structure);
         TabPanelController.Instance.Hide();
+        RadialMenuController.Instance.AddStructure(Structure);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -1,8 +1,10 @@
 public sealed class DefaultCursorBehaviour : ICursorBehaviour
 {
+    private RadialMenuController RadialMenu => RadialMenuController.Instance;
     CursorManagerController Cursor => CursorManagerController.Instance;
     public void ClickTile(TileController controller)
     {
+        RadialMenu.gameObject.SetActive(false);   
         if (!controller.Tile.CanBuildWeapon) { return; }
         if (Cursor.Selected != null) 
         {
@@ -16,7 +18,8 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
 
     public void RightClickTile(TileController controller)
     {
-        
+        RadialMenu.transform.position = controller.transform.position;
+        RadialMenu.gameObject.SetActive(true);   
     }
 
     public void Initialize()
