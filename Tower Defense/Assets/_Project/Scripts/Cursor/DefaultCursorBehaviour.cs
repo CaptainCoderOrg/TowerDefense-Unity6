@@ -20,8 +20,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
 
     public void RightClickTile(TileController controller)
     {
-        RadialMenu.transform.position = controller.transform.position;
-        RadialMenu.gameObject.SetActive(true);   
+        RadialMenu.Show(controller);
     }
 
     public void Initialize()

@@ -30,13 +30,8 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
 
     public void ClickTile(TileController controller)
     {
-        if (GameManager.Money < Structure.Price)
+        if (GameManager.TryPurchaseStructure(controller, Structure))
         {
-            return;
-        }
-        if (controller.Build(Structure))
-        {
-            GameManager.Money -= Structure.Price;
             _preview.SetActive(false);
             GameManager.InfoText.text = "<sprite index=2> Cancel";
         }

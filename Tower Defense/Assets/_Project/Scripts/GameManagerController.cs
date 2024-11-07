@@ -16,9 +16,9 @@ public class GameManagerController : MonoBehaviour
     public IEnumerable<StructureController> Structures => _structures.ToList();
     public IEnumerable<PowerCrystalController> PowerCrystals => _structures.GetComponents<PowerCrystalController>();
     private static GameManagerController _instance;
-    public static GameManagerController Instance 
-    { 
-        get 
+    public static GameManagerController Instance
+    {
+        get
         {
             if (_instance == null)
             {
@@ -31,16 +31,16 @@ public class GameManagerController : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()
     {
-            _instance = null;
+        _instance = null;
     }
-    
+
     public TextMeshProUGUI MoneyText;
-    
+
     [SerializeField]
     private int _money = 500;
-    public int Money 
-    { 
-        get => _money; 
+    public int Money
+    {
+        get => _money;
         set
         {
             _money = value;
@@ -69,7 +69,7 @@ public class GameManagerController : MonoBehaviour
     {
         OnGameOver.Invoke();
     }
-     
+
     public void TryAgain()
     {
         Scene current = SceneManager.GetActiveScene();
@@ -81,7 +81,16 @@ public class GameManagerController : MonoBehaviour
         SceneManager.LoadScene("Title Screen");
     }
 
+    public bool TryPurchaseStructure(TileController controller, StructureData structure)
+    {
+        if (Money < structure.Price) { return false; }
+        if (!controller.Build(structure)) { return false; }
+        Money -= structure.Price;
+        return true;
+    }
+
+
     public void AddStructure(StructureController structure) => _structures.Add(structure);
     public void RemoveStructure(StructureController structure) => _structures.Remove(structure);
-    
+
 }

@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public sealed class RadialMenuController : MonoBehaviour
 {
+    private TileController _selected;
     private List<StructureData> _recentStructures = new();
     private RadialMenuButtonController[] _buttons;
     private static RadialMenuController _instance;
@@ -36,16 +38,41 @@ public sealed class RadialMenuController : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(0))
         {
-            gameObject.SetActive(false);
+            StartCoroutine(DisableAtEndOfFrame());
         }
+    }
+
+    private IEnumerator DisableAtEndOfFrame()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForEndOfFrame();
+        gameObject.SetActive(false);
+        StopAllCoroutines();
+    }
+
+    public void Show(TileController tile)
+    {
+        transform.position = tile.transform.position;
+        gameObject.SetActive(true);
+        _selected = tile;
     }
 
     public void ClickButton(StructureData structureData)
     {
-        gameObject.SetActive(false);
-        CursorManagerController.Instance.StartBuildMode(structureData);
+        if (_selected == null) { return; }
+        if (GameManagerController.Instance.TryPurchaseStructure(_selected, structureData))
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("Could not purchase at location");
+        }
+        
     }
 
     public void AddStructure(StructureData structureData)
