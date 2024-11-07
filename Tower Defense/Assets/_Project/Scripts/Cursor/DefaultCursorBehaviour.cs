@@ -1,7 +1,9 @@
+using UnityEngine;
 public sealed class DefaultCursorBehaviour : ICursorBehaviour
 {
     private RadialMenuController RadialMenu => RadialMenuController.Instance;
     CursorManagerController Cursor => CursorManagerController.Instance;
+    private TileController _lastTile;
     public void ClickTile(TileController controller)
     {
         RadialMenu.gameObject.SetActive(false);   
@@ -29,7 +31,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
 
     public void Deinitialize()
     {
-        
+        _lastTile?.Clear();
     }
 
     public void EnterTile(TileController controller)
@@ -37,6 +39,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
         if (!controller.Tile.CanBuildWeapon) { return; }
         if (Cursor.Selected != null) { return; }
         controller.Highlight();
+        _lastTile = controller;
     }
 
     public void ExitTile(TileController controller) => controller.Clear();

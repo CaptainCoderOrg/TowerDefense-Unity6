@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 public sealed class RadialMenuController : MonoBehaviour
 {
@@ -30,6 +31,14 @@ public sealed class RadialMenuController : MonoBehaviour
         foreach (RadialMenuButtonController b in _buttons)
         {
             b.gameObject.SetActive(false);
+        }
+    }
+
+    public void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
+        {
+            gameObject.SetActive(false);
         }
     }
 

@@ -34,7 +34,6 @@ public class TileController : MonoBehaviour
 
     public void Highlight()
     {
-        _previousMaterial = Renderer.material;
         Renderer.material = SelectedMaterial;
     }
 
