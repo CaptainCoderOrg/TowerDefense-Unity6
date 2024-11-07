@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 public sealed class RadialMenuController : MonoBehaviour
 {
     private TileController _selected;
@@ -34,39 +32,39 @@ public sealed class RadialMenuController : MonoBehaviour
         {
             b.gameObject.SetActive(false);
         }
+        GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
     }
 
-    public void Update()
+    void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
         {
-            StartCoroutine(DisableAtEndOfFrame());
+            Hide();
         }
     }
 
-    private IEnumerator DisableAtEndOfFrame()
+    private void MenuChanged(GameObject Menu)
     {
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForEndOfFrame();
-        gameObject.SetActive(false);
-        StopAllCoroutines();
+        if (Menu == this.gameObject) { return; }
+        Hide();
     }
 
     public void Show(TileController tile)
     {
+        GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
         transform.position = tile.transform.position;
         gameObject.SetActive(true);
         _selected = tile;
     }
+
+    public void Hide() => gameObject.SetActive(false);
 
     public void ClickButton(StructureData structureData)
     {
         if (_selected == null) { return; }
         if (GameManagerController.Instance.TryPurchaseStructure(_selected, structureData))
         {
-            gameObject.SetActive(false);
+            Hide();
         }
         else
         {
@@ -89,4 +87,5 @@ public sealed class RadialMenuController : MonoBehaviour
             b.Button.onClick.AddListener(() => ClickButton(structure));
         }
     }
+
 }

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class GameManagerController : MonoBehaviour
 {
     public UnityEvent OnGameOver;
+    public UnityEvent<GameObject> OnMenuChanged;
     public TextMeshProUGUI InfoText;
     // [field: SerializeField]
     // private List<StructureController> _structures = new();

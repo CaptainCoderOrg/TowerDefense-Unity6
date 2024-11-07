@@ -28,6 +28,17 @@ public class TabPanelController : MonoBehaviour
     public Animator Animator;
     public bool IsShowing;
 
+    void Awake()
+    {
+        GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
+    }
+
+    private void MenuChanged(GameObject Menu)
+    {
+        if (Menu == this.gameObject) { return; }
+        Hide();
+    }
+
     [Button("Toggle")]
     public void Toggle()
     {
@@ -46,6 +57,7 @@ public class TabPanelController : MonoBehaviour
     public void Show()
     {
         if (IsShowing) { return; }
+        GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
         IsShowing = true;
         Animator.SetTrigger("Show");
     }
