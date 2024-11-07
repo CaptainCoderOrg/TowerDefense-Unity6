@@ -6,7 +6,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
     private TileController _lastTile;
     public void ClickTile(TileController controller)
     {
-        RadialMenu.gameObject.SetActive(false);   
+        RadialMenu.Hide();
         if (!controller.Tile.CanBuildWeapon) { return; }
         if (Cursor.Selected != null) 
         {
@@ -20,6 +20,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
 
     public void RightClickTile(TileController controller)
     {
+        if (controller.Structure != null) { return; }
         RadialMenu.Show(controller);
     }
 

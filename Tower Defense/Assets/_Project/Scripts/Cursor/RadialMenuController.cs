@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public sealed class RadialMenuController : MonoBehaviour
 {
+    private CursorManagerController Cursor => CursorManagerController.Instance;
     private TileController _selected;
     private List<StructureData> _recentStructures = new();
     private RadialMenuButtonController[] _buttons;
@@ -51,13 +52,20 @@ public sealed class RadialMenuController : MonoBehaviour
 
     public void Show(TileController tile)
     {
+        if (_recentStructures.Count == 0) { return; }
         GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
         transform.position = tile.transform.position;
         gameObject.SetActive(true);
         _selected = tile;
+        Cursor.Cursor.transform.position = tile.transform.position;
+        Cursor.Cursor.SetActive(true);
     }
 
-    public void Hide() => gameObject.SetActive(false);
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        Cursor.Cursor.SetActive(false);
+    }
 
     public void ClickButton(StructureData structureData)
     {

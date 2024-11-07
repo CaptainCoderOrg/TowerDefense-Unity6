@@ -10,12 +10,24 @@ public class TurretMenuController : MonoBehaviour
     [field: SerializeField]
     public UpgradeLabelController SpeedLabel { get; private set; }
 
+    void Awake()
+    {
+        GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
+    }
+
     public void Show()
     {
+        GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
         gameObject.SetActive(true);
         AoELabel.UpdateLabels();
         DamageLabel.UpdateLabels();
         SpeedLabel.UpdateLabels();
+    }
+
+    private void MenuChanged(GameObject Menu)
+    {
+        if (Menu == gameObject) { return; }
+        Hide();
     }
 
     public void Hide() => gameObject.SetActive(false);    
