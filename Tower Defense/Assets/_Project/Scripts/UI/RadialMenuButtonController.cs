@@ -10,7 +10,8 @@ public class RadialMenuButtonController : MonoBehaviour
     {
         Button = GetComponent<Button>();
         Debug.Assert(Button != null);
-        Icon = GetComponentInChildren<RawImage>();
+        Icon = GetComponentInChildren<RawImage>(true);
+        Icon.gameObject.SetActive(true);
         Debug.Assert(Icon != null, "No Icon found");
     }
     
