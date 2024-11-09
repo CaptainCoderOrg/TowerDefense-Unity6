@@ -16,10 +16,13 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         {
             _structure = value;
             Icon.texture = _structure?.Icon;
+            _priceLabel.text = _structure?.Price.ToString();
             gameObject.SetActive(true);
+            
         }
     }
     public RadialMenuController RadialMenu => RadialMenuController.Instance;
+    private TextMeshProUGUI _priceLabel;
 
     void Awake()
     {
@@ -29,6 +32,8 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         Icon.gameObject.SetActive(true);
         Debug.Assert(Icon != null, "No Icon found");
         Button.onClick.AddListener(HandleClick);
+        _priceLabel = GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Assert(_priceLabel != null, "Could not find price label");
     }
 
 
