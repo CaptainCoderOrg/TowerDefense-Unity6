@@ -9,15 +9,22 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
     public RawImage Icon { get; private set; }
     public Button Button { get; private set; }
     private StructureData _structure;
+    private GameObject _preview;
     public StructureData Structure
     {
         get => _structure;
         set
         {
             _structure = value;
-            Icon.texture = _structure?.Icon;
-            _priceLabel.text = _structure?.Price.ToString();
+            if (_structure != null)
+            {
+                Icon.texture = _structure.Icon;
+                _priceLabel.text = _structure.Price.ToString();
+                _preview = GameObject.Instantiate(Structure.Preview);
+                _preview.SetActive(false);
+            }
             gameObject.SetActive(true);
+            
             
         }
     }
@@ -42,12 +49,18 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         if (Structure == null) { return; }
         RadialMenu.ShowMessage(Structure.Name);
         GameManagerController.Instance.InfoText.text = $"{Structure.Description}";
+        if (RadialMenu.Selected != null)
+        {
+            _preview.transform.position = RadialMenu.Selected.transform.position;
+            _preview.SetActive(true);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         if (Structure == null) { return; }
         GameManagerController.Instance.InfoText.text = string.Empty;
+        _preview.SetActive(false);
     }
 
     public void HandleClick()
@@ -58,6 +71,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         {
             GameManagerController.Instance.InfoText.text = string.Empty;
             RadialMenu.Hide();
+            _preview.SetActive(false);
         }
         else
         {
