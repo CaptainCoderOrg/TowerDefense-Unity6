@@ -49,6 +49,15 @@ public class TurretController : MonoBehaviour
         return potentialTargets.Aggregate(SelectTargetClosestToEnd);
     }
 
+    public static EnemyController SelectMostDamaged(EnemyController first, EnemyController second)
+    {
+        if (first.Damage > second.Damage)
+        {
+            return first;
+        }
+        return second;
+    }
+
     
     public static EnemyController SelectTargetClosestToEnd(EnemyController first, EnemyController second)
     {

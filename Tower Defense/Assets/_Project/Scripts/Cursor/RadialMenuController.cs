@@ -77,7 +77,8 @@ public sealed class RadialMenuController : MonoBehaviour
         if (_recentStructures.Count == 0) { return; }
         InfoText.text = string.Empty;
         GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
-        transform.position = tile.transform.position;
+        Debug.Log(Input.mousePosition);
+        transform.position = Camera.main.WorldToScreenPoint(tile.transform.position);
         gameObject.SetActive(true);
         Selected = tile;
         Cursor.Cursor.transform.position = tile.transform.position;

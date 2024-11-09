@@ -15,7 +15,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         set
         {
             _structure = value;
-            Icon.texture = _structure.Icon;
+            Icon.texture = _structure?.Icon;
             gameObject.SetActive(true);
         }
     }
