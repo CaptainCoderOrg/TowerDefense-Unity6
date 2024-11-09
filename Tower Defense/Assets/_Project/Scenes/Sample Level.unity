@@ -7746,6 +7746,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <InfoText>k__BackingField: {fileID: 2037721014}
+  _recentStructures:
+  - {fileID: 11400000, guid: 5da18385d48bfc241befb5a78b8e7512, type: 2}
+  - {fileID: 11400000, guid: 3a3afed22663a434bad79f0e497addd0, type: 2}
 --- !u!1001 &704043081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7859,6 +7862,22 @@ PrefabInstance:
     - target: {fileID: 131111888900227037, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Name
       value: Radial Button (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159470876847607715, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Pivot.x
@@ -9513,6 +9532,22 @@ PrefabInstance:
     - target: {fileID: 131111888900227037, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Name
       value: Radial Button (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159470876847607715, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Pivot.x
@@ -12979,6 +13014,22 @@ PrefabInstance:
     - target: {fileID: 131111888900227037, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Name
       value: Radial Button (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159470876847607715, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Pivot.x
@@ -18934,6 +18985,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radial Button (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5159470876847607715, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -21320,6 +21387,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Radial Button (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5159470876847607715, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -23441,6 +23524,22 @@ PrefabInstance:
     - target: {fileID: 131111888900227037, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Name
       value: Radial Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 826502723745345029, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5159470876847607715, guid: 736c601a546be4e468ca6060e22cb526, type: 3}
       propertyPath: m_Pivot.x

@@ -94,4 +94,29 @@ public class GameManagerController : MonoBehaviour
     public void AddStructure(StructureController structure) => _structures.Add(structure);
     public void RemoveStructure(StructureController structure) => _structures.Remove(structure);
 
+    public void ShowRangesNear(TileController target, float distance = 3)
+    {
+        var structures = Structures.Where(s => Vector3.Distance(s.transform.position, target.transform.position) < distance);
+        foreach (StructureController controller in structures)
+        {
+            controller.OnShowRange.Invoke();
+        }
+    }
+
+    public void ShowAllRanges()
+    {
+        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        {
+            controller.OnShowRange.Invoke();
+        }
+    }
+
+    public void HideAllRanges()
+    {
+        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        {
+            controller.OnHideRange.Invoke();
+        }
+    }
+
 }

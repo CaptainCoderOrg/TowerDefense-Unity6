@@ -11,6 +11,7 @@ public sealed class RadialMenuController : MonoBehaviour
     private Coroutine _currentMessage;
     private CursorManagerController Cursor => CursorManagerController.Instance;
     public TileController Selected { get; private set; }
+    [SerializeField]
     private List<StructureData> _recentStructures = new();
     private RadialMenuButtonController[] _buttons;
     private static RadialMenuController _instance;
@@ -41,6 +42,8 @@ public sealed class RadialMenuController : MonoBehaviour
             b.gameObject.SetActive(false);
         }
         GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
+        SynchronizeButtons();
+        Hide();
     }
 
     void Update()
@@ -82,6 +85,8 @@ public sealed class RadialMenuController : MonoBehaviour
         Selected = tile;
         Cursor.Cursor.transform.position = tile.transform.position;
         Cursor.Cursor.SetActive(true);
+        GameManagerController.Instance.HideAllRanges();
+        GameManagerController.Instance.ShowRangesNear(Selected);
     }
 
     public void Hide()
@@ -89,12 +94,18 @@ public sealed class RadialMenuController : MonoBehaviour
         InfoText.text = string.Empty;
         gameObject.SetActive(false);
         Cursor.Cursor.SetActive(false);
+        GameManagerController.Instance.HideAllRanges();
     }
 
     public void AddStructure(StructureData structureData)
     {
         _ = _recentStructures.Remove(structureData);
         _recentStructures.Insert(0, structureData);
+        SynchronizeButtons();
+    }
+
+    private void SynchronizeButtons()
+    {
         for (int i = 0; i < _recentStructures.Count && i < _buttons.Length; i++)
         {
             _buttons[i].Structure = _recentStructures[i];
