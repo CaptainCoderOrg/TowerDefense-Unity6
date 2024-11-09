@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 public sealed class RadialMenuController : MonoBehaviour
 {
     private CursorManagerController Cursor => CursorManagerController.Instance;
-    private TileController _selected;
+    public TileController Selected { get; private set; }
     private List<StructureData> _recentStructures = new();
     private RadialMenuButtonController[] _buttons;
     private static RadialMenuController _instance;
@@ -56,7 +56,7 @@ public sealed class RadialMenuController : MonoBehaviour
         GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
         transform.position = tile.transform.position;
         gameObject.SetActive(true);
-        _selected = tile;
+        Selected = tile;
         Cursor.Cursor.transform.position = tile.transform.position;
         Cursor.Cursor.SetActive(true);
     }
@@ -67,32 +67,13 @@ public sealed class RadialMenuController : MonoBehaviour
         Cursor.Cursor.SetActive(false);
     }
 
-    public void ClickButton(StructureData structureData)
-    {
-        if (_selected == null) { return; }
-        if (GameManagerController.Instance.TryPurchaseStructure(_selected, structureData))
-        {
-            Hide();
-        }
-        else
-        {
-            Debug.Log("Could not purchase at location");
-        }
-        
-    }
-
     public void AddStructure(StructureData structureData)
     {
         _ = _recentStructures.Remove(structureData);
         _recentStructures.Insert(0, structureData);
         for (int i = 0; i < _recentStructures.Count && i < _buttons.Length; i++)
         {
-            RadialMenuButtonController b = _buttons[i];
-            b.gameObject.SetActive(true);
-            b.Button.onClick.RemoveAllListeners();
-            StructureData structure = _recentStructures[i];
-            b.Icon.texture = structure.Icon;
-            b.Button.onClick.AddListener(() => ClickButton(structure));
+            _buttons[i].Structure = _recentStructures[i];
         }
     }
 
