@@ -82,12 +82,12 @@ public class GameManagerController : MonoBehaviour
         SceneManager.LoadScene("Title Screen");
     }
 
-    public bool TryPurchaseStructure(TileController controller, StructureData structure)
+    public BuildResult TryPurchaseStructure(TileController controller, StructureData structure)
     {
-        if (Money < structure.Price) { return false; }
-        if (!controller.Build(structure)) { return false; }
+        if (Money < structure.Price) { return BuildResult.Fail("Not enough energy"); }
+        if (!controller.Build(structure)) { return BuildResult.Fail("Cannot place here"); }
         Money -= structure.Price;
-        return true;
+        return BuildResult.Success("Structure Built");
     }
 
 

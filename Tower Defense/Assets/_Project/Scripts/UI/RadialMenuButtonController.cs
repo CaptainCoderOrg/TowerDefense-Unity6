@@ -48,14 +48,15 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
     public void HandleClick()
     {
         if (RadialMenu.Selected == null) { return; }
-        if (GameManagerController.Instance.TryPurchaseStructure(RadialMenu.Selected, Structure))
+        BuildResult result = GameManagerController.Instance.TryPurchaseStructure(RadialMenu.Selected, Structure);
+        if (result.IsSuccess)
         {
             GameManagerController.Instance.InfoText.text = string.Empty;
             RadialMenu.Hide();
         }
         else
         {
-            RadialMenu.ShowMessage("<color=yellow>Unable to purchase</color>", 2);
+            RadialMenu.ShowMessage($"<color=yellow>{result.Message}</color>", 2);
         }
     }
 
