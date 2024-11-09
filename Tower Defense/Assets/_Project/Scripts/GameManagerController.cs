@@ -85,9 +85,12 @@ public class GameManagerController : MonoBehaviour
     public BuildResult TryPurchaseStructure(TileController controller, StructureData structure)
     {
         if (Money < structure.Price) { return BuildResult.Fail("Not enough energy"); }
-        if (!controller.Build(structure)) { return BuildResult.Fail("Cannot place here"); }
-        Money -= structure.Price;
-        return BuildResult.Success("Structure Built");
+        BuildResult result = controller.Build(structure);
+        if (result.IsSuccess)
+        {
+            Money -= structure.Price;
+        }
+        return result;
     }
 
 

@@ -9,6 +9,6 @@ public class BuildResult
         Message = message;
     }
 
-    public static BuildResult Success(string message) => new BuildResult(true, message);
-    public static BuildResult Fail(string message) => new BuildResult(false, message);
+    public static BuildResult Success(string message) => new (true, message);
+    public static BuildResult Fail(string message) => new (false, message);
 }

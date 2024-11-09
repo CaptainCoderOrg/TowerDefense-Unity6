@@ -65,14 +65,15 @@ public class TileController : MonoBehaviour
         }
     }
 
-    public bool CanBuild(StructureData structure)
+    public BuildResult CanBuild(StructureData structure)
     {
-        if (!Tile.CanBuildWeapon) { return false;}
-        if (Structure != null) { return false; }
-        if (!structure.RequiresPower) { return true; }
+        if (!Tile.CanBuildWeapon) { return BuildResult.Fail("Cannot build here");}
+        if (Structure != null) { return BuildResult.Fail("Structure in the way"); }
+        if (!structure.RequiresPower) { return BuildResult.Success($"{structure.Name} can be placed here"); }
         IEnumerable<TileController> tiles = GameManagerController.Instance.PowerCrystals.SelectMany(crystal => crystal.FindTiles());
         bool canBuild = tiles.Contains(this);
-        return canBuild;
+        if (canBuild) { return BuildResult.Success($"{structure.Name} can be placed here"); }
+        return BuildResult.Fail($"{structure.Name} requires power");
     }
 
     /// <summary>
@@ -81,14 +82,16 @@ public class TileController : MonoBehaviour
     /// </summary>
     /// <param name="structure"></param>
     /// <returns></returns>
-    public bool Build(StructureData structure)
+    public BuildResult Build(StructureData structure)
     {
-        if (!CanBuild(structure)) { return false; }
-        Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
-        GameManagerController.Instance.AddStructure(Structure);
-        Structure.OnSpawn.Invoke();
-        Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
-        return true;
+        BuildResult result = CanBuild(structure);
+        if (result.IsSuccess) {
+            Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
+            GameManagerController.Instance.AddStructure(Structure);
+            Structure.OnSpawn.Invoke();
+            Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
+        }
+        return result;
     }
 
     public void RemoveTurret()

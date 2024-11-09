@@ -51,7 +51,7 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
 
     public void EnterTile(TileController controller)
     {
-        if (!controller.CanBuild(Structure)) { return; }
+        if (!controller.CanBuild(Structure).IsSuccess) { return; }
         GameManager.InfoText.text = "<sprite index=1> Buy    <sprite index=2> Cancel";
         _preview.transform.position = controller.transform.position;
         _preview.SetActive(true);
