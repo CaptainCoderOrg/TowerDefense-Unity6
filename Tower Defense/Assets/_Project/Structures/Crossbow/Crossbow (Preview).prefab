@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5718036941931800598, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: ProjectileSpawnPosition
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7285403128670373647, guid: c1987099f572bd847a6541817537ce16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -84,6 +88,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8711925639422475304, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8711925639422475304, guid: c1987099f572bd847a6541817537ce16, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: a57e5f20afeac0d4889cda2ee524e3f2, type: 2}
     - target: {fileID: 8769488278501661528, guid: c1987099f572bd847a6541817537ce16, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -92,8 +104,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e503128b639e03c469fbf711e957ce28, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 7895942795273826286, guid: c1987099f572bd847a6541817537ce16, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 8447660875410762008, guid: c1987099f572bd847a6541817537ce16, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1987099f572bd847a6541817537ce16, type: 3}
