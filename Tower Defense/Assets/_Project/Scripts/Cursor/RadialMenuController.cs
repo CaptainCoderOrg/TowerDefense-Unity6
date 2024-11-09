@@ -1,8 +1,14 @@
+using System.Collections;
 using System.Collections.Generic;
+using Mono.Cecil.Cil;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public sealed class RadialMenuController : MonoBehaviour
 {
+    [field: SerializeField]
+    public TextMeshProUGUI InfoText { get; private set; }
+    private Coroutine _currentMessage;
     private CursorManagerController Cursor => CursorManagerController.Instance;
     public TileController Selected { get; private set; }
     private List<StructureData> _recentStructures = new();
@@ -28,6 +34,7 @@ public sealed class RadialMenuController : MonoBehaviour
 
     void Awake()
     {
+        InfoText.text = string.Empty;
         _buttons = GetComponentsInChildren<RadialMenuButtonController>();
         foreach (RadialMenuButtonController b in _buttons)
         {
@@ -44,6 +51,21 @@ public sealed class RadialMenuController : MonoBehaviour
         }
     }
 
+    public void ShowMessage(string message, float delay = -1)
+    {
+        InfoText.text = message;
+        if (_currentMessage != null) { StopCoroutine(_currentMessage); }
+        if (delay > 0) {
+            _currentMessage = StartCoroutine(HideMessage(delay));
+        }
+    }
+
+    private IEnumerator HideMessage(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        InfoText.text = string.Empty;
+    }
+
     private void MenuChanged(GameObject Menu)
     {
         if (Menu == this.gameObject) { return; }
@@ -53,6 +75,7 @@ public sealed class RadialMenuController : MonoBehaviour
     public void Show(TileController tile)
     {
         if (_recentStructures.Count == 0) { return; }
+        InfoText.text = string.Empty;
         GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
         transform.position = tile.transform.position;
         gameObject.SetActive(true);
@@ -63,6 +86,7 @@ public sealed class RadialMenuController : MonoBehaviour
 
     public void Hide()
     {
+        InfoText.text = string.Empty;
         gameObject.SetActive(false);
         Cursor.Cursor.SetActive(false);
     }

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -30,10 +31,12 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         Button.onClick.AddListener(HandleClick);
     }
 
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (Structure == null) { return; }
-        GameManagerController.Instance.InfoText.text = $"{Structure.Name} ({Structure.Price}) - {Structure.Description}";
+        RadialMenu.ShowMessage(Structure.Name);
+        GameManagerController.Instance.InfoText.text = $"{Structure.Description}";
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -52,7 +55,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         }
         else
         {
-            GameManagerController.Instance.InfoText.text = "<color=red>Unable to purchase</color>";
+            RadialMenu.ShowMessage("<color=yellow>Unable to purchase</color>", 2);
         }
     }
 
