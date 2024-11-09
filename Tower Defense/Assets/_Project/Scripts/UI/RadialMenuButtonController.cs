@@ -48,7 +48,6 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
     {
         if (Structure == null) { return; }
         RadialMenu.ShowMessage(Structure.Name);
-        GameManagerController.Instance.InfoText.text = $"{Structure.Description}";
         if (RadialMenu.Selected != null)
         {
             _preview.transform.position = RadialMenu.Selected.transform.position;
