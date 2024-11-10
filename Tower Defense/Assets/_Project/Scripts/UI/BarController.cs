@@ -4,6 +4,8 @@ using UnityEngine.UI;
 public class BarController : MonoBehaviour 
 {
     [SerializeField]
+    private Animator _animator;
+    [SerializeField]
     private Image _image;
     public float Value 
     {
@@ -13,6 +15,7 @@ public class BarController : MonoBehaviour
             Vector3 scale = _image.rectTransform.localScale;
             scale.x = value;
             _image.rectTransform.localScale = scale; 
+            _animator.SetTrigger("Show");
         }
     }
 

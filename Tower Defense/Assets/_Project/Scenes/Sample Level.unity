@@ -22935,6 +22935,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
+    - target: {fileID: 2031891269322192531, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
+      propertyPath: m_Name
+      value: Tower Health Canvas
+      objectReference: {fileID: 0}
     - target: {fileID: 8994853676858408145, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
