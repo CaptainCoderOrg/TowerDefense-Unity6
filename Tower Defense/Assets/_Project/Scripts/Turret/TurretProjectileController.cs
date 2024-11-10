@@ -3,6 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(TurretController))]
 public class TurretProjectileController : MonoBehaviour
 {
+    public Animator Animator;
     private TurretController _controller;
     public EnemyController Target => _controller.Target;
     public ProjectileController Weapon;
@@ -28,9 +29,22 @@ public class TurretProjectileController : MonoBehaviour
         if (CooldownTime <= 0)
         {
             CooldownTime = Cooldown;
-            ProjectileController projectile = GameObject.Instantiate(Weapon, ProjectileSpawnPosition.position, ProjectileSpawnPosition.rotation);
-            projectile.Target = Target;
-            projectile.Damage = Damage;     
+            // TODO: Animator is in charge of firing. Potentially refactor to use an event.
+            if (Animator != null)
+            {
+                Animator?.SetTrigger("Fire");
+            }
+            else
+            {
+                SpawnProjectile();
+            }
         }
+    }
+
+    public void SpawnProjectile()
+    {
+        ProjectileController projectile = GameObject.Instantiate(Weapon, ProjectileSpawnPosition.position, ProjectileSpawnPosition.rotation);
+        projectile.Target = Target;
+        projectile.Damage = Damage;
     }
 }
