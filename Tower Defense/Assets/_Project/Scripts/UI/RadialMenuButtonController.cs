@@ -18,6 +18,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
             _structure = value;
             if (_structure != null)
             {
+                Initialize();
                 Icon.texture = _structure.Icon;
                 _priceLabel.text = _structure.Price.ToString();
                 _preview = GameObject.Instantiate(Structure.Preview);
@@ -33,13 +34,18 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
 
     void Awake()
     {
+        Initialize();
+    }
+    private void Initialize()
+    {
+        if (Button != null) { return; }
         Button = GetComponent<Button>();
         Debug.Assert(Button != null);
         Icon = GetComponentInChildren<RawImage>(true);
-        Icon.gameObject.SetActive(true);
         Debug.Assert(Icon != null, "No Icon found");
+        Icon.gameObject.SetActive(true);        
         Button.onClick.AddListener(HandleClick);
-        _priceLabel = GetComponentInChildren<TextMeshProUGUI>();
+        _priceLabel = GetComponentInChildren<TextMeshProUGUI>(true);
         Debug.Assert(_priceLabel != null, "Could not find price label");
     }
 
@@ -58,6 +64,12 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
     public void OnPointerExit(PointerEventData eventData)
     {
         if (Structure == null) { return; }
+        Clear();
+    }
+
+    public void Clear()
+    {
+        RadialMenu.ShowMessage(string.Empty);
         GameManagerController.Instance.InfoText.text = string.Empty;
         _preview.SetActive(false);
     }
@@ -70,7 +82,6 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         {
             GameManagerController.Instance.InfoText.text = string.Empty;
             RadialMenu.Hide();
-            _preview.SetActive(false);
         }
         else
         {

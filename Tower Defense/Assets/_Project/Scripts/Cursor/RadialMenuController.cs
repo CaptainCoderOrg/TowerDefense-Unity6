@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public sealed class RadialMenuController : MonoBehaviour
 {
+    [SerializeField]
+    private Animator _animator;
     [field: SerializeField]
     public TextMeshProUGUI InfoText { get; private set; }
     private Coroutine _currentMessage;
@@ -77,6 +79,11 @@ public sealed class RadialMenuController : MonoBehaviour
 
     public void Show(TileController tile)
     {
+        if (Selected == tile) 
+        { 
+            Hide();
+            return;
+        }
         if (_recentStructures.Count == 0) { return; }
         InfoText.text = string.Empty;
         GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
@@ -87,14 +94,20 @@ public sealed class RadialMenuController : MonoBehaviour
         Cursor.Cursor.SetActive(true);
         GameManagerController.Instance.HideAllRanges();
         GameManagerController.Instance.ShowRangesNear(Selected);
+        _animator.SetTrigger("Show");
     }
 
     public void Hide()
     {
+        Selected = null;
         InfoText.text = string.Empty;
         gameObject.SetActive(false);
         Cursor.Cursor.SetActive(false);
         GameManagerController.Instance.HideAllRanges();
+        foreach (RadialMenuButtonController button in _buttons)
+        {
+            button.Clear();
+        }
     }
 
     public void AddStructure(StructureData structureData)

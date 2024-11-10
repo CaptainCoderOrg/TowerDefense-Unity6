@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Cannon (Weapon)
   m_EditorClassIdentifier: 
   Name: Cannon
+  Description: 
   Price: 250
   Icon: {fileID: 8400000, guid: 612ce281b2ba9954c9880d575fda99e9, type: 2}
   Prefab: {fileID: 452506517467020766, guid: 68befdc1ca0568540bcf762a271f98fa, type: 3}
+  Preview: {fileID: 4860919269391645386, guid: 4d16eb5fd022b5a468d988f15ffdd08b, type: 3}
   RequiresPower: 1
