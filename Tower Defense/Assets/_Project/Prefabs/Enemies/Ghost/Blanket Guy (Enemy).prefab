@@ -390,9 +390,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7627856430636491375, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -7627856430636491375, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3018960449897015653, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 445712794880070669, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
       propertyPath: m_Name
       value: character-ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479020134676697509, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2479020134676697509, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5275701729544337616, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177559885693462429, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -401,6 +433,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7798038044275575709}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1933008609995632073}
   m_SourcePrefab: {fileID: 100100000, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
 --- !u!1 &3882330349488504261 stripped
 GameObject:
@@ -429,6 +464,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1933008609995632073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3882330349488504261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6480a36796ad2ed45825eca6322bce12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnTrigger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 856639489787982331}
+        m_TargetAssemblyTypeName: EnemyController, Assembly-CSharp
+        m_MethodName: StartDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &4515736374934677375 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 06226d61833c2074c97cd5afa88c4044, type: 3}
