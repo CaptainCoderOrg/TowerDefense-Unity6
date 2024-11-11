@@ -19,7 +19,10 @@ public class WaypointTraveler : MonoBehaviour
         {
             foreach (Transform tr in RotateToFaceWaypoint)
             {
-                tr.rotation = Quaternion.LookRotation(Target.transform.position - tr.position);
+                Quaternion targetLook = Quaternion.LookRotation(Target.transform.position - tr.position);
+                Quaternion rotation = tr.rotation;
+                rotation.y = targetLook.y;
+                tr.rotation = rotation;
             }
         }
     }
