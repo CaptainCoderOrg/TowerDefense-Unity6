@@ -6190,7 +6190,7 @@ PrefabInstance:
     - target: {fileID: 2093926968906005542, guid: e0db05b7cc643c1469da0a642ae863e4, type: 3}
       propertyPath: Instructions.Array.data[4].Spawn
       value: 
-      objectReference: {fileID: 856639489787982331, guid: 16539e5556a280947bb3ceaf0f942b29, type: 3}
+      objectReference: {fileID: 856639489787982331, guid: 8f48c46134f11e2418f9263bd47d36e7, type: 3}
     - target: {fileID: 3205538275901721599, guid: e0db05b7cc643c1469da0a642ae863e4, type: 3}
       propertyPath: m_Name
       value: Spawner (1)
@@ -28814,7 +28814,7 @@ PrefabInstance:
     - target: {fileID: 2093926968906005542, guid: e0db05b7cc643c1469da0a642ae863e4, type: 3}
       propertyPath: Instructions.Array.data[3].Spawn
       value: 
-      objectReference: {fileID: 856639489787982331, guid: de33f45faa6a83043b5a076fe856cb5b, type: 3}
+      objectReference: {fileID: 856639489787982331, guid: 8f48c46134f11e2418f9263bd47d36e7, type: 3}
     - target: {fileID: 3205538275901721599, guid: e0db05b7cc643c1469da0a642ae863e4, type: 3}
       propertyPath: m_Name
       value: Spawner
