@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button))]
-public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
 {
     public RawImage Icon { get; private set; }
     public Button Button { get; private set; }
@@ -49,8 +49,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         Debug.Assert(_priceLabel != null, "Could not find price label");
     }
 
-
-    public void OnPointerEnter(PointerEventData eventData)
+    public void ShowPreview()
     {
         if (Structure == null) { return; }
         RadialMenu.ShowMessage(Structure.Name);
@@ -61,17 +60,13 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerEnterHandler, I
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (Structure == null) { return; }
-        Clear();
-    }
+    public void OnPointerExit(PointerEventData eventData) => Clear();
 
     public void Clear()
     {
         RadialMenu.ShowMessage(string.Empty);
         GameManagerController.Instance.InfoText.text = string.Empty;
-        _preview.SetActive(false);
+        _preview?.SetActive(false);
     }
 
     public void HandleClick()
