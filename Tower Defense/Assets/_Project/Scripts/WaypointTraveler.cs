@@ -5,6 +5,7 @@ public class WaypointTraveler : MonoBehaviour
     public WaypointController Target;
     public float Speed = 1.0f;
     public float delta = 0.01f;
+    public Transform[] RotateToFaceWaypoint;
     void Update()
     {
         if (Target == null) { return; }
@@ -13,6 +14,13 @@ public class WaypointTraveler : MonoBehaviour
         if (Mathf.Abs(distance) < delta)
         {
             Target = Target.Next;
+        }
+        if (Target != null)
+        {
+            foreach (Transform tr in RotateToFaceWaypoint)
+            {
+                tr.rotation = Quaternion.LookRotation(Target.transform.position - tr.position);
+            }
         }
     }
 

@@ -1,12 +1,19 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(WaypointTraveler))]
 public class EnemyController : MonoBehaviour
-{    
+{   
+    [SerializeField]
+    private Animator _animator;
+    [SerializeField]
+    private Collider _collider;
+    private bool _isDead = false;
     public WaypointTraveler WaypointTraveler;
     public float AttackDamage = 1;
     public float BaseHealth = 5;
+    [SerializeField]
     private float _damage = 0;
     public float Damage  
     { 
@@ -17,13 +24,18 @@ public class EnemyController : MonoBehaviour
             OnDamageChange.Invoke(this);
         } 
     }
-    public float Health => BaseHealth - Damage;
+    public float Health => Mathf.Max(0, BaseHealth - Damage);
     public UnityEvent<EnemyController> OnDamageChange;
     public event System.Action<EnemyController> OnCleanup;
     
     void Awake()
     {
+        _collider ??= GetComponentInChildren<Collider>();
         WaypointTraveler = GetComponent<WaypointTraveler>();
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Walk");
+        }
     }
 
     public void ApplyDamage(float damage)
@@ -31,9 +43,37 @@ public class EnemyController : MonoBehaviour
         Damage += damage;
         if (Health <= 0)
         {
-            GameObject.Destroy(gameObject);
+            Die();
         }
     }
+
+    public void Die()
+    {
+        if (_isDead) { return; }
+        _isDead = true;
+        OnCleanup?.Invoke(this);
+        if (_animator != null)
+        {
+            _animator.SetTrigger("Die");
+            WaypointTraveler.enabled = false;
+        }
+        else
+        {
+            StartCoroutine(FinishDeath());
+        }
+    }
+
+    public void StartDeath()
+    {
+        StartCoroutine(FinishDeath());
+    }
+
+    public IEnumerator FinishDeath()
+    {
+        yield return new WaitForSeconds(1);
+        GameObject.Destroy(gameObject);
+    }
+
 
     // MonoBehaviour.OnDestroy
     public void OnDestroy()
