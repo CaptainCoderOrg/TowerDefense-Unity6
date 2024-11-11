@@ -52,6 +52,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
     public void ShowPreview()
     {
         if (Structure == null) { return; }
+        RadialMenu.Clear();
         RadialMenu.ShowMessage(Structure.Name);
         if (RadialMenu.Selected != null)
         {

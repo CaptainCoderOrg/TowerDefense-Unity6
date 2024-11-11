@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mono.Cecil.Cil;
@@ -125,4 +126,8 @@ public sealed class RadialMenuController : MonoBehaviour
         }
     }
 
+    internal void Clear()
+    {
+        foreach (var button in _buttons) { button.Clear(); }
+    }
 }
