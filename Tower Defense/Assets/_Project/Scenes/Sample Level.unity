@@ -2924,7 +2924,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -20
+      value: -59.56
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4250,7 +4250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EventMask:
     serializedVersion: 2
-    m_Bits: 1568
+    m_Bits: 1696
 --- !u!1 &362294137
 GameObject:
   m_ObjectHideFlags: 0
@@ -8753,7 +8753,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 222, y: -0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 336.34, y: 0}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &803464522
 MonoBehaviour:
@@ -12967,7 +12967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 188.96
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_SizeDelta.y
@@ -23783,7 +23783,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 44.82
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_SizeDelta.y

@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {   
     [SerializeField]
     private Animator _animator;
+    private BarController _healthBar;
     [SerializeField]
     private Collider _collider;
     private bool _isDead = false;
@@ -30,13 +31,21 @@ public class EnemyController : MonoBehaviour
     
     void Awake()
     {
+        _healthBar ??= GetComponentInChildren<BarController>();
         _collider ??= GetComponentInChildren<Collider>();
         WaypointTraveler = GetComponent<WaypointTraveler>();
         if (_animator != null)
         {
             _animator.SetTrigger("Walk");
         }
+        var events = GetComponentInChildren<MouseEvents>();
+        if (events != null)
+        {
+            events.OnEnter.AddListener(ShowHealthBar);
+        }
     }
+
+    private void ShowHealthBar() => _healthBar.RenderEnemyHealth(this);
 
     public void ApplyDamage(float damage)
     {
@@ -74,8 +83,6 @@ public class EnemyController : MonoBehaviour
         GameObject.Destroy(gameObject);
     }
 
-
-    // MonoBehaviour.OnDestroy
     public void OnDestroy()
     {
         OnCleanup?.Invoke(this);

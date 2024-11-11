@@ -33,7 +33,7 @@ public class TowerController : MonoBehaviour
 
     private void HandleEnemyCollision(Collider other)
     {
-        EnemyController enemy = other.attachedRigidbody.GetComponent<EnemyController>();
+        EnemyController enemy = other.GetComponentInParent<EnemyController>();
         if (enemy == null) { return; }
         Damage += enemy.AttackDamage;
         GameObject.Destroy(enemy.gameObject);

@@ -7,12 +7,12 @@ public class TurretController : MonoBehaviour
 {
     public TurretProjectileController Projectile { get; private set; }
     public TurretRotationController Rotation { get; private set; }
-    public TurretAoEController AoE { get; private set;}
+    public TurretAoEController AoE { get; private set; }
     public EnemyController Target;
     public HashSet<EnemyController> Targets = new();
     private StructureController _structureController;
     private Animator _animator;
-    
+
     void Awake()
     {
         Projectile = GetComponent<TurretProjectileController>();
@@ -22,12 +22,12 @@ public class TurretController : MonoBehaviour
         AoE = GetComponent<TurretAoEController>();
         Debug.Assert(AoE != null, $"Expected {nameof(TurretAoEController)}");
         _animator = GetComponent<Animator>();
-        
+
         TriggerEvents triggers = GetComponentInChildren<TriggerEvents>();
         Debug.Assert(triggers != null, "No TriggerEvents found on children");
         triggers.OnEnter.AddListener(HandleTriggerEntered);
         triggers.OnExit.AddListener(HandleTriggerExited);
-        
+
 
         _structureController = GetComponent<StructureController>();
         _structureController.OnSelected.AddListener(HandleSelected);
@@ -58,7 +58,7 @@ public class TurretController : MonoBehaviour
         return second;
     }
 
-    
+
     public static EnemyController SelectTargetClosestToEnd(EnemyController first, EnemyController second)
     {
         if (first.WaypointTraveler.CalculateDistanceToFinalWaypoint() <
@@ -69,9 +69,9 @@ public class TurretController : MonoBehaviour
         return second;
     }
 
-        public void HandleTriggerEntered(Collider other)
+    public void HandleTriggerEntered(Collider other)
     {
-        EnemyController enemy = other.attachedRigidbody.GetComponent<EnemyController>();
+        EnemyController enemy = other.GetComponentInParent<EnemyController>();
         if (enemy == null) { return; }
         Targets.Add(enemy);
         enemy.OnCleanup += RemoveEnemy;
@@ -79,7 +79,7 @@ public class TurretController : MonoBehaviour
 
     public void HandleTriggerExited(Collider other)
     {
-        EnemyController exited = other.attachedRigidbody.GetComponent<EnemyController>();
+        EnemyController exited = other.GetComponentInParent<EnemyController>();
         if (exited == null) { return; }
         Targets.Remove(exited);
         exited.OnCleanup -= RemoveEnemy;
