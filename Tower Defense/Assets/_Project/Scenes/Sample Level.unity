@@ -1304,17 +1304,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
   m_PrefabInstance: {fileID: 5980849665085540586}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &82939272 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2730209826725329547, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
-  m_PrefabInstance: {fileID: 5980849665085540586}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &84096397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2607,6 +2596,27 @@ MonoBehaviour:
   GizmoLineThickness: 2
   Next: {fileID: 1529343719}
   Distance: 0
+--- !u!1 &191911542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7594649228414224360, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
+  m_PrefabInstance: {fileID: 5980849665085540586}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &191911545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191911542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4b1e9d641c2ec49ada806962ab9382, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Duration: 1
+  _displayedValue: 0
+  _value: 0
+  _startValue: 0
 --- !u!1001 &194257043
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3800,6 +3810,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c870bdbc918e7454bb202c8b7b0f8edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingEnergy: 500
   OnGameOver:
     m_PersistentCalls:
       m_Calls: []
@@ -3807,8 +3818,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   InfoText: {fileID: 3444053298303371417}
-  MoneyText: {fileID: 82939272}
-  _money: 200
+  <EnergyText>k__BackingField: {fileID: 191911545}
 --- !u!1001 &311311244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23890,7 +23900,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7594649228414224360, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 191911545}
   m_SourcePrefab: {fileID: 100100000, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
 --- !u!1001 &6534551891831650382
 PrefabInstance:

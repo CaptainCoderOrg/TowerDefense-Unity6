@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
@@ -8,6 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerController : MonoBehaviour
 {
+    public int StartingEnergy;
+    public int Energy 
+    { 
+        get => EnergyText.Value; 
+        set => EnergyText.Value = value; 
+    }
     public UnityEvent OnGameOver;
     public UnityEvent<GameObject> OnMenuChanged;
     public TextMeshProUGUI InfoText;
@@ -35,36 +42,15 @@ public class GameManagerController : MonoBehaviour
         _instance = null;
     }
 
-    public TextMeshProUGUI MoneyText;
-
-    [SerializeField]
-    private int _money = 500;
-    public int Money
-    {
-        get => _money;
-        set
-        {
-            _money = value;
-            UpdateMoney();
-        }
-    }
-
-    [Button("Update Money")]
-    public void UpdateMoney()
-    {
-        MoneyText.text = Money.ToString();
-    }
+    [field: SerializeField]
+    private AnimatedNumberText EnergyText { get; set; }
 
     void Awake()
     {
         InfoText.text = "";
-        UpdateMoney();
+        Energy = StartingEnergy;
     }
 
-    void OnValidate()
-    {
-        UpdateMoney();
-    }
 
     public void TriggerGameOver()
     {
@@ -84,11 +70,11 @@ public class GameManagerController : MonoBehaviour
 
     public BuildResult TryPurchaseStructure(TileController controller, StructureData structure)
     {
-        if (Money < structure.Price) { return BuildResult.Fail("Not enough energy"); }
+        if (EnergyText.Value < structure.Price) { return BuildResult.Fail("Not enough energy"); }
         BuildResult result = controller.Build(structure);
         if (result.IsSuccess)
         {
-            Money -= structure.Price;
+            EnergyText.Value -= structure.Price;
         }
         return result;
     }

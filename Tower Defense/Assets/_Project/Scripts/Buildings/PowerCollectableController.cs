@@ -14,7 +14,7 @@ public class PowerCollectableController : MonoBehaviour
     public void Collect()
     {
         FloatingNumbersPool.Instance.SpawnFloatingNumber(Value, transform.position);
-        GameManagerController.Instance.Money += Value;
+        GameManagerController.Instance.Energy += Value;
         GameObject.Destroy(gameObject);
     }
 }
