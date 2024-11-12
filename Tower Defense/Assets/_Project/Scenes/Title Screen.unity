@@ -348,10 +348,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Defender of the Tower
+  m_text: Defender of Juicy Towers
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: aa1f9afc44eccdc4c9f2c43566debf2e, type: 2}
-  m_sharedMaterial: {fileID: -4985566838688524035, guid: aa1f9afc44eccdc4c9f2c43566debf2e, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fbd5082b068e22144b2b4eb03d04e5bb, type: 2}
+  m_sharedMaterial: {fileID: -4408465976107675043, guid: fbd5082b068e22144b2b4eb03d04e5bb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -607,7 +607,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 100
+  m_Spacing: 120
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -1102,8 +1102,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 563864953}
     m_Modifications:
     - target: {fileID: 184164494469612648, guid: 7c376e13bade85441a18fa89bb97673a, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 184164494469612648, guid: 7c376e13bade85441a18fa89bb97673a, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4294967295
+      value: 4294638335
       objectReference: {fileID: 0}
     - target: {fileID: 2769083735740801727, guid: 7c376e13bade85441a18fa89bb97673a, type: 3}
       propertyPath: m_Pivot.x
