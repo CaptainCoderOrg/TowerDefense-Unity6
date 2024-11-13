@@ -53,6 +53,7 @@ public class CursorManagerController : MonoBehaviour
     void Awake()
     {
         CursorBehaviour = new DefaultCursorBehaviour();
+        GameManagerController.Instance.OnGameWon.AddListener(() => CursorBehaviour = new DisabledCursorBehaviour());
     }
 
 

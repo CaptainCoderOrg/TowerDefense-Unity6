@@ -7644,6 +7644,7 @@ MonoBehaviour:
   NameText: {fileID: 1769126314}
   DescriptionText: {fileID: 196111376}
   Animator: {fileID: 644231160}
+  ToggleButton: {fileID: 362294141}
   IsShowing: 0
 --- !u!1001 &645065699
 PrefabInstance:
@@ -11360,7 +11361,23 @@ PrefabInstance:
     m_TransformParent: {fileID: 1130161670}
     m_Modifications:
     - target: {fileID: 821016828821943861, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 821016828821943861, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
       propertyPath: IsDecoration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724476703372098981, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724476703372098981, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1724476703372098981, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1724476703372098981, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
@@ -11406,6 +11423,14 @@ PrefabInstance:
     - target: {fileID: 2882176175644663388, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
       propertyPath: m_Name
       value: Power Crystal
+      objectReference: {fileID: 0}
+    - target: {fileID: 4044792865092769195, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4232433276910070051, guid: c7d999935a722ea48bcfff583dfe8683, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24938,19 +24963,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2014612184702425691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5326045127693657687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a069c0c44e92c6f45a0b2ed492998974, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Value: 50
 --- !u!4 &2573065984773818480
 Transform:
   m_ObjectHideFlags: 0
@@ -25381,7 +25393,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6568526053476499861}
-  - component: {fileID: 2014612184702425691}
   - component: {fileID: 8891146140489965490}
   m_Layer: 10
   m_Name: Power Collectable
@@ -25596,7 +25607,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5739917427645304337}

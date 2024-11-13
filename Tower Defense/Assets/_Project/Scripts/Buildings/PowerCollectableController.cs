@@ -9,6 +9,7 @@ public class PowerCollectableController : MonoBehaviour
     {
         _events = GetComponentInChildren<MouseEvents>();
         _events.OnEnter.AddListener(Collect);
+        GameManagerController.Instance.OnGameWon.AddListener(Collect);
     }
 
     public void Collect()

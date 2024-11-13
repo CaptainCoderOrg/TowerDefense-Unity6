@@ -38,6 +38,7 @@ public sealed class RadialMenuController : MonoBehaviour
 
     void Awake()
     {
+        GameManagerController.Instance.OnGameWon.AddListener(() => this.gameObject.SetActive(false));
         InfoText.text = string.Empty;
         _buttons = GetComponentsInChildren<RadialMenuButtonController>();
         foreach (RadialMenuButtonController b in _buttons)

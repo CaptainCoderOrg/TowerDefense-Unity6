@@ -81,6 +81,9 @@ public class PowerCrystalController : MonoBehaviour
 
     public void SpawnPowerCollectables()
     {
+        // Don't spawn if the game has been won
+        if (GameManagerController.Instance.IsGameWon()) { return; }
+
         TileController[] potentialSpawnLocations = FindTiles()
             .Where(t => t.CanSpawnCollectable)
             .ToArray();

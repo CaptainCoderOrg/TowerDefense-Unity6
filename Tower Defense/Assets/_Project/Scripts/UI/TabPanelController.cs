@@ -1,6 +1,7 @@
 using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TabPanelController : MonoBehaviour
 {
@@ -26,11 +27,14 @@ public class TabPanelController : MonoBehaviour
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescriptionText;
     public Animator Animator;
+    public Button ToggleButton;
     public bool IsShowing;
 
     void Awake()
     {
         GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
+        GameManagerController.Instance.OnGameWon.AddListener(Hide);
+        GameManagerController.Instance.OnGameWon.AddListener(() => ToggleButton.enabled = false);
     }
 
     private void MenuChanged(GameObject Menu)
