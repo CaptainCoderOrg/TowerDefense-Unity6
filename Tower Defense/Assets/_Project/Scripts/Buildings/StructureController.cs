@@ -21,6 +21,11 @@ public class StructureController : MonoBehaviour
         return GameObject.Instantiate(this, position, rotation);
     }
 
+    public void SpawnDustParticles()
+    {
+        ParticleEffectsPool.Instance.SpawnDustParticles(transform.position);
+    }
+
     internal void DefaultSpawnAnimation()
     {
         _animator?.SetTrigger("Spawn");
