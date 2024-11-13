@@ -9,12 +9,12 @@ public class WaypointTraveler : MonoBehaviour
     void Update()
     {
         if (Target == null) { return; }
-        transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, Speed * Time.deltaTime);
-        float distance = (Target.transform.position - transform.position).magnitude;
-        if (Mathf.Abs(distance) < delta)
-        {
-            Target = Target.Next;
-        }
+        PerformMove();
+        PerformFacing();
+    }
+
+    void PerformFacing()
+    {
         if (Target != null)
         {
             foreach (Transform tr in RotateToFaceWaypoint)
@@ -24,6 +24,16 @@ public class WaypointTraveler : MonoBehaviour
                 rotation.y = targetLook.y;
                 tr.rotation = rotation;
             }
+        }
+    }
+
+    void PerformMove()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, Target.transform.position, Speed * Time.deltaTime);
+        float distance = (Target.transform.position - transform.position).magnitude;
+        if (Mathf.Abs(distance) < delta)
+        {
+            Target = Target.Next;
         }
     }
 
