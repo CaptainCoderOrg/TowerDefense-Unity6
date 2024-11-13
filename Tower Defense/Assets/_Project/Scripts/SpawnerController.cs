@@ -5,9 +5,16 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour
 {
     public List<SpawnInstruction> Instructions;
+    public bool IsDone => NextInstruction >= Instructions.Count;
     public int NextInstruction = 0;
     public float NextSpawn;
     public WaypointController FirstWaypoint;
+    private GameManagerController GameManager => GameManagerController.Instance;
+
+    void Awake()
+    {
+        GameManager.RegisterSpawner(this);
+    }
 
     void Update()
     {
@@ -20,6 +27,8 @@ public class SpawnerController : MonoBehaviour
             {
                 EnemyController spawnedEnemy = GameObject.Instantiate(instruction.Spawn, transform.position, transform.rotation);
                 spawnedEnemy.WaypointTraveler.Target = FirstWaypoint;
+                GameManager.RegisterEnemy(spawnedEnemy);
+                spawnedEnemy.OnCleanup += GameManager.RemoveEnemy;
             }
             
             NextSpawn += instruction.Delay;

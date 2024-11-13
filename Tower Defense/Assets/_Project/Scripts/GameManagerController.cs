@@ -9,7 +9,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerController : MonoBehaviour
 {
-    public int StartingEnergy;
+    [field: SerializeField]
+    public UnityEvent OnGameWon { get; private set; } 
+    private HashSet<SpawnerController> _spawners = new();
+    private HashSet<EnemyController> _enemies = new();
+    [field: SerializeField]
+    public int StartingEnergy { get; private set; } = 50;
     public int Energy 
     { 
         get => EnergyText.Value; 
@@ -51,6 +56,38 @@ public class GameManagerController : MonoBehaviour
         Energy = StartingEnergy;
     }
 
+    public void RegisterSpawner(SpawnerController spawner)
+    {
+        _spawners.Add(spawner);
+    }
+
+    public void RegisterEnemy(EnemyController enemy)
+    {
+        _enemies.Add(enemy);
+    }
+
+    public void RemoveEnemy(EnemyController enemy)
+    {
+        _enemies.Remove(enemy);
+        if (IsGameWon())
+        {
+            GameWon();
+        }
+    }
+
+    [Button("Game Won")]
+    public void GameWon()
+    {
+        OnGameWon.Invoke();
+    }
+
+    public bool IsGameWon()
+    {
+        _spawners.RemoveWhere(s => s.IsDone);
+        if (_spawners.Count > 0) { return false; }
+        if (_enemies.Count > 0) { return false; }
+        return true;
+    }
 
     public void TriggerGameOver()
     {
