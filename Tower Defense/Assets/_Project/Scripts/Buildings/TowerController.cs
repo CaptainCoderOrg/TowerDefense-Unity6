@@ -15,6 +15,7 @@ public class TowerController : MonoBehaviour
         private set
         {
             _damage = value;
+            GameManagerController.Instance.Stats.DamageSustained = value;
             RenderHealthBar();
         }
     }
