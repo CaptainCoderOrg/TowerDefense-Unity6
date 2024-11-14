@@ -6939,6 +6939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d065f9bf029ae1d45ad27893bca6c5b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _timeLabel: {fileID: 1730860393}
 --- !u!4 &544549593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7822019149522622510, guid: 66736f5c08de2f141a59d7ec982c6042, type: 3}
@@ -20818,7 +20819,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594649228414224360, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_Name
-      value: Bayformance Text (TMP) (5)
+      value: Time (Text)
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_Pivot.x
@@ -20910,6 +20911,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
   m_PrefabInstance: {fileID: 1730860391}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1730860393 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2730209826725329547, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
+  m_PrefabInstance: {fileID: 1730860391}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1731405334
 PrefabInstance:
   m_ObjectHideFlags: 0

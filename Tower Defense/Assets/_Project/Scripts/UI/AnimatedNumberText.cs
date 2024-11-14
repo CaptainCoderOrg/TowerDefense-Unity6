@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
 public class AnimatedNumberText : MonoBehaviour

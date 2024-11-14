@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -56,7 +55,7 @@ public class TileController : MonoBehaviour
 
     public void RebuildSelected()
     {
-        foreach (UnityEngine.Object obj in Selection.objects)
+        foreach (UnityEngine.GameObject obj in Selection.objects)
         {
             if (obj.GetComponent<TileController>() is TileController tile)
             {

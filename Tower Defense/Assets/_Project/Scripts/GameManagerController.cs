@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerController : MonoBehaviour
 {
+    public GameStats Stats { get; private set;}
     [field: SerializeField]
     public UnityEvent OnGameWon { get; private set; } 
     private HashSet<SpawnerController> _spawners = new();
@@ -54,6 +55,7 @@ public class GameManagerController : MonoBehaviour
     {
         InfoText.text = "";
         Energy = StartingEnergy;
+        Stats = new() { StartTime = Time.time };
     }
 
     public void RegisterSpawner(SpawnerController spawner)
@@ -68,8 +70,7 @@ public class GameManagerController : MonoBehaviour
 
     public void RemoveEnemy(EnemyController enemy)
     {
-        _enemies.Remove(enemy);
-        if (IsGameWon())
+        if (_enemies.Remove(enemy) && IsGameWon())
         {
             GameWon();
         }
@@ -78,6 +79,7 @@ public class GameManagerController : MonoBehaviour
     [Button("Game Won")]
     public void GameWon()
     {
+        Stats.EndTime = Time.time;
         OnGameWon.Invoke();
     }
 
