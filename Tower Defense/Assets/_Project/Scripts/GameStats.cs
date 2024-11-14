@@ -8,6 +8,7 @@ public class GameStats
     public float EndTime { get; set; }
     public float DamageSustained { get; set; }
     public int EnergyCollected { get; set; }
+    public int StructuresBuilt { get; set; }
     public string Time => SecondsToDisplayTime(EndTime - StartTime);
 
     public static string SecondsToDisplayTime(float seconds)

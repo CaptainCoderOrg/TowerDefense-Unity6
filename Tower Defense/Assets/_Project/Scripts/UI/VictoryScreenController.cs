@@ -11,6 +11,8 @@ public class VictoryScreenController : MonoBehaviour
     private TextMeshProUGUI _enemiesLabel;
     [SerializeField]
     private TextMeshProUGUI _energyLabel;
+    [SerializeField]
+    private TextMeshProUGUI _structuresLabel;
     private Animator _animator;
     private bool _isShowing = false;
 
@@ -21,6 +23,7 @@ public class VictoryScreenController : MonoBehaviour
         Debug.Assert(_damageLabel != null, "Damage label is not set in the inspector");
         Debug.Assert(_enemiesLabel != null, "Enemies label is not set in the inspector");
         Debug.Assert(_energyLabel != null, "Energy label is not set in the inspector");
+        Debug.Assert(_structuresLabel != null, "Structures label is not set in the inspector");
         _isShowing = false;
         _animator = GetComponent<Animator>();
         GameManagerController.Instance.OnGameWon.AddListener(ShowVictoryScreen);
@@ -34,6 +37,7 @@ public class VictoryScreenController : MonoBehaviour
         _damageLabel.text = $"Damage Sustained: {gameStats.DamageSustained:#.##}";
         _enemiesLabel.text = $"Enemies Defeated: {gameStats.EnemiesDefeated} / {gameStats.EnemiesSpawned}";
         _energyLabel.text = $"Energy Collected: {gameStats.EnergyCollected}";
+        _structuresLabel.text = $"Structures Built: {gameStats.StructuresBuilt}";
         if (!_isShowing)
         {
             _isShowing = true;
