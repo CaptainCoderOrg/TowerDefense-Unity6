@@ -66,6 +66,7 @@ public class GameManagerController : MonoBehaviour
     public void RegisterEnemy(EnemyController enemy)
     {
         _enemies.Add(enemy);
+        Stats.EnemiesSpawned ++;
     }
 
     public void RemoveEnemy(EnemyController enemy)

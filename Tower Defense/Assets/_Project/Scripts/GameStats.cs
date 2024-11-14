@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameStats
 {
+    public int EnemiesSpawned { get; set; }
+    public int EnemiesDefeated { get; set; }
     public float StartTime { get; set; }
     public float EndTime { get; set; }
     public float DamageSustained { get; set; }

@@ -59,6 +59,7 @@ public class EnemyController : MonoBehaviour
     public void Die()
     {
         if (_isDead) { return; }
+        GameManagerController.Instance.Stats.EnemiesDefeated++;
         _isDead = true;
         OnCleanup?.Invoke(this);
         if (_animator != null)

@@ -3542,7 +3542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7594649228414224360, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_Name
-      value: Bayformance Text (TMP) (3)
+      value: Enemies (Text)
       objectReference: {fileID: 0}
     - target: {fileID: 9185493588041014685, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
       propertyPath: m_Pivot.x
@@ -6941,6 +6941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _timeLabel: {fileID: 1730860393}
   _damageLabel: {fileID: 873497114}
+  _enemiesLabel: {fileID: 1427393480}
 --- !u!4 &544549593 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7822019149522622510, guid: 66736f5c08de2f141a59d7ec982c6042, type: 3}
@@ -17602,6 +17603,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8539029511144483379, guid: 2ea5ca0c360670846a065c629934f7b6, type: 3}
   m_PrefabInstance: {fileID: 1403277157}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1427393480 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2730209826725329547, guid: 5283baaae02486a41b609cb93bb60859, type: 3}
+  m_PrefabInstance: {fileID: 233360641}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1427982990
 PrefabInstance:
   m_ObjectHideFlags: 0
