@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Catapult (Weapon)
   m_EditorClassIdentifier: 
   Name: Catapult
-  Description: 
+  Description: 'Price: 150
+
+    Long range attack.
+
+    Cannot attack nearby targets.'
   Price: 150
   Icon: {fileID: 8400000, guid: db8a6c5a13e6ef8488896d44c63eacc6, type: 2}
   Prefab: {fileID: 8936153081723924130, guid: 3eb5c5a51eb68774593714092405c303, type: 3}

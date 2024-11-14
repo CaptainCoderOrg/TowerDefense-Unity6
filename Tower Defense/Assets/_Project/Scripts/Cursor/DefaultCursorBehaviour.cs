@@ -14,7 +14,7 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
             EnterTile(controller);
             return; 
         }
-        Cursor.SelectTile(controller);
+        // Cursor.SelectTile(controller);
         controller.Clear();
     }
 
@@ -40,9 +40,14 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
         if (Cursor.Selected != null) { return; }
         controller.Highlight();
         _lastTile = controller;
+        GameManagerController.Instance.InfoText.text = "<sprite index=2> Build Structure";
     }
 
-    public void ExitTile(TileController controller) => controller.Clear();
+    public void ExitTile(TileController controller)
+    {
+        controller.Clear();
+        GameManagerController.Instance.InfoText.text = string.Empty;
+    }
 
     
 }
