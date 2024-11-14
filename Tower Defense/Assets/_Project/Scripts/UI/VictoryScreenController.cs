@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class VictoryScreenController : MonoBehaviour
 {
@@ -27,6 +29,13 @@ public class VictoryScreenController : MonoBehaviour
         _isShowing = false;
         _animator = GetComponent<Animator>();
         GameManagerController.Instance.OnGameWon.AddListener(ShowVictoryScreen);
+        Button continueButton = GetComponentInChildren<Button>();
+        continueButton.onClick.AddListener(HandleContinue);
+    }
+
+    public void HandleContinue()
+    {
+        SceneManager.LoadScene("Title Screen");
     }
 
     private void ShowVictoryScreen() => ShowVictoryScreen(GameManagerController.Instance.Stats);

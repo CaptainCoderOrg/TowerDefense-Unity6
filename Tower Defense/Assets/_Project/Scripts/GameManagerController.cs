@@ -107,6 +107,7 @@ public class GameManagerController : MonoBehaviour
         SceneManager.LoadScene("Title Screen");
     }
 
+
     public BuildResult TryPurchaseStructure(TileController controller, StructureData structure)
     {
         if (EnergyText.Value < structure.Price) { return BuildResult.Fail("Not enough energy"); }
