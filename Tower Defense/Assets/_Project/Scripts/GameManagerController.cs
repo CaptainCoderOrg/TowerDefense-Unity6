@@ -9,17 +9,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerController : MonoBehaviour
 {
-    public GameStats Stats { get; private set;}
+    public GameStats Stats { get; private set; }
     [field: SerializeField]
-    public UnityEvent OnGameWon { get; private set; } 
+    public UnityEvent OnGameWon { get; private set; }
     private HashSet<SpawnerController> _spawners = new();
     private HashSet<EnemyController> _enemies = new();
     [field: SerializeField]
     public int StartingEnergy { get; private set; } = 50;
-    public int Energy 
-    { 
-        get => EnergyText.Value; 
-        set => EnergyText.Value = value; 
+    public int Energy
+    {
+        get => EnergyText.Value;
     }
     public UnityEvent OnGameOver;
     public UnityEvent<GameObject> OnMenuChanged;
@@ -54,7 +53,7 @@ public class GameManagerController : MonoBehaviour
     void Awake()
     {
         InfoText.text = "";
-        Energy = StartingEnergy;
+        EnergyText.Value = StartingEnergy;
         Stats = new() { StartTime = Time.time };
     }
 
@@ -66,7 +65,7 @@ public class GameManagerController : MonoBehaviour
     public void RegisterEnemy(EnemyController enemy)
     {
         _enemies.Add(enemy);
-        Stats.EnemiesSpawned ++;
+        Stats.EnemiesSpawned++;
     }
 
     public void RemoveEnemy(EnemyController enemy)
@@ -114,7 +113,7 @@ public class GameManagerController : MonoBehaviour
         BuildResult result = controller.Build(structure);
         if (result.IsSuccess)
         {
-            EnergyText.Value -= structure.Price;
+            SpendEnergy(structure.Price);
         }
         return result;
     }
@@ -147,5 +146,13 @@ public class GameManagerController : MonoBehaviour
             controller.OnHideRange.Invoke();
         }
     }
+
+    public void CollectEnergy(int value)
+    {
+        Stats.EnergyCollected += value;
+        EnergyText.Value += value;
+    }
+
+    public void SpendEnergy(int value) => EnergyText.Value -= value;
 
 }

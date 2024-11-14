@@ -17,7 +17,7 @@ public abstract class UpgradeLabelController : MonoBehaviour
     public void IncreaseValue()
     {
         if (GameManagerController.Instance.Energy < GetUpgradePrice()) { return; }
-        GameManagerController.Instance.Energy -= GetUpgradePrice();
+        GameManagerController.Instance.SpendEnergy(GetUpgradePrice());
         IncreaseValue(1);
         UpdateLabels();
     }
