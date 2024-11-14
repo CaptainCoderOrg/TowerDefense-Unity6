@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NaughtyAttributes;
-using UnityEditor;
+// using UnityEditor;
 using UnityEngine;
 
 public class TileController : MonoBehaviour
@@ -53,16 +53,16 @@ public class TileController : MonoBehaviour
         MeshFilter.mesh = Tile.Mesh;
     }
 
-    public void RebuildSelected()
-    {
-        foreach (UnityEngine.GameObject obj in Selection.objects)
-        {
-            if (obj.GetComponent<TileController>() is TileController tile)
-            {
-                tile.MeshFilter.mesh = tile.Tile.Mesh;
-            }
-        }
-    }
+    // public void RebuildSelected()
+    // {
+    //     foreach (UnityEngine.GameObject obj in Selection.objects)
+    //     {
+    //         if (obj.GetComponent<TileController>() is TileController tile)
+    //         {
+    //             tile.MeshFilter.mesh = tile.Tile.Mesh;
+    //         }
+    //     }
+    // }
 
     public BuildResult CanBuild(StructureData structure)
     {

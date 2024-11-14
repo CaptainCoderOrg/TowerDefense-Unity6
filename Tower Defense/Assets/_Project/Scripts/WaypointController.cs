@@ -1,4 +1,6 @@
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class WaypointController : MonoBehaviour
@@ -19,11 +21,12 @@ public class WaypointController : MonoBehaviour
         float distance = (transform.position - Next.transform.position).magnitude + Next.CalculateDistanceToEnd();
         return distance;
     }
-
+    #if UNITY_EDITOR
     public void OnDrawGizmos()
     {
         if (Next == null) { return; }
         Handles.color = GizmoLineColor;
         Handles.DrawLine(transform.position, Next.transform.position, GizmoLineThickness);
     }
+    #endif
 }
