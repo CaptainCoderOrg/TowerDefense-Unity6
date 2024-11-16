@@ -1,6 +1,7 @@
 using System.Collections;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
@@ -35,10 +36,20 @@ public class CameraController : MonoBehaviour
     private Quaternion GetQuaternion(float angle) =>  
         Quaternion.Euler(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z);
 
+    public void RotateRight(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.phase == InputActionPhase.Performed) { RotateRight(); }
+    }
+
     [Button("RotateRight")]
     public void RotateRight()
     {
         Angle += 90;
+    }
+
+    public void RotateLeft(InputAction.CallbackContext callbackContext)
+    {
+        if (callbackContext.phase == InputActionPhase.Performed) { RotateLeft(); }
     }
 
     [Button("RotateLeft")]
