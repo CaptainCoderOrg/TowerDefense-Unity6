@@ -906,7 +906,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 217.165, y: -395.16498}
+  m_AnchoredPosition: {x: 217.165, y: -365.005}
   m_SizeDelta: {x: 434.33, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &49582908
@@ -22390,7 +22390,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1858032722
 Transform:
   m_ObjectHideFlags: 0
@@ -25018,10 +25018,6 @@ PrefabInstance:
     - target: {fileID: 1840846564200872304, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
       propertyPath: m_Name
       value: Tower
-      objectReference: {fileID: 0}
-    - target: {fileID: 2031891269322192531, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
-      propertyPath: m_Name
-      value: Tower Health Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 8994853676858408145, guid: c0155bf2a1557f74992f1723bb1b33a2, type: 3}
       propertyPath: m_LocalPosition.x
