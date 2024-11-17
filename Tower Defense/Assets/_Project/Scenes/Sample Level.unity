@@ -19832,6 +19832,7 @@ GameObject:
   - component: {fileID: 1605377413}
   - component: {fileID: 1605377415}
   - component: {fileID: 1605377416}
+  - component: {fileID: 1605377417}
   - component: {fileID: 1605377414}
   m_Layer: 0
   m_Name: CameraPivot
@@ -20059,6 +20060,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 62adc24e-4ea3-4312-8a5a-60a0184e9bd9
     m_ActionName: 'Camera Controller/Zoom[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1605377417}
+        m_TargetAssemblyTypeName: CameraPanController, TowerDefense
+        m_MethodName: Pan
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 40f5273d-e8e0-4b53-8d3c-4935801756fc
+    m_ActionName: 'Camera Controller/Pan[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Camera Controller
@@ -20124,6 +20141,18 @@ MonoBehaviour:
   <Speed>k__BackingField: 6
   _differenceEpsilon: 0.005
   _zoomLevel: 0
+--- !u!114 &1605377417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605377411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bf056de76d905b48920624e4a79b169, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1617190303 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6994554282209242161, guid: 4e6af7e479899e840b962855e30a6ac2, type: 3}
