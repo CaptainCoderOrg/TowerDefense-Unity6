@@ -19830,6 +19830,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1605377412}
   - component: {fileID: 1605377413}
+  - component: {fileID: 1605377415}
   - component: {fileID: 1605377414}
   m_Layer: 0
   m_Name: CameraPivot
@@ -20025,11 +20026,69 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: ef2e98a2-1005-470f-8cc6-848893b80b88
     m_ActionName: 'Camera Controller/RotateLeft[/Keyboard/q]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1605377415}
+        m_TargetAssemblyTypeName: CameraPitchController, TowerDefense
+        m_MethodName: Tilt
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 70734b57-80e9-4e35-8d36-6979430a754c
+    m_ActionName: 'Camera Controller/Tilt[/Keyboard/r]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Camera Controller
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1605377415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605377411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5181a1dc628ec6d4ea55d8eadb29d4d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraPitches:
+  - 22.5
+  - 30
+  - 37.5
+  _targetCamera: {fileID: 330585546}
+  <Duration>k__BackingField: 0.5
+  <RotationCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1617190303 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6994554282209242161, guid: 4e6af7e479899e840b962855e30a6ac2, type: 3}

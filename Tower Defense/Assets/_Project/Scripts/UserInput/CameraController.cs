@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+
     private float _currentDangle = 0;
     [SerializeField]
     private int _angle = 0;
@@ -33,13 +34,11 @@ public class CameraController : MonoBehaviour
             percent = RotationCurve.Evaluate(percent);
             _currentDangle = Mathf.Lerp(startAngle, endAngle, percent);
             _currentDangle = _currentDangle % 360;
-            transform.rotation = GetQuaternion(_currentDangle);
+            transform.rotation = transform.rotation.WithY(_currentDangle);
             yield return null;
         }
-        transform.rotation = GetQuaternion(endAngle);
+        transform.rotation = transform.rotation.WithY(endAngle);
     }
-    private Quaternion GetQuaternion(float angle) =>  
-        Quaternion.Euler(transform.rotation.eulerAngles.x, angle, transform.rotation.eulerAngles.z);
 
     public void RotateRight(InputAction.CallbackContext callbackContext)
     {
