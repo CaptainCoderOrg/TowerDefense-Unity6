@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class CameraController : MonoBehaviour
 {
+    private float _currentDangle = 0;
     [SerializeField]
     private int _angle = 0;
     public int Angle 
@@ -13,22 +14,23 @@ public class CameraController : MonoBehaviour
         private set
         {
             StopAllCoroutines();
-            StartCoroutine(Rotate(_angle, value));
+            StartCoroutine(Rotate(_currentDangle, value));
             _angle = value % 360;
         }
     }
     [field: SerializeField]
     public float Duration { get; set; } = .5f;
 
-    private IEnumerator Rotate(int startAngle, int endAngle)
+    private IEnumerator Rotate(float startAngle, int endAngle)
     {
         float startTime = Time.time;
         float percent = 0;
         while (percent < 1)
         {
             percent = Mathf.Clamp01((Time.time - startTime) / Duration);
-            float currentAngle = Mathf.Lerp(startAngle, endAngle, percent);
-            transform.rotation = GetQuaternion(currentAngle);
+            _currentDangle = Mathf.Lerp(startAngle, endAngle, percent);
+            _currentDangle = _currentDangle % 360;
+            transform.rotation = GetQuaternion(_currentDangle);
             yield return null;
         }
         transform.rotation = GetQuaternion(endAngle);
