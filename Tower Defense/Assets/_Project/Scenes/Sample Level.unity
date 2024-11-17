@@ -19831,6 +19831,7 @@ GameObject:
   - component: {fileID: 1605377412}
   - component: {fileID: 1605377413}
   - component: {fileID: 1605377415}
+  - component: {fileID: 1605377416}
   - component: {fileID: 1605377414}
   m_Layer: 0
   m_Name: CameraPivot
@@ -20042,6 +20043,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 70734b57-80e9-4e35-8d36-6979430a754c
     m_ActionName: 'Camera Controller/Tilt[/Keyboard/r]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1605377416}
+        m_TargetAssemblyTypeName: CameraZoomController, TowerDefense
+        m_MethodName: Zoom
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 62adc24e-4ea3-4312-8a5a-60a0184e9bd9
+    m_ActionName: 'Camera Controller/Zoom[/Mouse/scroll]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Camera Controller
@@ -20089,6 +20106,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1605377416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605377411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ca28139333c1c4c8eaa52774a400dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MinZoom>k__BackingField: 3
+  <MaxZoom>k__BackingField: 10
+  <ZoomScale>k__BackingField: 0.2
+  <Speed>k__BackingField: 6
+  _differenceEpsilon: 0.005
+  _zoomLevel: 0
 --- !u!114 &1617190303 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6994554282209242161, guid: 4e6af7e479899e840b962855e30a6ac2, type: 3}
