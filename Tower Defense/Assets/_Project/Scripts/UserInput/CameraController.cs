@@ -20,6 +20,8 @@ public class CameraController : MonoBehaviour
     }
     [field: SerializeField]
     public float Duration { get; set; } = .5f;
+    [field: SerializeField]
+    public AnimationCurve RotationCurve { get; set; }
 
     private IEnumerator Rotate(float startAngle, int endAngle)
     {
@@ -28,6 +30,7 @@ public class CameraController : MonoBehaviour
         while (percent < 1)
         {
             percent = Mathf.Clamp01((Time.time - startTime) / Duration);
+            percent = RotationCurve.Evaluate(percent);
             _currentDangle = Mathf.Lerp(startAngle, endAngle, percent);
             _currentDangle = _currentDangle % 360;
             transform.rotation = GetQuaternion(_currentDangle);
