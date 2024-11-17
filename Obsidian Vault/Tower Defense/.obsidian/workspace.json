@@ -17,9 +17,9 @@
                 "kanbanViewState": {
                   "kanban-plugin": "board",
                   "list-collapse": [
-                    true,
-                    true,
                     false,
+                    false,
+                    true,
                     false,
                     false,
                     false

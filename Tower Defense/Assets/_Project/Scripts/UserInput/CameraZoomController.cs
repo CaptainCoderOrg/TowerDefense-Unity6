@@ -47,7 +47,8 @@ public class CameraZoomController : MonoBehaviour
 
     public void Zoom(float amount)
     {
-        ZoomLevel -= amount * ZoomScale; 
+        amount = amount == 0 ? 0 : Mathf.Sign(amount);
+        ZoomLevel -= amount * ZoomScale;
     }
     
     public void Zoom(InputAction.CallbackContext callbackContext)

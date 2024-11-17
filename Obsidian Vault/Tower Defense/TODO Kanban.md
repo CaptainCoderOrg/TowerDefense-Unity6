@@ -21,11 +21,11 @@ kanban-plugin: board
 	Possibly remove turret upgrades during the game.
 - [ ] ## Music / Ambient Sound
 - [ ] ## Sound Effects
+- [ ] ## Settings Menu
 
 
 ## MVP
 
-- [ ] ## Victory Continue Button
 
 
 ## Bugs
@@ -38,6 +38,7 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] ## Add zoom in / zoom out / camera panning options
 
 
 ## Finished
@@ -47,12 +48,14 @@ kanban-plugin: board
 - [ ] ## Make structures bounce when placed
 - [ ] ## When Enemy is killed, OnCleanup is called twice
 - [ ] ## Animate Energy Value Increasing / Decreasing
+- [ ] ## Replace blue background
+- [ ] ## Victory Continue Button
 
 
 
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[true,true,false,false,false,false]}
+{"kanban-plugin":"board","list-collapse":[false,false,true,false,false,false]}
 ```
 %%
