@@ -38,7 +38,6 @@ kanban-plugin: board
 
 ## In Progress
 
-- [ ] ## Add zoom in / zoom out / camera panning options
 
 
 ## Finished
@@ -50,6 +49,7 @@ kanban-plugin: board
 - [ ] ## Animate Energy Value Increasing / Decreasing
 - [ ] ## Replace blue background
 - [ ] ## Victory Continue Button
+- [ ] ## Add zoom in / zoom out / camera panning options
 
 
 

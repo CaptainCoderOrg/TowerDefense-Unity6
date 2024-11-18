@@ -4266,7 +4266,7 @@ MonoBehaviour:
   <OnGameWon>k__BackingField:
     m_PersistentCalls:
       m_Calls: []
-  <StartingEnergy>k__BackingField: 500
+  <StartingEnergy>k__BackingField: 80
   OnGameOver:
     m_PersistentCalls:
       m_Calls: []
@@ -5664,7 +5664,7 @@ MonoBehaviour:
   m_ShadowRenderingLayers: 1
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 1
+  m_SoftShadowQuality: 0
 --- !u!4 &422217347 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1266514751541554094, guid: e0db05b7cc643c1469da0a642ae863e4, type: 3}
