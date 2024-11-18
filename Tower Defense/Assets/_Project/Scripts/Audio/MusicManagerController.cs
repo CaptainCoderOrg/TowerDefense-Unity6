@@ -5,6 +5,7 @@ using UnityEngine.Events;
 public class MusicManagerController : MonoBehaviour
 {
     private static MusicManagerController _instance;
+    public static MusicManagerController Instance => _instance;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Init()

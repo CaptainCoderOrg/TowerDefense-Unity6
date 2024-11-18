@@ -10323,6 +10323,7 @@ GameObject:
   - component: {fileID: 737097311}
   - component: {fileID: 737097313}
   - component: {fileID: 737097312}
+  - component: {fileID: 737097314}
   m_Layer: 5
   m_Name: Music Volume (Slider)
   m_TagString: Untagged
@@ -10422,19 +10423,19 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 236251881}
-        m_TargetAssemblyTypeName: MusicManagerController, TowerDefense
-        m_MethodName: set_MusicVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &737097314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737097310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e8021c342b02c4291ad78125b1d8da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &743336242
 GameObject:
   m_ObjectHideFlags: 0
@@ -34369,10 +34370,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5935562501419704327, guid: a8d4d9d51981bec4498d4dc685ad3b82, type: 3}
-      propertyPath: OnVolumeChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 737097313}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
