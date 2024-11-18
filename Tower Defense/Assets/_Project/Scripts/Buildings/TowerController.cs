@@ -1,8 +1,9 @@
+using NaughtyAttributes;
 using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
-    
+    private ParticleSystem _particleSystem;
     public float Health => BaseHealth - Damage;
     public float HealthPercent => Mathf.Clamp(Health / BaseHealth, 0, 1);
     [field: SerializeField]
@@ -17,6 +18,7 @@ public class TowerController : MonoBehaviour
             _damage = value;
             GameManagerController.Instance.Stats.DamageSustained = value;
             RenderHealthBar();
+            UpdateSmoke();
         }
     }
     public Transform HealthBarTransform;
@@ -25,9 +27,18 @@ public class TowerController : MonoBehaviour
 
     void Awake()
     {
+        _particleSystem = GetComponentInChildren<ParticleSystem>();
+        Debug.Assert(_particleSystem != null);
         _events = GetComponentInChildren<TriggerEvents>();
         _events.OnEnter.AddListener(HandleEnemyCollision);
         RenderHealthBar();   
+    }
+
+    [Button("Update Smoke")]
+    private void UpdateSmoke()
+    {
+        var em = _particleSystem.emission;
+        em.rateOverTime = 50 * (1 - HealthPercent);
     }
 
     private void RenderHealthBar() => HealthBarTransform.localScale = new (HealthPercent, 1, 1);

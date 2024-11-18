@@ -14,7 +14,6 @@ kanban-plugin: board
 - [ ] ## Object Pooling for Power Collectable
 - [ ] ## Object Pooling for Enemies
 - [ ] ## Enemy Spawn animations
-- [ ] ## Tower Damaged Animation
 - [ ] ## Object Pooling for Projectiles
 - [ ] ## Rework Turret Upgrade Menu 
 	
@@ -50,6 +49,8 @@ kanban-plugin: board
 - [ ] ## Replace blue background
 - [ ] ## Victory Continue Button
 - [ ] ## Add zoom in / zoom out / camera panning options
+- [ ] ## Preload assets
+- [ ] ## Tower Damaged Animation
 
 
 
