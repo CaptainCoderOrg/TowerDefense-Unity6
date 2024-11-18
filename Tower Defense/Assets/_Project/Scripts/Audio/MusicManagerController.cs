@@ -4,6 +4,13 @@ using UnityEngine.Events;
 
 public class MusicManagerController : MonoBehaviour
 {
+    private static MusicManagerController _instance;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void Init()
+    {
+        _instance = null;
+    }
 
     public UnityEvent<float> OnVolumeChanged;
 
@@ -12,7 +19,7 @@ public class MusicManagerController : MonoBehaviour
 
     [SerializeField]
     private float _musicVolume;
-    
+
     public float MusicVolume
     {
         get => _musicVolume;
@@ -22,6 +29,19 @@ public class MusicManagerController : MonoBehaviour
             GlobalMixer.SetFloat("MusicVolume", PercentToDb(_musicVolume));
             PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
             OnVolumeChanged.Invoke(_musicVolume);
+        }
+    }
+
+    void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            GameObject.Destroy(gameObject);
         }
     }
 
