@@ -1,0 +1,52 @@
+using System.Collections;
+using NaughtyAttributes;
+using UnityEngine;
+using UnityEngine.Events;
+
+[RequireComponent(typeof(AudioSource))]
+public class MusicTrackController : MonoBehaviour
+{
+    public bool BecomeTrackOnStart = true;
+    public UnityEvent OnFadeOutFinished;
+    [field: SerializeField]
+    public float FadeDuration { get; set; } = 5f;
+    private AudioSource _audioSource;
+    void Awake()
+    {
+        _audioSource = GetComponent<AudioSource>();
+    }
+
+    void Start()
+    {
+        MusicManagerController.Instance.CurrentTrack = this;
+    }
+
+    private IEnumerator ChangeVolume(float startVolume, float endVolume, UnityEvent callback = null)
+    {
+        if (!_audioSource.isPlaying) { _audioSource.Play(); }
+        float startTime = Time.time;
+        float percent = 0;
+        while (percent < 1)
+        {
+            percent = Mathf.Clamp01((Time.time - startTime) / FadeDuration);
+            _audioSource.volume = Mathf.Lerp(startVolume, endVolume, percent);
+            yield return null;
+        }
+        _audioSource.volume = endVolume;
+        callback?.Invoke();
+    }
+
+    [Button("FadeIn")]
+    public void FadeIn()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ChangeVolume(0, 1));
+    }
+
+    [Button("FadeOut")]
+    public void FadeOut()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ChangeVolume(_audioSource.volume, 0, OnFadeOutFinished));
+    }
+}

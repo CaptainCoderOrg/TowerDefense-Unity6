@@ -33,6 +33,25 @@ public class MusicManagerController : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private MusicTrackController _currentTrack;
+    public MusicTrackController CurrentTrack
+    {
+        get => _currentTrack;
+        set
+        {
+            if (_currentTrack != null)
+            {
+                GameObject fadingOut = _currentTrack.gameObject;
+                _currentTrack.FadeOut();
+                _currentTrack.OnFadeOutFinished.AddListener(() => GameObject.Destroy(fadingOut));
+            }
+            _currentTrack = value;
+            _currentTrack.FadeIn();
+            _currentTrack.transform.parent = transform;
+        }
+    }
+
     void Awake()
     {
         if (_instance == null)

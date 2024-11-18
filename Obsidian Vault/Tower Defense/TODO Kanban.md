@@ -18,7 +18,6 @@ kanban-plugin: board
 - [ ] ## Rework Turret Upgrade Menu 
 	
 	Possibly remove turret upgrades during the game.
-- [ ] ## Music / Ambient Sound
 - [ ] ## Sound Effects
 - [ ] ## Settings Menu
 
@@ -33,6 +32,7 @@ kanban-plugin: board
 - [ ] ## Fix bug with firing at end of animation
 	
 	The target isn't chosen until the projectile is spawned. Select the target before starting the animation.
+- [ ] ## Music fades in and out when track is the same
 
 
 ## In Progress
@@ -51,6 +51,7 @@ kanban-plugin: board
 - [ ] ## Add zoom in / zoom out / camera panning options
 - [ ] ## Preload assets
 - [ ] ## Tower Damaged Animation
+- [ ] ## Music / Ambient Sound
 
 
 
