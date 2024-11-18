@@ -21,6 +21,7 @@ public class CameraPitchController : MonoBehaviour
     void Awake()
     {
         _current = CameraPitches[_pitchIx];
+        _targetCamera.rotation = _targetCamera.rotation.WithX(_current);
     }
 
     private IEnumerator Rotate(float startAngle, float endAngle)
