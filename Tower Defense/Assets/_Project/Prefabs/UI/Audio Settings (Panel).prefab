@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 6055717052112081767}
   - component: {fileID: 7770528190039615651}
   - component: {fileID: 81931336541101813}
-  - component: {fileID: 738191404303702463}
+  - component: {fileID: 3710163390156821439}
   m_Layer: 5
   m_Name: Music Volume (Slider)
   m_TagString: Untagged
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &738191404303702463
+--- !u!114 &3710163390156821439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -196,9 +196,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 917623301534140979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e8021c342b02c4291ad78125b1d8da, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b1343eb705e624cb53e47c5db39c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _volumeControl: {fileID: 11400000, guid: 9454ec72526e1a7459940033228e35cc, type: 2}
 --- !u!1 &1287101126226118052
 GameObject:
   m_ObjectHideFlags: 0
@@ -787,7 +788,7 @@ GameObject:
   - component: {fileID: 3135198053243619636}
   - component: {fileID: 1294196475095981626}
   - component: {fileID: 8620720494119618804}
-  - component: {fileID: 6477284055723402191}
+  - component: {fileID: 5425045615310088583}
   m_Layer: 5
   m_Name: SFX (Slider)
   m_TagString: Untagged
@@ -888,7 +889,7 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &6477284055723402191
+--- !u!114 &5425045615310088583
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -897,9 +898,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3707385394505867173}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e8021c342b02c4291ad78125b1d8da, type: 3}
+  m_Script: {fileID: 11500000, guid: 93b1343eb705e624cb53e47c5db39c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _volumeControl: {fileID: 11400000, guid: bcf77ea6a6d64854b8219948e51b74c8, type: 2}
 --- !u!1 &4531406199853262609
 GameObject:
   m_ObjectHideFlags: 0

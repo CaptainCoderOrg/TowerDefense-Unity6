@@ -373,6 +373,58 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -93.11
       objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3135198053243619636, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239908288461116329, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3239908288461116329, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928263772730486474, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928263772730486474, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928263772730486474, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3928263772730486474, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4035520893664833689, guid: 1c68a81f9e865dc438f8ce32d39801cc, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1828,6 +1880,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Title Screen Track
       objectReference: {fileID: 0}
+    - target: {fileID: 7692308347313321496, guid: c269ef6ca661b6d46a56b0b419fb8cd8, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -3784718799618909217, guid: f0385c9fe5d16b54bbd99b526595adf8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

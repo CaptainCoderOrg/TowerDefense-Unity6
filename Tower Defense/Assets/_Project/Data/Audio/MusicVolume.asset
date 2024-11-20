@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96ce438f09fb8ca429a2589c51851375, type: 3}
+  m_Name: MusicVolume
+  m_EditorClassIdentifier: 
+  <Mixer>k__BackingField: {fileID: 24100000, guid: f0385c9fe5d16b54bbd99b526595adf8, type: 2}
+  <ExposedParameter>k__BackingField: MusicVolume
+  <DefaultVolume>k__BackingField: 0.5
+  _volume: 0.7

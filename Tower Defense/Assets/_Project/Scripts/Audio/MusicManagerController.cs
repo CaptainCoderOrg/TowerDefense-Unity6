@@ -17,6 +17,7 @@ public class MusicManagerController : MonoBehaviour
     [field: SerializeField]
     public AudioMixer GlobalMixer { get; private set; }
     public VolumeControl MusicVolume { get; private set; }
+    public VolumeControl SoundVolume { get; private set; }
 
     [SerializeField]
     private MusicTrackController _currentTrack;
@@ -27,10 +28,10 @@ public class MusicManagerController : MonoBehaviour
         {
             if (_currentTrack != null)
             {
-                if (_currentTrack.Clip == value.Clip) 
-                { 
+                if (_currentTrack.Clip == value.Clip)
+                {
                     GameObject.Destroy(value.gameObject);
-                    return; 
+                    return;
                 }
                 GameObject fadingOut = _currentTrack.gameObject;
                 _currentTrack.FadeOut();
@@ -47,22 +48,14 @@ public class MusicManagerController : MonoBehaviour
         // Application.persistentDataPath works in WebGL builds along with System.IO.File.WriteAllText
         // string path = System.IO.Path.Combine(Application.persistentDataPath, "settings.cfg");
         // System.IO.File.WriteAllText(path, "Test");
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
+        if (_instance != null)
         {
             GameObject.Destroy(gameObject);
+            return;
         }
+        _instance = this;
+        // MusicVolume = new VolumeControl("MusicVolume", GlobalMixer);
+        // SoundVolume = new VolumeControl("SoundVolume", GlobalMixer);
+        DontDestroyOnLoad(gameObject);
     }
-
-    void Start()
-    {
-        MusicVolume = new VolumeControl("MusicVolume", GlobalMixer);
-    }
-
-    
-
 }

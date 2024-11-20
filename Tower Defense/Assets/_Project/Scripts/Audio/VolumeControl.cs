@@ -1,11 +1,16 @@
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class VolumeControl
+[CreateAssetMenu(fileName = "VolumeControl", menuName = "TD/Audio/VolumeControl")]
+public class VolumeControl : ScriptableObject
 {
-    public string Name { get; private set;}
-    public float DefaultVolume { get; private set; }
+    [field:SerializeField]
     public AudioMixer Mixer { get; private set; }
+    [field:SerializeField]
+    public string ExposedParameter { get; private set; } = "Unnamed";
+    [field:SerializeField]
+    public float DefaultVolume { get; private set; } = 0.7f;
     private event System.Action<float> _onChanged;
     public event System.Action<float> OnChanged
     {
@@ -16,6 +21,7 @@ public class VolumeControl
         }
         remove => _onChanged -= value;
     }
+    [SerializeField]
     private float _volume;
     public float Volume
     {
@@ -24,29 +30,27 @@ public class VolumeControl
         {
             if (_volume == value) { return; }
             _volume = Mathf.Clamp01(value);
-            Mixer.SetFloat(Name, PercentToDb(_volume));
-            PlayerPrefs.SetFloat(Name, _volume);
+            Mixer.SetFloat(ExposedParameter, PercentToDb(_volume));
+            PlayerPrefs.SetFloat(ExposedParameter, _volume);
             _onChanged?.Invoke(_volume);
         }
     }
 
-    public VolumeControl(string name, AudioMixer mixer, float defaultVolume = 0.7f)
+    public void LoadPlayerPrefs()
     {
-        Mixer = mixer;
-        Name = name;
-        Volume = PlayerPrefs.GetFloat(Name, defaultVolume);
-        DefaultVolume = defaultVolume;
+        Volume = PlayerPrefs.GetFloat(ExposedParameter, DefaultVolume);
+        Mixer.SetFloat(ExposedParameter, PercentToDb(Volume));
     }
 
     public static float DbToPercent(float db)
     {
         if (db < -20) { return 0; }
-        return Mathf.Clamp01(1 - (db / -20));
+        return Mathf.Clamp01(1 - (db / -40));
     }
 
     public static float PercentToDb(float percent)
     {
         if (percent <= 0) { return -80; }
-        return Mathf.Lerp(-20, 0, percent);
+        return Mathf.Lerp(-40, 0, percent);
     }
 }
