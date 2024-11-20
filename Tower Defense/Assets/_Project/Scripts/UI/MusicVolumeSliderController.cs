@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,12 +22,19 @@ public class MusicVolumeSliderController : MonoBehaviour
 
     void OnEnable()
     {
+        StartCoroutine(RegisterOnMusicManager());
+    }
+
+    private IEnumerator RegisterOnMusicManager()
+    {
+        var condition = new WaitUntil(() => _musicManager != null);
+        yield return condition;
         SetValue(_musicManager.MusicVolume);
         _musicManager.OnVolumeChanged.AddListener(SetValue);
     }
 
     void OnDisable()
     {
-        _musicManager.OnVolumeChanged.RemoveListener(SetValue);
+        _musicManager?.OnVolumeChanged.RemoveListener(SetValue);
     }
 }

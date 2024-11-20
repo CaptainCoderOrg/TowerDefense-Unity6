@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TabPanelController : MonoBehaviour
 {
+    private GameManagerController GameManager => GameManagerController.Instance;
     private static TabPanelController _instance;
     public static TabPanelController Instance
     {
@@ -30,11 +31,14 @@ public class TabPanelController : MonoBehaviour
     public Button ToggleButton;
     public bool IsShowing;
 
-    void Awake()
+    void Start()
     {
-        GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
-        GameManagerController.Instance.OnGameWon.AddListener(Hide);
-        GameManagerController.Instance.OnGameWon.AddListener(() => ToggleButton.enabled = false);
+        if (GameManagerController.Instance != null)
+        {
+            GameManagerController.Instance?.OnMenuChanged.AddListener(MenuChanged);
+            GameManagerController.Instance?.OnGameWon.AddListener(Hide);
+            GameManagerController.Instance?.OnGameWon.AddListener(() => ToggleButton.enabled = false);
+        }
     }
 
     private void MenuChanged(GameObject Menu)
@@ -61,7 +65,10 @@ public class TabPanelController : MonoBehaviour
     public void Show()
     {
         if (IsShowing) { return; }
-        GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
+        if (GameManagerController.Instance != null)
+        {
+            GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
+        }        
         IsShowing = true;
         Animator.SetTrigger("Show");
     }
