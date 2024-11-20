@@ -15,6 +15,7 @@ namespace CaptainCoder.Unity.Audio
         public float FadeDuration { get; set; } = 5f;
         private AudioSource _audioSource;
         public AudioClip Clip => _audioSource?.clip;
+        public bool IsPlaying => _audioSource == null ? false : _audioSource.isPlaying;
         void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
