@@ -42,6 +42,11 @@ public class MusicManagerController : MonoBehaviour
         {
             if (_currentTrack != null)
             {
+                if (_currentTrack.Clip == value.Clip) 
+                { 
+                    GameObject.Destroy(value.gameObject);
+                    return; 
+                }
                 GameObject fadingOut = _currentTrack.gameObject;
                 _currentTrack.FadeOut();
                 _currentTrack.OnFadeOutFinished.AddListener(() => GameObject.Destroy(fadingOut));

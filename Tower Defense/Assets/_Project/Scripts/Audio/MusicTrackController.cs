@@ -11,6 +11,7 @@ public class MusicTrackController : MonoBehaviour
     [field: SerializeField]
     public float FadeDuration { get; set; } = 5f;
     private AudioSource _audioSource;
+    public AudioClip Clip => _audioSource.clip;
     void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
