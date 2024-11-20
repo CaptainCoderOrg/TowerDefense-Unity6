@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 5306808802191502168}
   - component: {fileID: 8765168524430725762}
   - component: {fileID: 2482493164457945564}
+  - component: {fileID: 7449563532217472789}
   m_Layer: 5
   m_Name: Master Volume (Slider)
   m_TagString: Untagged
@@ -441,19 +442,7 @@ MonoBehaviour:
   m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MusicManagerController, TowerDefense
-        m_MethodName: set_MusicVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2482493164457945564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -474,6 +463,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &7449563532217472789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2480993074857604518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93b1343eb705e624cb53e47c5db39c98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _volumeControl: {fileID: 11400000, guid: 08751d988f120e04da39efac17b50b55, type: 2}
 --- !u!1 &2795427531714244778
 GameObject:
   m_ObjectHideFlags: 0

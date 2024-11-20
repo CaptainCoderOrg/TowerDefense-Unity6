@@ -1,14 +1,8 @@
-using System;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.Events;
 
-[CreateAssetMenu(fileName = "AudioManager", menuName = "TD/Audio Manager")]
-public class AudioManager : ScriptableObject
+[CreateAssetMenu(fileName = "MusicTrackManager", menuName = "TD/Music Track Manager")]
+public class MusicTrackManager : ScriptableObject
 {
-    [field: SerializeField]
-    public AudioMixer Mixer { get; private set; }
-    [SerializeField]
     private MusicTrackController _currentTrack;
     public MusicTrackController Track
     {

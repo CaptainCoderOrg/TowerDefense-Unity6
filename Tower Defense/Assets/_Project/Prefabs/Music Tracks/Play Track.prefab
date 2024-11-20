@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4107b16d2f9cff47bf39eb1e5e94958, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _trackManager: {fileID: 11400000, guid: a0d7b77fa95da6a4db01929b606fdd22, type: 2}
   BecomeTrackOnStart: 1
   OnFadeOutFinished:
     m_PersistentCalls:

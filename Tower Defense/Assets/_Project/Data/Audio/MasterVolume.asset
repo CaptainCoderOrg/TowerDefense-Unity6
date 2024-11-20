@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b312c8be5593e1a4b89e574436e62be8, type: 3}
-  m_Name: DefaultAudioManager
+  m_Script: {fileID: 11500000, guid: 96ce438f09fb8ca429a2589c51851375, type: 3}
+  m_Name: MasterVolume
   m_EditorClassIdentifier: 
   <Mixer>k__BackingField: {fileID: 24100000, guid: f0385c9fe5d16b54bbd99b526595adf8, type: 2}
-  <Music>k__BackingField: {fileID: 11400000, guid: 9454ec72526e1a7459940033228e35cc, type: 2}
-  <Sound>k__BackingField: {fileID: 11400000, guid: bcf77ea6a6d64854b8219948e51b74c8, type: 2}
-  _currentTrack: {fileID: 0}
+  <ExposedParameter>k__BackingField: MasterVolume
+  <DefaultVolume>k__BackingField: 1
+  _volume: 1

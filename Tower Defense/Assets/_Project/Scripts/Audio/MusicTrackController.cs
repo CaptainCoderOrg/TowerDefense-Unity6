@@ -6,6 +6,8 @@ using UnityEngine.Events;
 [RequireComponent(typeof(AudioSource))]
 public class MusicTrackController : MonoBehaviour
 {
+    [SerializeField]
+    private MusicTrackManager _trackManager;
     public bool BecomeTrackOnStart = true;
     public UnityEvent OnFadeOutFinished;
     [field: SerializeField]
@@ -19,7 +21,7 @@ public class MusicTrackController : MonoBehaviour
 
     void Start()
     {
-        MusicManagerController.Instance.CurrentTrack = this;
+        _trackManager.Track = this;
     }
 
     private IEnumerator ChangeVolume(float startVolume, float endVolume, UnityEvent callback = null)

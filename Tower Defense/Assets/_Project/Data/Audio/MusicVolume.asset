@@ -15,4 +15,4 @@ MonoBehaviour:
   <Mixer>k__BackingField: {fileID: 24100000, guid: f0385c9fe5d16b54bbd99b526595adf8, type: 2}
   <ExposedParameter>k__BackingField: MusicVolume
   <DefaultVolume>k__BackingField: 0.5
-  _volume: 0.7
+  _volume: 0.7098358
