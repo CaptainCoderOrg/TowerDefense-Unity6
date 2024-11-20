@@ -15,7 +15,7 @@ public class MusicVolumeSliderController : MonoBehaviour
 
     void Start()
     {
-        _slider.onValueChanged.AddListener(value => _musicManager.MusicVolume = value);
+        _slider.onValueChanged.AddListener(value => _musicManager.MusicVolume.Volume = value);
     }
 
     public void SetValue(float value) => _slider.value = value;
@@ -29,12 +29,12 @@ public class MusicVolumeSliderController : MonoBehaviour
     {
         var condition = new WaitUntil(() => _musicManager != null);
         yield return condition;
-        SetValue(_musicManager.MusicVolume);
-        _musicManager.OnVolumeChanged.AddListener(SetValue);
+        SetValue(_musicManager.MusicVolume.Volume);
+        _musicManager.MusicVolume.OnChanged += SetValue;
     }
 
     void OnDisable()
     {
-        _musicManager?.OnVolumeChanged.RemoveListener(SetValue);
+        _musicManager.MusicVolume.OnChanged -= SetValue;
     }
 }

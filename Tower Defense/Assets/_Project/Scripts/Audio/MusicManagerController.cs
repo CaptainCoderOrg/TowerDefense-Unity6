@@ -14,25 +14,9 @@ public class MusicManagerController : MonoBehaviour
         _instance = null;
     }
 
-    public UnityEvent<float> OnVolumeChanged;
-
     [field: SerializeField]
     public AudioMixer GlobalMixer { get; private set; }
-
-    [SerializeField]
-    private float _musicVolume;
-
-    public float MusicVolume
-    {
-        get => _musicVolume;
-        set
-        {
-            _musicVolume = value;
-            GlobalMixer.SetFloat("MusicVolume", PercentToDb(_musicVolume));
-            PlayerPrefs.SetFloat("MusicVolume", _musicVolume);
-            OnVolumeChanged.Invoke(_musicVolume);
-        }
-    }
+    public VolumeControl MusicVolume { get; private set; }
 
     [SerializeField]
     private MusicTrackController _currentTrack;
@@ -60,6 +44,9 @@ public class MusicManagerController : MonoBehaviour
 
     void Awake()
     {
+        // Application.persistentDataPath works in WebGL builds along with System.IO.File.WriteAllText
+        // string path = System.IO.Path.Combine(Application.persistentDataPath, "settings.cfg");
+        // System.IO.File.WriteAllText(path, "Test");
         if (_instance == null)
         {
             _instance = this;
@@ -73,18 +60,9 @@ public class MusicManagerController : MonoBehaviour
 
     void Start()
     {
-        MusicVolume = PlayerPrefs.GetFloat("MusicVolume", 0.5f);
+        MusicVolume = new VolumeControl("MusicVolume", GlobalMixer);
     }
 
-    public static float DbToPercent(float db)
-    {
-        if (db < -20) { return 0; }
-        return Mathf.Clamp01(1 - (db / -20));
-    }
+    
 
-    public static float PercentToDb(float percent)
-    {
-        if (percent <= 0) { return -80; }
-        return Mathf.Lerp(-20, 0, percent);
-    }
 }
