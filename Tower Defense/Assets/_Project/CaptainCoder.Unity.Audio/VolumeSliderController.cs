@@ -23,15 +23,7 @@ namespace CaptainCoder.Unity.Audio
         }
 
         public void SetValue(float value) => _slider.value = value;
-
-        void OnEnable()
-        {
-            _volumeControl.OnChanged += SetValue;
-        }
-
-        void OnDisable()
-        {
-            _volumeControl.OnChanged -= SetValue;
-        }
+        void OnEnable() => _volumeControl.OnChanged += SetValue;
+        void OnDisable() => _volumeControl.OnChanged -= SetValue;
     }
 }

@@ -1,5 +1,4 @@
 using System.Collections;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -44,14 +43,12 @@ namespace CaptainCoder.Unity.Audio
             callback?.Invoke();
         }
 
-        [Button("FadeIn")]
         public void FadeIn()
         {
             StopAllCoroutines();
             StartCoroutine(ChangeVolume(0, 1));
         }
 
-        [Button("FadeOut")]
         public void FadeOut()
         {
             StopAllCoroutines();
