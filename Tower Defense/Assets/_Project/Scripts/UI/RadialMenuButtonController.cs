@@ -25,8 +25,6 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
                 _preview.SetActive(false);
             }
             gameObject.SetActive(true);
-            
-            
         }
     }
     public RadialMenuController RadialMenu => RadialMenuController.Instance;
@@ -82,6 +80,14 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
         else
         {
             RadialMenu.ShowMessage($"<color=yellow>{result.Message}</color>", 2);
+        }
+    }
+
+    void OnDestroy()
+    {
+        if (_preview != null)
+        {
+            GameObject.Destroy(_preview);
         }
     }
 

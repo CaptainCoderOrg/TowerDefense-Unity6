@@ -78,6 +78,11 @@ public sealed class RadialMenuController : MonoBehaviour
         Hide();
     }
 
+    public void Preload()
+    {
+        Show(FindFirstObjectByType<TileController>());
+    }
+
     public void Show(TileController tile)
     {
         if (Selected == tile) 
