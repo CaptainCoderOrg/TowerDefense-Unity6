@@ -20,36 +20,36 @@ namespace CaptainCoder.Unity.Loader
         {
             foreach (LoadableController loadable in Manifest.Loaders)
             {
-                int start = DateTime.Now.Millisecond;
+                long start = Time();
                 var loaded = GameObject.Instantiate(loadable, transform);
                 IEnumerator enumerator = loaded.Load();
                 while (enumerator.MoveNext())
                 {
                     yield return enumerator.Current;
                 }
-                int end = DateTime.Now.Millisecond;
+                long end = Time();
                 Debug.Log($"Loaded {loaded} in {end - start}ms");
                 yield return null;
             }
 
             foreach (LoadableController loadable in InSceneAssets)
             {
-                int start = DateTime.Now.Millisecond;
+                long start = Time();
                 IEnumerator enumerator = loadable.Load();
                 while (enumerator.MoveNext())
                 {
                     yield return enumerator.Current;
                 }
-                int end = DateTime.Now.Millisecond;
+                long end = Time();
                 Debug.Log($"Loaded {loadable} in {end - start}ms");
                 yield return null;
             }
 
             foreach (var simple in Manifest.SimpleAssets)
             {
-                float start = DateTime.Now.Millisecond;
+                long start = Time();
                 var loaded = GameObject.Instantiate(simple, transform);
-                float end = DateTime.Now.Millisecond;
+                long end = Time();
                 Debug.Log($"Loaded {loaded} in {end - start}ms");
                 yield return null;
             }
@@ -59,5 +59,7 @@ namespace CaptainCoder.Unity.Loader
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
+
+        private long Time() => DateTime.Now.Ticks / TimeSpan.TicksPerMillisecond;
     }
 }
