@@ -16,6 +16,7 @@ public class GameManagerController : MonoBehaviour
     private HashSet<EnemyController> _enemies = new();
     [field: SerializeField]
     public int StartingEnergy { get; private set; } = 50;
+    public bool IsRunning { get; set; } = false;
     public int Energy
     {
         get => EnergyText.Value;
@@ -55,6 +56,11 @@ public class GameManagerController : MonoBehaviour
         InfoText.text = "";
         EnergyText.Value = StartingEnergy;
         Stats = new() { StartTime = Time.time };
+    }
+
+    public void GameStart()
+    {
+        IsRunning = true;
     }
 
     public void RegisterSpawner(SpawnerController spawner)

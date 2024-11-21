@@ -8,6 +8,7 @@ public class SpawnerController : MonoBehaviour
     public bool IsDone => NextInstruction >= Instructions.Count;
     public int NextInstruction = 0;
     public float NextSpawn;
+    public bool IsSpawning = false;
     public WaypointController FirstWaypoint;
     private GameManagerController GameManager => GameManagerController.Instance;
 
@@ -18,6 +19,7 @@ public class SpawnerController : MonoBehaviour
 
     void Update()
     {
+        if (!GameManager.IsRunning) { return; }
         if (NextInstruction >= Instructions.Count) { return; }
         NextSpawn -= Time.deltaTime;
         if (NextSpawn <= 0)
