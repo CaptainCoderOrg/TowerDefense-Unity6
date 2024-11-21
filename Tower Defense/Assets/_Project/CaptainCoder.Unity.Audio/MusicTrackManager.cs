@@ -37,20 +37,16 @@ namespace CaptainCoder.Unity.Audio
 #if UNITY_EDITOR
         private void OnEnable()
         {
-            // Subscribe for the "event"
             EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
-
         }
 
         private void OnDisable()
         {
-            // Don't forget to unsubscribe
             EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
         }
 
         private void OnPlayModeStateChanged(PlayModeStateChange state)
         {
-            Debug.Log($"PlayModeChanged: {state}");
             if (state == PlayModeStateChange.ExitingPlayMode)
             {
                 _currentTrack = null;
