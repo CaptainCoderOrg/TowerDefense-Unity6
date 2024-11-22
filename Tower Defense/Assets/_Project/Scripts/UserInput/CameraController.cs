@@ -1,5 +1,4 @@
 using System.Collections;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -45,7 +44,6 @@ public class CameraController : MonoBehaviour
         if (callbackContext.phase == InputActionPhase.Performed) { RotateRight(); }
     }
 
-    [Button("RotateRight")]
     public void RotateRight()
     {
         Angle += 90;
@@ -56,7 +54,6 @@ public class CameraController : MonoBehaviour
         if (callbackContext.phase == InputActionPhase.Performed) { RotateLeft(); }
     }
 
-    [Button("RotateLeft")]
     public void RotateLeft()
     {
         Angle -= 90;

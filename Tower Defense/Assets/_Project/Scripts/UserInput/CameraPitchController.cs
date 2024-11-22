@@ -1,5 +1,4 @@
 using System.Collections;
-using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -40,7 +39,6 @@ public class CameraPitchController : MonoBehaviour
         _targetCamera.rotation = _targetCamera.rotation.WithX(endAngle);
     }
 
-    [Button("Tilt")]
     public void Tilt()
     {
         _pitchIx = (_pitchIx + 1) % CameraPitches.Length;
