@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Name>k__BackingField: Audio Settings
   <PanelPrefab>k__BackingField: {fileID: 8958977757037898052, guid: fba1405c412ce2247916b3840b379454, type: 3}
-  <Icon>k__BackingField: {fileID: 21300000, guid: 9ee9b3cf0b3ce7c4396c6ebc1a1de5b0, type: 3}
+  <Icon>k__BackingField: {fileID: 21300000, guid: 1691f4900b1ad3d4599bebf9dd0dffbd, type: 3}
