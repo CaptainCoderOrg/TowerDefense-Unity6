@@ -5,12 +5,13 @@ using UnityEngine.UI;
 
 public class BuildButton : MonoBehaviour, IPointerEnterHandler
 {
-    public TabPanelController Panel => TabPanelController.Instance;
+    private TabPanelController _panel;
     public StructureData Structure;
     private Button _button;
 
     void Awake()
     {
+        _panel = GetComponentInParent<TabPanelController>();
         _button = GetComponentInChildren<Button>();
         
         _button.onClick.AddListener(HandleClick);
@@ -23,13 +24,13 @@ public class BuildButton : MonoBehaviour, IPointerEnterHandler
     private void HandleClick()
     {
         CursorManagerController.Instance.StartBuildMode(Structure);
-        TabPanelController.Instance.Hide();
+        _panel.Hide();
         RadialMenuController.Instance.AddStructure(Structure);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Panel.NameText.text = Structure.Name;
-        Panel.DescriptionText.text = Structure.Description;
+        _panel.NameText.text = Structure.Name;
+        _panel.DescriptionText.text = Structure.Description;
     }
 }
