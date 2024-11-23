@@ -1,44 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public sealed class PanelIconController : MonoBehaviour 
+namespace CaptainCoder.Unity.Panels
 {
-    private Animator _animator;
-    [SerializeField]
-    private Image _image;
-    public PanelController Panel { get; set; }
-    [SerializeField]
-    private Image _imageShadow;
-    private Sprite _sprite;
-    public Sprite Icon 
+    public sealed class PanelIconController : MonoBehaviour
     {
-        get => _sprite;
-        set
+        private Animator _animator;
+        [SerializeField]
+        private Image _image;
+        public PanelController Panel { get; set; }
+        [SerializeField]
+        private Image _imageShadow;
+        private Sprite _sprite;
+        public Sprite Icon
         {
-            _sprite = value;
-            _image.sprite = _sprite;
-            _imageShadow.sprite = _sprite;
+            get => _sprite;
+            set
+            {
+                _sprite = value;
+                _image.sprite = _sprite;
+                _imageShadow.sprite = _sprite;
+            }
         }
-    }
 
-    void Awake()
-    {
-        Button button = GetComponentInChildren<Button>();
-        button.onClick.AddListener(Toggle);
-        _animator = GetComponent<Animator>();
-    }
-    
-    public void Toggle()
-    {
-        if (Panel.IsShowing)
+        void Awake()
         {
-            Panel.Hide();
-            _animator.SetTrigger("Hide");
+            Button button = GetComponentInChildren<Button>();
+            button.onClick.AddListener(Toggle);
+            _animator = GetComponent<Animator>();
         }
-        else
+
+        public void Toggle()
         {
-            Panel.Show();
-            _animator.SetTrigger("Show");
+            if (Panel.IsShowing)
+            {
+                Panel.Hide();
+                _animator.SetTrigger("Hide");
+            }
+            else
+            {
+                Panel.Show();
+                _animator.SetTrigger("Show");
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 using System.Linq;
 using NaughtyAttributes;
 using UnityEngine;
+using CaptainCoder.Extensions;
 
 [RequireComponent(typeof(CooldownController), typeof(StructureController))]
 public class PowerCrystalController : MonoBehaviour

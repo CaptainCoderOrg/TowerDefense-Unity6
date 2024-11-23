@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using CaptainCoder.Unity.Extensions;
 
 public class CameraController : MonoBehaviour
 {
