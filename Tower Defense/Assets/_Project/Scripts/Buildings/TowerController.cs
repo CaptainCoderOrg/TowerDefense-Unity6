@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TowerController : MonoBehaviour
 {
+    private GameManagerController _gameManager;
     private ParticleSystem _particleSystem;
     public float Health => BaseHealth - Damage;
     public float HealthPercent => Mathf.Clamp(Health / BaseHealth, 0, 1);
@@ -16,7 +17,7 @@ public class TowerController : MonoBehaviour
         private set
         {
             _damage = value;
-            GameManagerController.Instance.Stats.DamageSustained = value;
+            _gameManager.Stats.DamageSustained = value;
             RenderHealthBar();
             UpdateSmoke();
         }
@@ -27,6 +28,8 @@ public class TowerController : MonoBehaviour
 
     void Awake()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, "Could not locate game manager");
         _particleSystem = GetComponentInChildren<ParticleSystem>();
         Debug.Assert(_particleSystem != null);
         _events = GetComponentInChildren<TriggerEvents>();

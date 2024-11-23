@@ -4,24 +4,30 @@ using CaptainCoder.Unity.Panels;
 
 public class BuildStructurePanel : MonoBehaviour
 {
-    private GameManagerController GameManager => GameManagerController.Instance;
+    private GameManagerController _gameManager;
     private PanelController _parent;
     public TextMeshProUGUI NameText;
     public TextMeshProUGUI DescriptionText;
 
     void Awake()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, "StructurePanel could not find game manager");
+
         _parent = GetComponentInParent<PanelController>();
         Debug.Assert(_parent != null);
     }
 
-    void Start()
+    void OnEnable()
     {
-        if (GameManagerController.Instance != null)
-        {
-            GameManagerController.Instance?.OnMenuChanged.AddListener(MenuChanged);
-            GameManagerController.Instance?.OnGameWon.AddListener(Hide);
-        }
+        _gameManager.OnMenuChanged.AddListener(MenuChanged);
+        _gameManager.OnGameWon.AddListener(Hide);
+    }
+
+    void OnDisable()
+    {
+        _gameManager.OnMenuChanged.RemoveListener(MenuChanged);
+        _gameManager.OnGameWon.RemoveListener(Hide);
     }
 
     private void MenuChanged(GameObject Menu)

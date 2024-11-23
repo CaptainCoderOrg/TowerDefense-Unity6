@@ -85,7 +85,9 @@ public class TileController : MonoBehaviour
     {
         BuildResult result = CanBuild(structure);
         if (result.IsSuccess) {
-            Structure = GameObject.Instantiate(structure.Prefab, transform.position, transform.rotation);
+            Structure = GameObject.Instantiate(structure.Prefab, GameManagerController.Instance.transform);
+            Structure.transform.position = transform.position;
+            Structure.transform.rotation = transform.rotation;
             GameManagerController.Instance.AddStructure(Structure);
             GameManagerController.Instance.Stats.StructuresBuilt ++;
             Structure.OnSpawn.Invoke();

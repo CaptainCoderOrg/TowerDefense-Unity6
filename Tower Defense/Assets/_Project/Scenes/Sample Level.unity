@@ -4273,7 +4273,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 409482767}
   - {fileID: 1310819649}
+  - {fileID: 684225321}
+  - {fileID: 613341266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &306973239
@@ -5143,7 +5146,7 @@ GameObject:
   - component: {fileID: 409482768}
   - component: {fileID: 409482769}
   m_Layer: 5
-  m_Name: HUD
+  m_Name: HUD (Canas)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5232,7 +5235,7 @@ RectTransform:
   - {fileID: 542963250}
   - {fileID: 1527382495}
   - {fileID: 194698217}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 306973238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7092,12 +7095,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613341264}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 499.5368, y: 499.8996, z: 501.75992}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 495.0368, y: 499.8996, z: 497.25992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 306973238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &641231412
 GameObject:
@@ -7776,8 +7779,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684225320}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.5, y: 0, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7786,7 +7789,7 @@ Transform:
   - {fileID: 1621764909}
   - {fileID: 578924095}
   - {fileID: 422217347}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 306973238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &684225322
 MonoBehaviour:
@@ -29361,13 +29364,10 @@ SceneRoots:
   - {fileID: 1605377412}
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 684225321}
   - {fileID: 78769595}
   - {fileID: 1688435176}
   - {fileID: 1768483429}
   - {fileID: 306973238}
-  - {fileID: 409482767}
   - {fileID: 924547855}
   - {fileID: 1732812795}
   - {fileID: 828159110}
-  - {fileID: 613341266}

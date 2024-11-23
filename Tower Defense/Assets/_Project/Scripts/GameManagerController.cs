@@ -140,7 +140,7 @@ public class GameManagerController : MonoBehaviour
 
     public void ShowAllRanges()
     {
-        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        foreach (StructureController controller in Structures)
         {
             controller.OnShowRange.Invoke();
         }
@@ -148,7 +148,7 @@ public class GameManagerController : MonoBehaviour
 
     public void HideAllRanges()
     {
-        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        foreach (StructureController controller in Structures)
         {
             controller.OnHideRange.Invoke();
         }

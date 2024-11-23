@@ -6,13 +6,14 @@ using CaptainCoder.Extensions;
 [RequireComponent(typeof(CooldownController), typeof(StructureController))]
 public class PowerCrystalController : MonoBehaviour
 {
+    private GameManagerController _gameManager;
     [field: SerializeField]
     public CooldownController Cooldown { get; private set; }
     public int RangeUpgradePrice => Mathf.RoundToInt(150 * Range);
     private float _range = 2;
-    public float Range 
-    { 
-        get => _range; 
+    public float Range
+    {
+        get => _range;
         set
         {
             _range = value;
@@ -34,6 +35,9 @@ public class PowerCrystalController : MonoBehaviour
     void Awake()
     {
         if (IsDecoration) { return; }
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, "Could not locate Game Manager");
+
         Cooldown = GetComponent<CooldownController>();
         Cooldown.OnCooldownFinished.AddListener(SpawnPowerCollectables);
 
@@ -83,7 +87,7 @@ public class PowerCrystalController : MonoBehaviour
     public void SpawnPowerCollectables()
     {
         // Don't spawn if the game has been won
-        if (GameManagerController.Instance.IsGameWon()) { return; }
+        if (_gameManager.IsGameWon()) { return; }
 
         TileController[] potentialSpawnLocations = FindTiles()
             .Where(t => t.CanSpawnCollectable)
@@ -91,7 +95,9 @@ public class PowerCrystalController : MonoBehaviour
         if (potentialSpawnLocations.Length != 0)
         {
             TileController spawnAt = potentialSpawnLocations.SelectRandomOrDefault(null);
-            PowerCollectableController collectable = GameObject.Instantiate(CollectablePrefab, spawnAt.transform.position, spawnAt.transform.rotation);
+            PowerCollectableController collectable = GameObject.Instantiate(CollectablePrefab, _gameManager.transform);
+            collectable.transform.position = spawnAt.transform.position;
+            collectable.transform.rotation = spawnAt.transform.rotation;
             spawnAt.Collectable = collectable;
         }
         Cooldown.StartCooldown();

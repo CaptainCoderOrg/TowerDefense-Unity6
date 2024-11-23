@@ -1498,7 +1498,6 @@ GameObject:
   - component: {fileID: 830297487096075159}
   - component: {fileID: 7683153871903306438}
   - component: {fileID: 7831716171538718772}
-  - component: {fileID: 5235568903542018428}
   m_Layer: 5
   m_Name: Audio Settings (Panel)
   m_TagString: Untagged
@@ -1586,23 +1585,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5235568903542018428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8958977757037898052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b683dfe38d17ec44b7527318fab0c70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameText: {fileID: 0}
-  DescriptionText: {fileID: 0}
-  Animator: {fileID: 7831716171538718772}
-  ToggleButton: {fileID: 0}
-  IsShowing: 0
 --- !u!1001 &1597870551614580078
 PrefabInstance:
   m_ObjectHideFlags: 0
