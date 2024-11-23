@@ -2004,6 +2004,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 409482767}
     m_Modifications:
+    - target: {fileID: 4382913310197501825, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5829968630382307913, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2019,6 +2023,10 @@ PrefabInstance:
     - target: {fileID: 5829968630382307913, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829968630382307913, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 7482498734537588679, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: <Panels>k__BackingField.Array.size
@@ -2058,7 +2066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846705351583366666, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 8846705351583366666, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2094,7 +2102,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8846705351583366666, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8846705351583366666, guid: a910483cd4961d14d9129bd7a10f6510, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
