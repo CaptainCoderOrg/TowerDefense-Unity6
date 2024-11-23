@@ -5,6 +5,7 @@ namespace CaptainCoder.Unity.Panels
 {
     public sealed class PanelIconController : MonoBehaviour
     {
+        private Button _button;
         private Animator _animator;
         [SerializeField]
         private Image _image;
@@ -25,23 +26,28 @@ namespace CaptainCoder.Unity.Panels
 
         void Awake()
         {
-            Button button = GetComponentInChildren<Button>();
-            button.onClick.AddListener(Toggle);
+            _button = GetComponentInChildren<Button>();
             _animator = GetComponent<Animator>();
+            Debug.Assert(Panel != null, $"{nameof(PanelController)} was not set before Awake");
         }
 
-        public void Toggle()
+        void OnEnable()
         {
-            if (Panel.IsShowing)
-            {
-                Panel.Hide();
-                _animator.SetTrigger("Hide");
-            }
-            else
-            {
-                Panel.Show();
-                _animator.SetTrigger("Show");
-            }
+            _button.onClick.AddListener(Toggle);
+            Panel.OnShow.AddListener(Show);
+            Panel.OnHide.AddListener(Hide);
         }
+
+        void OnDisable()
+        {
+            _button.onClick.RemoveListener(Toggle);
+            Panel.OnShow.RemoveListener(Show);
+            Panel.OnHide.RemoveListener(Hide);
+        }
+
+        private void Toggle() => Panel.Toggle();
+
+        private void Show() => _animator.SetTrigger("Show");
+        private void Hide() => _animator.SetTrigger("Hide");
     }
 }

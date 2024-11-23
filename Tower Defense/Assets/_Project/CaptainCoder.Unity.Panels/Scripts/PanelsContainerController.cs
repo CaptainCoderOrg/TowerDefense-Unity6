@@ -30,16 +30,21 @@ namespace CaptainCoder.Unity.Panels
         {
             PanelsPivot.DestroyChildren();
             Icons.DestroyChildren();
+            PanelIconPrefab.gameObject.SetActive(false);
+            PanelPrefab.gameObject.SetActive(false);
             foreach (PanelData panelData in Panels)
             {
                 PanelController panelController = GameObject.Instantiate(PanelPrefab, PanelsPivot);
                 panelController.name = $"{panelData.Name} (Panel)";
-                GameObject panel = GameObject.Instantiate(panelData.PanelPrefab, panelController.transform);
-
+                GameObject.Instantiate(panelData.PanelPrefab, panelController.transform);
+                
                 PanelIconController icon = GameObject.Instantiate(PanelIconPrefab, Icons);
                 icon.Icon = panelData.Icon;
                 icon.name = $"{panelData.Name} (Button)";
                 icon.Panel = panelController;
+
+                panelController.gameObject.SetActive(true);
+                icon.gameObject.SetActive(true);
             }
         }
 

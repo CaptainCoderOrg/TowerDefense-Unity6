@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class BuildButton : MonoBehaviour, IPointerEnterHandler
 {
-    private TabPanelController _panel;
+    private BuildStructurePanel _panel;
     public StructureData Structure;
     private Button _button;
 
     void Awake()
     {
-        _panel = GetComponentInParent<TabPanelController>();
+        _panel = GetComponentInParent<BuildStructurePanel>();
         _button = GetComponentInChildren<Button>();
         
         _button.onClick.AddListener(HandleClick);
