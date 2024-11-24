@@ -14,14 +14,6 @@ public abstract class UpgradeLabelController : MonoBehaviour
         ValueLabel.text = GetValue();
     }
 
-    public void IncreaseValue()
-    {
-        if (GameManagerController.Instance.Energy < GetUpgradePrice()) { return; }
-        GameManagerController.Instance.SpendEnergy(GetUpgradePrice());
-        IncreaseValue(1);
-        UpdateLabels();
-    }
-
     public abstract int GetUpgradePrice();
     public abstract string GetValue();
     public abstract void IncreaseValue(float value);

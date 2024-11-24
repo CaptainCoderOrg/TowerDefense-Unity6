@@ -92,13 +92,11 @@ public class TurretController : MonoBehaviour
     {
         ShowAoE();
         TileCanvasController.Instance.TurretMenu.transform.position = transform.position;
-        TileCanvasController.Instance.TurretMenu.Show();
     }
 
     public void HandleDeselected()
     {
         HideAoE();
-        TileCanvasController.Instance.TurretMenu.Hide();
     }
 
     private void RemoveEnemy(EnemyController target) => Targets.Remove(target);
