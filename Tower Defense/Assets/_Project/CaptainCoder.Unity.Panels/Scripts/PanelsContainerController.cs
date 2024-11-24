@@ -25,6 +25,11 @@ namespace CaptainCoder.Unity.Panels
             Initialize();
         }
 
+        public void Toggle(int ix)
+        {
+            PanelControllers[ix].Toggle();
+        }
+
         [Button("Initialize")]
         public void Initialize()
         {
@@ -32,6 +37,7 @@ namespace CaptainCoder.Unity.Panels
             Icons.DestroyChildren();
             PanelIconPrefab.gameObject.SetActive(false);
             PanelPrefab.gameObject.SetActive(false);
+            PanelControllers.Clear();
             foreach (PanelData panelData in Panels)
             {
                 PanelController panelController = GameObject.Instantiate(PanelPrefab, PanelsPivot);
@@ -43,6 +49,7 @@ namespace CaptainCoder.Unity.Panels
                 icon.name = $"{panelData.Name} (Button)";
                 icon.Panel = panelController;
 
+                PanelControllers.Add(panelController);
                 panelController.gameObject.SetActive(true);
                 icon.gameObject.SetActive(true);
             }
