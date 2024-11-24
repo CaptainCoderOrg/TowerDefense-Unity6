@@ -35,25 +35,6 @@ public class GameManagerController : MonoBehaviour
     private HashSet<StructureController> _structures = new();
     public IEnumerable<StructureController> Structures => _structures.ToList();
     public IEnumerable<PowerCrystalController> PowerCrystals => _structures.GetComponents<PowerCrystalController>();
-    private static GameManagerController _instance;
-    public static GameManagerController Instance
-    {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = GameObject.FindFirstObjectByType<GameManagerController>();
-            }
-            return _instance;
-        }
-    }
-
-    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    static void Init()
-    {
-        _instance = null;
-    }
-
     [field: SerializeField]
     private AnimatedNumberText EnergyText { get; set; }
 

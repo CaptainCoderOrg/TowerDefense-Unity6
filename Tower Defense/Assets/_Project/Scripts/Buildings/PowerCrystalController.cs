@@ -75,13 +75,11 @@ public class PowerCrystalController : MonoBehaviour
     {
         ShowRange();
         TileCanvasController.Instance.CrystalMenu.transform.position = transform.position;
-        TileCanvasController.Instance.CrystalMenu.Show();
     }
 
     public void Deselect()
     {
         HideRange();
-        TileCanvasController.Instance.CrystalMenu.Hide();
     }
 
     public void SpawnPowerCollectables()
