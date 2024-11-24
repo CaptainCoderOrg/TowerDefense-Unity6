@@ -114,7 +114,7 @@ public sealed class RadialMenuController : MonoBehaviour
         gameObject.SetActive(false);
         Cursor.Cursor.SetActive(false);
         _gameManager.HideAllRanges();
-        foreach (RadialMenuButtonController button in _buttons.Where(b => b.isActiveAndEnabled))
+        foreach (RadialMenuButtonController button in _buttons)
         {
             button.Clear();
         }

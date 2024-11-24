@@ -67,7 +67,7 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
     public void Clear()
     {
         RadialMenu.ShowMessage(string.Empty);
-        _gameManager.InfoText.text = string.Empty;
+        if (_gameManager != null) { _gameManager.InfoText.text = string.Empty; }
         if (_preview != null) { _preview.SetActive(false); }
     }
 
