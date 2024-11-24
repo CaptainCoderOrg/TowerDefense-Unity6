@@ -1,9 +1,9 @@
 const cacheName = "Captain Coder's Academy-Tower Defense-0.1.0";
 const contentToCache = [
-    "Build/d439434c2ac2be13a5cef8c1f87315e5.loader.js",
-    "Build/7a8911b2b8aa458db4065baf594d2161.framework.js",
-    "Build/4c7da61276108b993e86ee761f687954.data",
-    "Build/ff0bcaeaf61ba05fd67d2636f56679b3.wasm",
+    "Build/0aafecfbceb730a5b07979e3338d75ef.loader.js",
+    "Build/836b5d8c15324d159dc2b0de42137745.framework.js",
+    "Build/9d5a071d81abd751668416306955b9bd.data",
+    "Build/c33585e46db4f5566f12adee1e6d7723.wasm",
     "TemplateData/style.css"
 
 ];
