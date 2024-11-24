@@ -9,6 +9,12 @@ using CaptainCoder.Unity.Extensions;
 
 public class GameManagerController : MonoBehaviour
 {
+    [field: SerializeField]
+    public Transform EnemiesContainer { get; private set; }
+    [field: SerializeField]
+    public Transform StructuresContainer { get; private set; }
+    [field: SerializeField]
+    public Transform CollectablesContainer { get; private set; }
     public GameStats Stats { get; private set; }
     [field: SerializeField]
     public UnityEvent OnGameWon { get; private set; }
@@ -53,6 +59,12 @@ public class GameManagerController : MonoBehaviour
 
     void Awake()
     {
+        EnemiesContainer = new GameObject("Enemies Container").transform;
+        EnemiesContainer.SetParent(transform);
+        StructuresContainer = new GameObject("Structures Container").transform;
+        StructuresContainer.SetParent(transform);
+        CollectablesContainer = new GameObject("Collectables Container").transform;
+        CollectablesContainer.SetParent(transform);
         InfoText.text = "";
         EnergyText.Value = StartingEnergy;
         Stats = new() { StartTime = Time.time };

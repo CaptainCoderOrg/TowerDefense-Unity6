@@ -5,6 +5,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(WaypointTraveler))]
 public class EnemyController : MonoBehaviour
 {   
+    private GameManagerController _gameManager;
     [SerializeField]
     private Animator _animator;
     private BarController _healthBar;
@@ -31,6 +32,8 @@ public class EnemyController : MonoBehaviour
     
     void Awake()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, $"Could not locate {nameof(GameManagerController)}");
         _healthBar ??= GetComponentInChildren<BarController>();
         _collider ??= GetComponentInChildren<Collider>();
         WaypointTraveler = GetComponent<WaypointTraveler>();
@@ -59,7 +62,7 @@ public class EnemyController : MonoBehaviour
     public void Die()
     {
         if (_isDead) { return; }
-        GameManagerController.Instance.Stats.EnemiesDefeated++;
+        _gameManager.Stats.EnemiesDefeated++;
         _isDead = true;
         OnCleanup?.Invoke(this);
         if (_animator != null)

@@ -1,6 +1,7 @@
 using UnityEngine;
 public sealed class DefaultCursorBehaviour : ICursorBehaviour
 {
+    private GameManagerController _gameManager;
     private RadialMenuController RadialMenu => RadialMenuController.Instance;
     CursorManagerController Cursor => CursorManagerController.Instance;
     private TileController _lastTile;
@@ -24,9 +25,9 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
         RadialMenu.Show(controller);
     }
 
-    public void Initialize()
+    public void Initialize(GameManagerController gameManager)
     {
-        
+        _gameManager = gameManager;
     }
 
     public void Deinitialize()
@@ -40,13 +41,13 @@ public sealed class DefaultCursorBehaviour : ICursorBehaviour
         if (Cursor.Selected != null) { return; }
         controller.Highlight();
         _lastTile = controller;
-        GameManagerController.Instance.InfoText.text = "<sprite index=2> Build Structure";
+        _gameManager.InfoText.text = "<sprite index=2> Build Structure";
     }
 
     public void ExitTile(TileController controller)
     {
         controller.Clear();
-        GameManagerController.Instance.InfoText.text = string.Empty;
+        _gameManager.InfoText.text = string.Empty;
     }
 
     

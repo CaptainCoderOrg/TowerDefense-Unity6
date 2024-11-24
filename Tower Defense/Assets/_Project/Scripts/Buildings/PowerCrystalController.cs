@@ -95,7 +95,7 @@ public class PowerCrystalController : MonoBehaviour
         if (potentialSpawnLocations.Length != 0)
         {
             TileController spawnAt = potentialSpawnLocations.SelectRandomOrDefault(null);
-            PowerCollectableController collectable = GameObject.Instantiate(CollectablePrefab, _gameManager.transform);
+            PowerCollectableController collectable = GameObject.Instantiate(CollectablePrefab, _gameManager.CollectablesContainer);
             collectable.transform.position = spawnAt.transform.position;
             collectable.transform.rotation = spawnAt.transform.rotation;
             spawnAt.Collectable = collectable;

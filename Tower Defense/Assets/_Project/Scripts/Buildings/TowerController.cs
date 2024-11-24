@@ -23,7 +23,6 @@ public class TowerController : MonoBehaviour
         }
     }
     public Transform HealthBarTransform;
-    
     private TriggerEvents _events;
 
     void Awake()
@@ -55,7 +54,7 @@ public class TowerController : MonoBehaviour
         if (Health <= 0)
         {
             GameObject.Destroy(gameObject);
-            GameManagerController.Instance.TriggerGameOver();
+            _gameManager.TriggerGameOver();
         }
     }
 }

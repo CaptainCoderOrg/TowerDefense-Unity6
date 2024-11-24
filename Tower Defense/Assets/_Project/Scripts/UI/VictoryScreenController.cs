@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class VictoryScreenController : MonoBehaviour
 {
+    private GameManagerController _gameManager;
     [SerializeField]
     private TextMeshProUGUI _timeLabel;
     [SerializeField]
@@ -21,6 +22,8 @@ public class VictoryScreenController : MonoBehaviour
 
     void Awake()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, $"Cannot find {nameof(GameManagerController)}");
         Debug.Assert(_timeLabel != null, "Time label is not set in the inspector");
         Debug.Assert(_damageLabel != null, "Damage label is not set in the inspector");
         Debug.Assert(_enemiesLabel != null, "Enemies label is not set in the inspector");
@@ -28,7 +31,7 @@ public class VictoryScreenController : MonoBehaviour
         Debug.Assert(_structuresLabel != null, "Structures label is not set in the inspector");
         _isShowing = false;
         _animator = GetComponent<Animator>();
-        GameManagerController.Instance.OnGameWon.AddListener(ShowVictoryScreen);
+        _gameManager.OnGameWon.AddListener(ShowVictoryScreen);
         Button continueButton = GetComponentInChildren<Button>();
         continueButton.onClick.AddListener(HandleContinue);
     }
@@ -38,7 +41,7 @@ public class VictoryScreenController : MonoBehaviour
         SceneManager.LoadScene("Title Screen");
     }
 
-    private void ShowVictoryScreen() => ShowVictoryScreen(GameManagerController.Instance.Stats);
+    private void ShowVictoryScreen() => ShowVictoryScreen(_gameManager.Stats);
 
     private void ShowVictoryScreen(GameStats gameStats)
     {

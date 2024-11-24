@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class TileController : MonoBehaviour
 {
+    private GameManagerController _gameManager;
     [field: OnValueChanged("RebuildSelected")]
     [field: SerializeField]
     public TileData Tile { get; private set; }
@@ -23,6 +24,8 @@ public class TileController : MonoBehaviour
 
     void Awake()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, $"Could not locate {nameof(GameManagerController)}");
         MouseEvents mouseEvents = GetComponentInChildren<MouseEvents>();
         mouseEvents.OnEnter.AddListener(HandleMouseEntered);
         mouseEvents.OnExit.AddListener(HandleMouseExited);
@@ -53,23 +56,12 @@ public class TileController : MonoBehaviour
         MeshFilter.mesh = Tile.Mesh;
     }
 
-    // public void RebuildSelected()
-    // {
-    //     foreach (UnityEngine.GameObject obj in Selection.objects)
-    //     {
-    //         if (obj.GetComponent<TileController>() is TileController tile)
-    //         {
-    //             tile.MeshFilter.mesh = tile.Tile.Mesh;
-    //         }
-    //     }
-    // }
-
     public BuildResult CanBuild(StructureData structure)
     {
         if (!Tile.CanBuildWeapon) { return BuildResult.Fail("Cannot build here");}
         if (Structure != null) { return BuildResult.Fail("Structure in the way"); }
         if (!structure.RequiresPower) { return BuildResult.Success($"{structure.Name} can be placed here"); }
-        IEnumerable<TileController> tiles = GameManagerController.Instance.PowerCrystals.SelectMany(crystal => crystal.FindTiles());
+        IEnumerable<TileController> tiles = _gameManager.PowerCrystals.SelectMany(crystal => crystal.FindTiles());
         bool canBuild = tiles.Contains(this);
         if (canBuild) { return BuildResult.Success($"{structure.Name} can be placed here"); }
         return BuildResult.Fail($"{structure.Name} requires power");
@@ -85,13 +77,13 @@ public class TileController : MonoBehaviour
     {
         BuildResult result = CanBuild(structure);
         if (result.IsSuccess) {
-            Structure = GameObject.Instantiate(structure.Prefab, GameManagerController.Instance.transform);
+            Structure = GameObject.Instantiate(structure.Prefab, _gameManager.StructuresContainer);
             Structure.transform.position = transform.position;
             Structure.transform.rotation = transform.rotation;
-            GameManagerController.Instance.AddStructure(Structure);
-            GameManagerController.Instance.Stats.StructuresBuilt ++;
+            _gameManager.AddStructure(Structure);
+            _gameManager.Stats.StructuresBuilt ++;
             Structure.OnSpawn.Invoke();
-            Structure.OnDestroyed.AddListener(GameManagerController.Instance.RemoveStructure);
+            Structure.OnDestroyed.AddListener(_gameManager.RemoveStructure);
         }
         return result;
     }

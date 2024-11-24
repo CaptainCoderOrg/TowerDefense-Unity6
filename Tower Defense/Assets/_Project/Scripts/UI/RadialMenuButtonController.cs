@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Button))]
 public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
 {
+    private GameManagerController _gameManager;
     public RawImage Icon { get; private set; }
     public Button Button { get; private set; }
     private StructureData _structure;
@@ -36,6 +37,8 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
     }
     private void Initialize()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, $"Could not find {nameof(GameManagerController)}");
         if (Button != null) { return; }
         Button = GetComponent<Button>();
         Debug.Assert(Button != null);
@@ -64,17 +67,17 @@ public class RadialMenuButtonController : MonoBehaviour, IPointerExitHandler
     public void Clear()
     {
         RadialMenu.ShowMessage(string.Empty);
-        GameManagerController.Instance.InfoText.text = string.Empty;
+        _gameManager.InfoText.text = string.Empty;
         if (_preview != null) { _preview.SetActive(false); }
     }
 
     public void HandleClick()
     {
         if (RadialMenu.Selected == null) { return; }
-        BuildResult result = GameManagerController.Instance.TryPurchaseStructure(RadialMenu.Selected, Structure);
+        BuildResult result = _gameManager.TryPurchaseStructure(RadialMenu.Selected, Structure);
         if (result.IsSuccess)
         {
-            GameManagerController.Instance.InfoText.text = string.Empty;
+            _gameManager.InfoText.text = string.Empty;
             RadialMenu.Hide();
         }
         else

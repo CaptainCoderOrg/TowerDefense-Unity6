@@ -11,7 +11,7 @@ public sealed class DisabledCursorBehaviour : ICursorBehaviour
 
     }
 
-    public void Initialize()
+    public void Initialize(GameManagerController gameManager)
     {
         
     }

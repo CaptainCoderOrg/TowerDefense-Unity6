@@ -4,41 +4,42 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
 {
     public StructureData Structure { get; private set; }
     CursorManagerController Cursor => CursorManagerController.Instance;
-    GameManagerController GameManager => GameManagerController.Instance;
+    private GameManagerController _gameManager;
     private GameObject _preview;
     public BuildCursorBehaviour(StructureData structureData) => Structure = structureData;
 
-    public void Initialize()
+    public void Initialize(GameManagerController gameManager)
     {
+        _gameManager = gameManager;
         _preview = GameObject.Instantiate(Structure.Preview);
         _preview.SetActive(false);
-        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        foreach (StructureController controller in _gameManager.Structures)
         {
             controller.OnShowRange.Invoke();
         }
-        GameManager.InfoText.text = "<sprite index=2> Cancel";
+        _gameManager.InfoText.text = "<sprite index=2> Cancel";
     }
 
     public void Deinitialize()
     {
-        foreach (StructureController controller in GameManagerController.Instance.Structures)
+        foreach (StructureController controller in _gameManager.Structures)
         {
             controller.OnHideRange.Invoke();
         }
-        GameManager.InfoText.text = "";
+        _gameManager.InfoText.text = "";
     }
 
     public void ClickTile(TileController controller)
     {
-        BuildResult result = GameManager.TryPurchaseStructure(controller, Structure);
+        BuildResult result = _gameManager.TryPurchaseStructure(controller, Structure);
         if (result.IsSuccess)
         {
             _preview.SetActive(false);
-            GameManager.InfoText.text = "<sprite index=2> Cancel";
+            _gameManager.InfoText.text = "<sprite index=2> Cancel";
         }
         else
         {
-            GameManager.InfoText.text = $"<color=yellow>{result.Message}</color>";
+            _gameManager.InfoText.text = $"<color=yellow>{result.Message}</color>";
         }
     }
 
@@ -46,20 +47,20 @@ public sealed class BuildCursorBehaviour : ICursorBehaviour
     {
         Cursor.DefaultMode();
         _preview.SetActive(false);
-        GameManager.InfoText.text = "";
+        _gameManager.InfoText.text = "";
     }
 
     public void EnterTile(TileController controller)
     {
         if (!controller.CanBuild(Structure).IsSuccess) { return; }
-        GameManager.InfoText.text = "<sprite index=1> Buy    <sprite index=2> Cancel";
+        _gameManager.InfoText.text = "<sprite index=1> Buy    <sprite index=2> Cancel";
         _preview.transform.position = controller.transform.position;
         _preview.SetActive(true);
     }
 
     public void ExitTile(TileController controller)
     {
-        GameManager.InfoText.text = "<sprite index=2> Cancel";
+        _gameManager.InfoText.text = "<sprite index=2> Cancel";
         _preview.SetActive(false);
     }
 }

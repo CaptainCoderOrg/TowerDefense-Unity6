@@ -4,6 +4,6 @@ public interface ICursorBehaviour
     public void ExitTile(TileController controller);
     public void ClickTile(TileController controller);
     public void RightClickTile(TileController controller);
-    public void Initialize();
+    public void Initialize(GameManagerController gameManager);
     public void Deinitialize();
 }

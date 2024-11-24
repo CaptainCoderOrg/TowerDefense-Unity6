@@ -5,6 +5,7 @@ public class CursorManagerController : MonoBehaviour
 {
     public GameObject Cursor;
     public UnityEvent<TileController> OnSelectTile;
+    private GameManagerController _gameManager;
     private TileController _selected;
     public TileController Selected
     {
@@ -45,15 +46,17 @@ public class CursorManagerController : MonoBehaviour
                 _cursorBehaviour?.ExitTile(Selected);
             }
             _cursorBehaviour = value;
-            _cursorBehaviour.Initialize();
+            _cursorBehaviour.Initialize(_gameManager);
             ClearSelection();
         }
     }
 
     void Awake()
     {
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, "Could not find GameManager"); 
         CursorBehaviour = new DefaultCursorBehaviour();
-        GameManagerController.Instance.OnGameWon.AddListener(() => CursorBehaviour = new DisabledCursorBehaviour());
+        _gameManager.OnGameWon.AddListener(() => CursorBehaviour = new DisabledCursorBehaviour());
     }
 
 

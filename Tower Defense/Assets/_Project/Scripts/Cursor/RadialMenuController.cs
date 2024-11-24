@@ -1,11 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public sealed class RadialMenuController : MonoBehaviour
 {
+    private GameManagerController _gameManager;
     [SerializeField]
     private Animator _animator;
     [field: SerializeField]
@@ -37,14 +39,16 @@ public sealed class RadialMenuController : MonoBehaviour
 
     void Awake()
     {
-        GameManagerController.Instance.OnGameWon.AddListener(() => this.gameObject.SetActive(false));
+        _gameManager = GetComponentInParent<GameManagerController>();
+        Debug.Assert(_gameManager != null, $"Could not find {nameof(GameManagerController)}");
+        _gameManager.OnGameWon.AddListener(() => this.gameObject.SetActive(false));
         InfoText.text = string.Empty;
         _buttons = GetComponentsInChildren<RadialMenuButtonController>();
         foreach (RadialMenuButtonController b in _buttons)
         {
             b.gameObject.SetActive(false);
         }
-        GameManagerController.Instance.OnMenuChanged.AddListener(MenuChanged);
+        _gameManager.OnMenuChanged.AddListener(MenuChanged);
         SynchronizeButtons();
         Hide();
     }
@@ -92,14 +96,14 @@ public sealed class RadialMenuController : MonoBehaviour
         }
         if (_recentStructures.Count == 0) { return; }
         InfoText.text = string.Empty;
-        GameManagerController.Instance.OnMenuChanged.Invoke(gameObject);
+        _gameManager.OnMenuChanged.Invoke(gameObject);
         transform.position = Camera.main.WorldToScreenPoint(tile.transform.position);
         gameObject.SetActive(true);
         Selected = tile;
         Cursor.Cursor.transform.position = tile.transform.position;
         Cursor.Cursor.SetActive(true);
-        GameManagerController.Instance.HideAllRanges();
-        GameManagerController.Instance.ShowRangesNear(Selected);
+        _gameManager.HideAllRanges();
+        _gameManager.ShowRangesNear(Selected);
         _animator.SetTrigger("Show");
     }
 
@@ -109,8 +113,8 @@ public sealed class RadialMenuController : MonoBehaviour
         InfoText.text = string.Empty;
         gameObject.SetActive(false);
         Cursor.Cursor.SetActive(false);
-        GameManagerController.Instance.HideAllRanges();
-        foreach (RadialMenuButtonController button in _buttons)
+        _gameManager.HideAllRanges();
+        foreach (RadialMenuButtonController button in _buttons.Where(b => b.isActiveAndEnabled))
         {
             button.Clear();
         }
